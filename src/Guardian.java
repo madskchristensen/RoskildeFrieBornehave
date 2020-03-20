@@ -1,22 +1,22 @@
 public class Guardian extends GuardianRepository implements Member {
     private int id;
-    private String Name;
+    private String name;
     private String role;
     private int phoneNumber;
     private String email;
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public void setName(String name) {
-
+        this.name = name;
     }
 
     @Override
     public int getId() {
-        return 0;
+        return this.id;
     }
 }

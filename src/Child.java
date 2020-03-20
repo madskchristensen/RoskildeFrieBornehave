@@ -4,16 +4,16 @@ public class Child extends ChildRepository implements Member {
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public void setName(String name) {
-
+        this.name = name;
     }
 
     @Override
     public int getId() {
-        return 0;
+        return this.id;
     }
 }
