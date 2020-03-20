@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     public static Stage window;
+
     //Setting size of window
     public Rectangle2D primScreenBounds;
     public double stagesizex;
@@ -24,7 +25,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, stagesizex, stagesizey));
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);

@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.layout.HBox?>
+
 <GridPane fx:controller="Login"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
