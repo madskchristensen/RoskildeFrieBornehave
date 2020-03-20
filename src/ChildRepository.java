@@ -1,12 +1,12 @@
 public class ChildRepository implements MemberRepository {
 
     @Override
-    public Member getById(int id) {
+    public Child getById(int id) {
         return null;
     }
 
     @Override
-    public Member getByName(String name) {
+    public Child getByName(String name) {
         return null;
     }
 

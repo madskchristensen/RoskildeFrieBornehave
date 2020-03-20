@@ -1,12 +1,12 @@
 public class TeacherRepository implements MemberRepository {
 
     @Override
-    public Member getById(int id) {
+    public Teacher getById(int id) {
         return null;
     }
 
     @Override
-    public Member getByName(String name) {
+    public Teacher getByName(String name) {
         return null;
     }
 

@@ -1,12 +1,12 @@
 public class GuardianRepository implements MemberRepository {
 
     @Override
-    public Member getById(int id) {
+    public Guardian getById(int id) {
         return null;
     }
 
     @Override
-    public Member getByName(String name) {
+    public Guardian getByName(String name) {
         return null;
     }
 

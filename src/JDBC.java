@@ -9,7 +9,6 @@ public class JDBC {
         this.username = username;
         this.password = password;
     }
-
     public Connection openConnection() throws SQLException {
         Connection con = null;
 
