@@ -1,3 +1,5 @@
+import java.sql.*;
+
 public class JDBC {
     private static final String USERNAME = "";
     private static final String PASSWORD = "";
