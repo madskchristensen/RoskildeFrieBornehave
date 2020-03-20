@@ -19,6 +19,9 @@ public class JDBC {
         }
         return con;
     }
+    public Boolean Insert(String table, String columns[], String values[]){
+        return null;
+    }
 
     public void closeConnection(Connection con) throws SQLException {
         con.close();
