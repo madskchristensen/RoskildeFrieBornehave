@@ -34,6 +34,10 @@ public class JDBC {
         return stmt.executeQuery("SELECT " + column + " FROM " + table + " WHERE " + where + ";");
     }
 
+
+    // Insert metode som tager imod table, array af columns og values
+    // Første for loop iterer igennem column arrayet og laver en del af querien ud fra dette via queryValues
+    // Andet for loop iterer igennem values arrayet og undersøger om hver værdi er en int for at undgå fejl ved indsætning i database (ift. int/varchar osv. datatyper)
     public boolean insert(String table, String columns[], String values[]) throws SQLException {
         String queryColumns = "(";
 

@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import java.sql.*;
 
 public class Main extends Application {
     public static Stage window;
@@ -15,7 +16,15 @@ public class Main extends Application {
     public double stagesizey;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
+        /*
+        try {
+            JDBC jdbc = new JDBC("administrator", "admin_pass");
+            jdbc.insert("child", new String[]{"first_name", "last_name", "class"}, new String[]{"Jesus", "Immergeil", "jesus"});
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         */
         window = primaryStage;
         primScreenBounds = Screen.getPrimary().getVisualBounds();
         stagesizex = primScreenBounds.getWidth() / 2;
