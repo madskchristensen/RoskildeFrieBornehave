@@ -45,6 +45,6 @@
     </HBox>
 
     <stylesheets>
-        <URL value="@styling.css" />
+        <URL value="@StylingSheet.css" />
     </stylesheets>
 </GridPane>
