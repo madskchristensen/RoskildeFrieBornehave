@@ -11,7 +11,7 @@ public class Teacher extends TeacherRepository implements Member {
     public Button buttonWaitingAdmin;
     public Button buttonParentAdmin;
     public Button buttonChildAdmin;
-    public Button buttonGuardAdmin;
+    public Button buttonTeacherAdmin;
     public Button buttonShiftsAdmin;
 
     private int id;
