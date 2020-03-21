@@ -2,11 +2,17 @@ import javafx.scene.control.Button;
 
 public class Teacher extends TeacherRepository implements Member {
 
-
-    public Button buttonVagtplan;
+    public Button buttonShifts;
     public Button buttonChild;
     public Button buttonParent;
     public Button buttonTeacherLogOut;
+
+    public Button buttonTeacherLogOutAdmin;
+    public Button buttonWaitingAdmin;
+    public Button buttonParentAdmin;
+    public Button buttonChildAdmin;
+    public Button buttonGuardAdmin;
+    public Button buttonShiftsAdmin;
 
     private int id;
     private String firstName;
@@ -45,20 +51,5 @@ public class Teacher extends TeacherRepository implements Member {
     public void setClassroom(String[] classroom) {
         this.classroom = classroom;
     }
-
-    public boolean handleButtonVagtplan() {
-        return true;
-    }
-
-    public boolean handleButtonChild(){
-        return true;
-    }
-
-    public boolean handleButtonParent(){
-        return true;
-    }
-
-    public boolean handleLogOut(){
-        return true;
-    }
 }
+
