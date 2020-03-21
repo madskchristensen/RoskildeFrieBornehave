@@ -9,26 +9,25 @@
 <?import javafx.geometry.Insets?>
 
 <?import javafx.scene.text.Font?>
+<?import java.net.URL?>
 <GridPane fx:controller="Teacher"
           xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="-175" vgap="40" >
     <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
 
-        <Label text="PÆDAGOG" GridPane.columnIndex="1" GridPane.rowIndex="0"
-               alignment="CENTER" prefWidth="400" style="-fx-background-color: red">
+        <Label styleClass="teacher-label" text="PÆDAGOG" GridPane.columnIndex="1" GridPane.rowIndex="0"
+               alignment="CENTER" prefWidth="400" >
             <padding><Insets right="60" left="60"/></padding>
-            <font>
-                <Font size="30"/>
-            </font>
+
         </Label>
 
-            <VBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER" style="-fx-background-color: green">
+            <VBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER" style="-fx-background-color: lightblue">
                 <Button
                 text="Vagtplan" fx:id="buttonVagtplan" onAction="#handleButtonVagtplan" prefWidth="200" prefHeight="50"/>
                 <padding><Insets right="60" left="60" top="40" bottom="40"/></padding>
             </VBox>
 
-            <VBox spacing="40" GridPane.columnIndex="2" GridPane.rowIndex="1" alignment="CENTER" style="-fx-background-color: green">
+            <VBox spacing="40" GridPane.columnIndex="2" GridPane.rowIndex="1" alignment="CENTER" style="-fx-background-color: lightblue">
                 <Button text="Børn" fx:id="buttonChild" onAction="#handleButtonChild" prefWidth="200" prefHeight="50"/>
                 <Button text="Forældre" fx:id="buttonParent" onAction="#handleButtonParent" prefWidth="200" prefHeight="50"/>
                 <padding><Insets right="60" left="60" top="40" bottom="40"/></padding>
@@ -38,4 +37,7 @@
             alignment="BOTTOM_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2">
     </Button>
 
+    <stylesheets>
+        <URL value="@styling.css" />
+    </stylesheets>
 </GridPane>
