@@ -1,5 +1,7 @@
 public interface Member {
-    String getName();
-    void setName(String name);
+    String getFirstName();
+    String getLastName();
+    void setFirstName(String firstName);
+    void setLastName(String lastName);
     int getId();
 }
