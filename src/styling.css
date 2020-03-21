@@ -1,5 +1,24 @@
-.teacher-label {
-    -fx-text-fill: lightskyblue;
-    -fx-font-size: 30;
 
+.buttonStyling {
+
+    -fx-border-color: black;
+    -fx-background-color: steelblue;
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+}
+
+.headerLabelStyling {
+    -fx-text-fill: steelblue;
+    -fx-font-size: 40;
+}
+
+.backGroundStyling {
+    -fx-background-color: lightblue;
+    -fx-background-radius: 10px;
+}
+
+.GridpaneBorderStyling {
+    -fx-border-color: grey;
+    -fx-border-width: 5;
+    -fx-border-radius: 10px;
 }
