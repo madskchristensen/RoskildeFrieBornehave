@@ -57,7 +57,10 @@ public class Main extends Application {
     }
 
 }
+
+
 /*
+//Debugging kode fra controller /Michael
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
