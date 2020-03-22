@@ -21,7 +21,12 @@ public class Login {//extends AbstractController implements Initializable {
     public Button buttonTeacherLogin;
     public Button buttonLoginAdmin;
 
-    /*
+    public boolean handleLogin() {
+        System.out.println("logging in");
+        return true;
+    }
+/*
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         resultLbl.setText("");
@@ -36,7 +41,7 @@ public class Login {//extends AbstractController implements Initializable {
         HashMap<String, Object> resultMap = new HashMap<String, Object>();
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("Popup.fxml"));
+        loader.setLocation(getClass().getResource("LoginPopUp.fxml"));
         // initializing the controller
         LoginPopUp loginPopUp = new LoginPopUp();
         loader.setController(loginPopUp);
@@ -59,10 +64,8 @@ public class Login {//extends AbstractController implements Initializable {
         }
         return loginPopUp.getResult();
     }
-*/
-    public boolean handleLogin() {
-        System.out.println("logging in");
-        return true;
-    }
 
+
+}
+*/
 }

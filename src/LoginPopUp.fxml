@@ -5,19 +5,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.text.Text?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 
 <?import java.net.URL?>
-<GridPane fx:controller="Login" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
+<GridPane fx:controller="LoginPopUp" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
           alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
 
     <Label text="Indsæt brugernavn og adgangskode nedenunder" GridPane.columnIndex="0" GridPane.rowIndex="0" />
     <VBox styleClass="backGroundStyling" spacing="30" GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER">
         <TextField  fx:id="loginUsername" promptText="Username" maxWidth="200" prefHeight="50"/>
-        <TextField  fx:id="loginPassword" promptText="*********" maxWidth="200" prefHeight="50"/>
+        <PasswordField  fx:id="loginPassword" promptText="*********" maxWidth="200" prefHeight="50"/>
         <padding><Insets right="60" left="60" top="30" bottom="30"/></padding>
     </VBox>
 

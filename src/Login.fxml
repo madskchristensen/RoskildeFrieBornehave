@@ -4,8 +4,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
 
-
-<?import javafx.scene.control.Label?>
 <GridPane fx:controller="Login" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
           alignment="center" hgap="0" vgap="20" >
 <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
@@ -15,9 +13,6 @@
         <Button styleClass="buttonStyling" text="Administration" fx:id="buttonLoginAdmin" prefWidth="200" prefHeight="50" onAction="#handleLogin"/>
         <padding><Insets right="150" left="150" top="90" bottom="90"/></padding>
 
-<!--
-        <Label fx:id="resultLbl" text="I've got this (username: /Password: )"/>
--->
 
     </HBox>
 

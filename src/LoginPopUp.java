@@ -25,13 +25,12 @@ public class LoginPopUp {//extends AbstractController implements Initializable {
 
     Har forsøgt med noget controller men er ikke fædrdig
 */
-/*
 
     @FXML private TextField loginUsername;
     @FXML private PasswordField loginPassword;
     @FXML private Button buttonLogin;
 
-    private Stage stage = null;
+/*    private Stage stage = null;
     private HashMap<String, Object> result = new HashMap<String, Object>();
 
     @Override
@@ -49,25 +48,16 @@ public class LoginPopUp {//extends AbstractController implements Initializable {
         return this.result;
     }
 
-    */
-/**
-     * setting the stage of this view
-     * @param stage
-     *//*
-
+     //setting the stage of this view
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
-    */
-/**
-     * Closes the stage of this view
-     *//*
 
+    //Closes the stage of this view
     private void closeStage() {
         if(stage!=null) {
             stage.close();
         }
-    }
-*/
+    }*/
 }
