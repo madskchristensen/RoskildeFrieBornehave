@@ -10,12 +10,9 @@
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER" spacing="200">
         <Button styleClass="buttonStyling" text="Pædagog" fx:id="buttonTeacherLogin" prefWidth="200" prefHeight="50" onAction="#handleLogin"/>
 
-        <Button styleClass="buttonStyling" text="Administration" fx:id="buttonLoginAdmin" prefWidth="200" prefHeight="50" onAction="#handleLogin"/>
+        <Button styleClass="buttonStyling" text="Administration" fx:id="buttonLoginAdmin" prefWidth="200" prefHeight="50" onAction="#LoginPane"/>
         <padding><Insets right="150" left="150" top="90" bottom="90"/></padding>
-
-
     </HBox>
-
 
     <stylesheets>
         <URL value="@StylingSheet.css" />
