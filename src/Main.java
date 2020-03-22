@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.sql.*;
 
 public class Main extends Application {
-    public static Stage window;
+    private static Stage window;
 
     //Setting size of window
     public Rectangle2D primScreenBounds;
@@ -39,7 +39,7 @@ public class Main extends Application {
         primScreenBounds = Screen.getPrimary().getVisualBounds();
         stagesizex = primScreenBounds.getWidth() / 2;
         stagesizey = primScreenBounds.getHeight() / 1.5;
-        Parent root = FXMLLoader.load(getClass().getResource("LoginPopUp.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primaryStage.setTitle("Roskilde Frie Børnehave");
 
         primaryStage.setScene(new Scene(root, stagesizex, stagesizey));
