@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.sql.*;
 
 public class Main extends Application {
-    private static Stage window;
+    private Stage window;
 
     //Setting size of window
     public Rectangle2D primScreenBounds;

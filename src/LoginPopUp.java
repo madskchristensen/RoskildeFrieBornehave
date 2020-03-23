@@ -21,43 +21,16 @@ public class LoginPopUp {//extends AbstractController implements Initializable {
   popup.getScene().setRoot(yourGridPane);
   popup.show(yourGridPane.getScene().getWindow());
   https://stackoverflow.com/questions/36520331/how-does-one-create-a-pop-up-box-using-javafx
-
-
-    Har forsøgt med noget controller men er ikke fædrdig
+    https://stackoverflow.com/questions/39004086/fxml-set-buttontype-onaction
 */
 
-    @FXML private TextField loginUsername;
-    @FXML private PasswordField loginPassword;
-    @FXML private Button buttonLogin;
-
-/*    private Stage stage = null;
-    private HashMap<String, Object> result = new HashMap<String, Object>();
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        buttonLogin.setOnAction((event)->{
-            result.clear();
-            result.put("username", loginUsername.getText());
-            result.put("password", loginPassword.getText());
-            closeStage();
-        });
-
-    }
-
-    public HashMap<String, Object> getResult() {
-        return this.result;
-    }
-
-     //setting the stage of this view
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
+    @FXML
+    private TextField loginUsername;
+    @FXML
+    private PasswordField loginPassword;
+    @FXML
+    private Button buttonLogin;
 
 
-    //Closes the stage of this view
-    private void closeStage() {
-        if(stage!=null) {
-            stage.close();
-        }
-    }*/
+
 }

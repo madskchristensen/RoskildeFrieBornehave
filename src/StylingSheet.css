@@ -1,6 +1,5 @@
 
 .buttonStyling {
-
     -fx-border-color: black;
     -fx-background-color: steelblue;
     -fx-text-fill: white;
@@ -10,8 +9,6 @@
 .headerLabelStyling {
     -fx-text-fill: steelblue;
     -fx-font-size: 40;
-
-
 }
 
 .backGroundStyling {
