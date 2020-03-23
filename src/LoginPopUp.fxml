@@ -7,8 +7,8 @@
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
-
 <?import javafx.scene.control.ButtonType?>
+
 <DialogPane fx:controller="LoginPopUpController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
             maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
     <content>
@@ -33,7 +33,6 @@
                 <Button styleClass="buttonStyling" text="Log ind" fx:id="buttonLogin" style="-fx-font-size: 14" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="RIGHT" onAction="#loginPress"/>
             </children>
         </GridPane>
-
     </content>
 
     <stylesheets>
