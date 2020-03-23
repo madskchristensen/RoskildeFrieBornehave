@@ -18,15 +18,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-   try {
-            GuardianRepository gr = new GuardianRepository("administrator", "admin_pass");
-            System.out.println(gr.getMember(4));
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-/*
         window = primaryStage;
         primScreenBounds = Screen.getPrimary().getVisualBounds();
         stagesizex = primScreenBounds.getWidth() / 2;
@@ -36,8 +28,8 @@ public class Main extends Application {
 
         primaryStage.setScene(new Scene(root, stagesizex, stagesizey));
         primaryStage.show();
-*/
         }
+
     public Stage getPrimaryStage() {
         return window;
     }
