@@ -5,10 +5,10 @@ public class Child implements Member {
     private String firstName;
     private String lastName;
 
-    public Child() throws SQLException {
+    public Child() {
     }
 
-    public Child(int id, String firstName, String lastName) throws SQLException {
+    public Child(int id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
