@@ -1,6 +1,6 @@
 import java.sql.SQLException;
 
-public class Child extends ChildRepository implements Member {
+public class Child implements Member {
     private int id;
     private String firstName;
     private String lastName;
@@ -12,15 +12,6 @@ public class Child extends ChildRepository implements Member {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    @Override
-    public String toString() {
-        return "Child{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
     }
 
     @Override
@@ -47,5 +38,10 @@ public class Child extends ChildRepository implements Member {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString(){
+        return id + ", " + firstName + ". " + lastName + "\n";
     }
 }

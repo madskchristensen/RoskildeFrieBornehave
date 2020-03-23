@@ -8,7 +8,7 @@ public class JDBC {
     private ResultSet rs = null;
     private static final String URL = "jdbc:mysql://localhost/school?serverTimezone=UTC";
 
-    public JDBC(String username, String password) throws SQLException {
+    public JDBC(String username, String password){
         this.username = username;
         this.password = password;
     }
@@ -73,9 +73,23 @@ public class JDBC {
 
         stmt.executeUpdate("INSERT INTO " + table + " " + queryColumns + " VALUES " + queryValues);
     }
+    public void insert(String table, String values[]) throws SQLException {
+        String queryValues = "(";
+        for (int i = 0; i < values.length - 1; i++) {
+            if(Integer.getInteger(values[i]) == null) {
+                values[i] = "\"" + values[i] + "\"";
+            }
+            queryValues += values[i] + ", ";
+        }
+        if(Integer.getInteger(values[values.length - 1]) == null) {
+            values[values.length - 1] = "\"" + values[values.length - 1] + "\"";
+        }
+        queryValues += values[values.length - 1] + ");";
+
+        stmt.executeUpdate("INSERT INTO " + table + " VALUES " + queryValues);
+    }
 
     public void update(String table, String column, String expression, String where) throws SQLException {
-
         if (Integer.getInteger(expression) == null) {
             expression = "\"" + expression + "\"";
         }
@@ -87,23 +101,6 @@ public class JDBC {
         stmt.executeQuery("DELETE FROM " + table + " WHERE " + where + ";");
     }
 
-    // Deji laver en bedre
-    public void populateDB() throws SQLException {
-        insert("class", new String[]{"color_name"}, new String[]{"rød"});
-        insert("class", new String[]{"color_name"}, new String[]{"gul"});
-        insert("class", new String[]{"color_name"}, new String[]{"blå"});
-        insert("class", new String[]{"color_name"}, new String[]{"grøn"});
-
-        insert("child", new String[]{"first_name", "last_name", "class"}, new String[]{"Jesus", "Immergeil", "1"});
-        insert("child", new String[]{"first_name", "last_name", "class"}, new String[]{"Benny", "Immer", "1"});
-        insert("child", new String[]{"first_name", "last_name", "class"}, new String[]{"Manfred", "Geil", "3"});
-        insert("child", new String[]{"first_name", "last_name", "class"}, new String[]{"Mulle", "Grænseoverskridende", "4"});
-        insert("child", new String[]{"first_name", "last_name", "class"}, new String[]{"Gert", "Gang", "1"});
-        insert("child", new String[]{"first_name", "last_name", "class"}, new String[]{"Sven", "Bent", "2"});
-        insert("child", new String[]{"first_name", "last_name", "class"}, new String[]{"Søren", "Nielsen", "2"});
-
-        insert("guardian", new String[]{"first_name", "last_name", "class"}, new String[]{"Søren", "Nielsen", "2"});
-    }
 
     // Til at teste
     public void print(ResultSet rs) throws SQLException {

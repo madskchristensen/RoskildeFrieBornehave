@@ -1,23 +1,21 @@
 import javafx.scene.control.Button;
 
-public class Teacher extends TeacherRepository implements Member {
-
-    public Button buttonShifts;
-    public Button buttonChild;
-    public Button buttonParent;
-    public Button buttonTeacherLogOut;
-
-    public Button buttonTeacherLogOutAdmin;
-    public Button buttonWaitingAdmin;
-    public Button buttonParentAdmin;
-    public Button buttonChildAdmin;
-    public Button buttonTeacherAdmin;
-    public Button buttonShiftsAdmin;
-
+public class Teacher implements Member {
     private int id;
     private String firstName;
     private String lastName;
-    private String[] classroom;
+    private String address;
+    private String phoneNumber;
+    private String email;
+
+    Teacher(int id, String firstName, String lastName, String address, String phoneNumber, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
 
     @Override
     public int getId() {
@@ -43,13 +41,28 @@ public class Teacher extends TeacherRepository implements Member {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    public String[] getClassroom() {
-        return classroom;
+    public String getAddress() {
+        return address;
     }
 
-    public void setClassroom(String[] classroom) {
-        this.classroom = classroom;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 

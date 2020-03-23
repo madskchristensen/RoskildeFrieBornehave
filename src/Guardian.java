@@ -1,10 +1,20 @@
-public class Guardian extends GuardianRepository implements Member {
+public class Guardian implements Member {
     private int id;
     private String firstName;
     private String lastName;
     private String role;
-    private int phoneNumber;
+    private String address;
+    private String phoneNumber;
     private String email;
+
+    Guardian(int id, String firstName, String lastName, String address, String phoneNumber, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
 
     @Override
     public int getId() {
@@ -39,11 +49,11 @@ public class Guardian extends GuardianRepository implements Member {
         this.role = role;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -53,5 +63,18 @@ public class Guardian extends GuardianRepository implements Member {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString(){
+        return firstName + "\n " + lastName + "\n " + address + "\n " + phoneNumber + "\n " + email;
     }
 }

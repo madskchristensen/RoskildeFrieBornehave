@@ -1,51 +1,60 @@
+import java.sql.Array;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ChildRepository implements MemberRepository {
-    private JDBC jdbc;
-    private Scanner scanner;
+   private JDBC connection;
 
-    public ChildRepository() throws SQLException {
-        this.jdbc = new JDBC("administrator", "admin_pass");
+   ChildRepository(String username, String password) throws SQLException {
+       connection = new JDBC(username, password);
+   }
+
+    @Override
+    public Child getMember(int id) throws SQLException {
+        connection.openConnection();
+        ResultSet rs = connection.select("child", "*", "id = " + id);
+        Child child = new Child(rs.getInt("id"), rs.getString("first_name"),
+                rs.getString("last_name"));
+        connection.closeConnection();
+        return child;
     }
 
     @Override
-    public Child getById(int id) throws SQLException {
-        jdbc.openConnection();
-
-        jdbc.select("child", "*", "id = " + id);
-        String firstName = jdbc.getResultSet().getString("first_name");
-        String lastName =  jdbc.getResultSet().getString("last_name");
-
-        jdbc.closeConnection();
-
-        return new Child(id, firstName, lastName);
+    public Child[] getMembers(String name) throws SQLException {
+        connection.openConnection();
+        ResultSet rs = connection.select("child", "*", " first_name LIKE \"%" + name + "%\"" +
+                " OR last_name LIKE \"%" + name + "%\"");
+        ArrayList<Child> alc = new ArrayList<>();
+        while(rs.next()){
+            alc.add(new Child(rs.getInt("id"), rs.getString("first_name"),
+                    rs.getString("last_name")));
+        }
+        connection.closeConnection();
+        return alc.toArray(new Child[alc.size()]);
     }
 
     @Override
-    public Child getByName(String name) throws SQLException {
-        scanner = new Scanner(name);
-        String firstName = scanner.next();
-        String lastName = scanner.next();
-
-        jdbc.openConnection();
-        jdbc.select("child", "*", "first_name = " + "\"" + firstName  + "\"" + " AND last_name = "
-                + "\"" + lastName + "\"");
-
-        int id = jdbc.getResultSet().getInt("id");
-
-        jdbc.closeConnection();
-
-        return new Child(id, firstName, lastName);
+    public void deleteMember(Member member) throws SQLException{
+        connection.openConnection();
+        connection.delete("child", "id = " + member.getId());
+        connection.closeConnection();
     }
 
     @Override
-    public void deleteMember(Member member) throws SQLException {
-
+    public void createMember(Member member) throws SQLException{
+        connection.openConnection();
+        Guardian guardian = (Guardian) member;
+        connection.insert("child", new String [] {guardian.getFirstName(), guardian.getLastName(),
+                guardian.getAddress(), guardian.getPhoneNumber(), guardian.getEmail()});
+        connection.closeConnection();
     }
 
     @Override
-    public void saveMember(Member member) throws SQLException {
-
+    public void updateMember(String updatedColumn, String newValue, Member member) throws SQLException {
+        connection.openConnection();
+        connection.update("child", updatedColumn, newValue, "id = " + member.getId());
+        connection.closeConnection();
     }
 }
