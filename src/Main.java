@@ -18,22 +18,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-       /*try {
-            // JDBC jdbc = new JDBC("administrator", "admin_pass");
-            Child child;
-            Child child2;
-            ChildRepository childRepo = new ChildRepository();
-            // jdbc.insert("child", new String[]{"first_name", "last_name", "class"}, new String[]{"Jesus", "Immergeil", "jesus"});
-            // jdbc.update("child", "first_name", "Kurt", "first_name = \"Bob\"");
-            child = childRepo.getById(1);
-            child2 = childRepo.getByName("Tim Borison");
-            System.out.println(child);
-            System.out.println(child2);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-*/
 
         window = primaryStage;
         primScreenBounds = Screen.getPrimary().getVisualBounds();
@@ -44,7 +28,6 @@ public class Main extends Application {
 
         primaryStage.setScene(new Scene(root, stagesizex, stagesizey));
         primaryStage.show();
-
         }
 
     public Stage getPrimaryStage() {

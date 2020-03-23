@@ -65,4 +65,3 @@ public class Teacher implements Member {
         this.email = email;
     }
 }
-
