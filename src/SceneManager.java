@@ -26,17 +26,34 @@ public class SceneManager {
         switchScene(previousScene, previousTitle);
     }
 
+
     public Parent getCurrentScene() throws IOException {
         return sceneList.get(currentScene);
     }
 
+    public void setSize(double x, double y) {
+        stagesizex = x;
+        stagesizey = y;
+    }
+
+    public double getSizeX() {
+        return this.stagesizex;
+    }
+
+    public double getSizeY() {
+        return this.stagesizey;
+    }
+
     public SceneManager(Stage primaryStage) {
+        this(primaryStage, Screen.getPrimary().getVisualBounds().getWidth() / 2, Screen.getPrimary().getVisualBounds().getHeight() / 1.5);
+    }
+
+    public SceneManager(Stage primaryStage, double stagesizex, double stagesizey) {
         this.primaryStage = primaryStage;
         loader = new FXMLLoader();
         sceneList = new HashMap<>();
-        primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stagesizex = primScreenBounds.getWidth() / 2;
-        stagesizey = primScreenBounds.getHeight() / 1.5;
+        this.stagesizex = stagesizex;
+        this.stagesizey = stagesizey;
     }
 
     public void switchScene(String sceneName, String title) throws IOException {
@@ -44,8 +61,7 @@ public class SceneManager {
         previousTitle = currentTitle;
 
         if(!sceneList.containsKey(sceneName)) {
-            loader.setLocation(getClass().getResource(sceneName));
-            sceneList.put(sceneName, loader.load());
+            sceneList.put(sceneName, FXMLLoader.load(getClass().getResource(sceneName)));
         }
 
         currentScene = sceneName;

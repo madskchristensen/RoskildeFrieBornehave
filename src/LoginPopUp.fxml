@@ -9,9 +9,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.control.ButtonType?>
 
-<DialogPane fx:controller="LoginPopUpController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
+<GridPane fx:controller="LoginPopUpController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
             maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
-    <content>
         <GridPane hgap="10" vgap="10" alignment="CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES"  maxWidth="100.0" />
@@ -33,9 +32,8 @@
                 <Button styleClass="buttonStyling" text="Log ind" fx:id="buttonLogin" style="-fx-font-size: 14" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="RIGHT" onAction="#loginPress"/>
             </children>
         </GridPane>
-    </content>
 
     <stylesheets>
         <URL value="@StylingSheet.css" />
     </stylesheets>
-</DialogPane>
+</GridPane>

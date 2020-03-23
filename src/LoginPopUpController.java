@@ -34,10 +34,8 @@ public class LoginPopUpController {//extends AbstractController implements Initi
 
     @FXML
     private void loginPress() throws IOException {
-        // get a handle to the stage
+        // get a handle to the stage the button is built on
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
-
-        // do what you have to do
         stage.close();
 
         Main.sceneManager.switchScene("TeacherAdmin.fxml", "Teacher admin page");
