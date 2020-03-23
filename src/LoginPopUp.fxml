@@ -8,7 +8,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<DialogPane fx:controller="LoginPopUp" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
+<?import javafx.scene.control.ButtonType?>
+<DialogPane fx:controller="LoginPopUpController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
             maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
     <content>
         <GridPane hgap="10" vgap="10" alignment="CENTER">
@@ -29,7 +30,7 @@
                 <TextField  fx:id="loginUsername" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                 <Label text="Password" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                 <PasswordField  fx:id="loginPassword" promptText="*********" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                <Button styleClass="buttonStyling" text="Log ind" fx:id="buttonLogin" style="-fx-font-size: 14" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="RIGHT"/>
+                <Button styleClass="buttonStyling" text="Log ind" fx:id="buttonLogin" style="-fx-font-size: 14" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="RIGHT" onAction="#loginPress"/>
             </children>
         </GridPane>
 
