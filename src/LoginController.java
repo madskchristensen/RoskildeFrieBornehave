@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-public class Login {
+public class LoginController {
 
     @FXML
     private Button buttonTeacherLogin;
@@ -34,5 +34,9 @@ public class Login {
         System.out.println("logging in");
     }
 
-
+    public void showScene() throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Main.window.setTitle("Login page");
+        Main.window.show();
+    }
 }

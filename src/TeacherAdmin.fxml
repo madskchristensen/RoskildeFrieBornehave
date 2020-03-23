@@ -9,7 +9,7 @@
 <?import javafx.geometry.Insets?>
 <?import java.net.URL?>
 <?import javafx.scene.shape.Box?>
-<GridPane styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx" fx:controller="Teacher"
+<GridPane styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx" fx:controller="TeacherAdminController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="-230" vgap="20" >
                 <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
 
