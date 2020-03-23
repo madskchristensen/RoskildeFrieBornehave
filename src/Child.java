@@ -4,14 +4,16 @@ public class Child implements Member {
     private int id;
     private String firstName;
     private String lastName;
+    private int classroom;
 
     public Child() {
     }
 
-    public Child(int id, String firstName, String lastName) {
+    public Child(int id, String firstName, String lastName, int classroom) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.classroom = classroom;
     }
 
     @Override
@@ -40,8 +42,16 @@ public class Child implements Member {
         this.lastName = lastName;
     }
 
+    public int getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(int classroom) {
+        this.classroom = classroom;
+    }
+
     @Override
     public String toString(){
-        return id + ", " + firstName + ". " + lastName + "\n";
+        return "id: " +id + "\nfirst name: " + firstName + "\nlast name: " + lastName + "\nclassroom: " + classroom + "\n ";
     }
 }

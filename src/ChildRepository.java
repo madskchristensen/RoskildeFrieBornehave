@@ -16,7 +16,7 @@ public class ChildRepository implements MemberRepository {
         connection.openConnection();
         ResultSet rs = connection.select("child", "*", "id = " + id);
         Child child = new Child(rs.getInt("id"), rs.getString("first_name"),
-                rs.getString("last_name"));
+                rs.getString("last_name"), rs.getInt("class"));
         connection.closeConnection();
         return child;
     }
@@ -29,7 +29,7 @@ public class ChildRepository implements MemberRepository {
         ArrayList<Child> alc = new ArrayList<>();
         while(rs.next()){
             alc.add(new Child(rs.getInt("id"), rs.getString("first_name"),
-                    rs.getString("last_name")));
+                    rs.getString("last_name"), rs.getInt("class")));
         }
         connection.closeConnection();
         return alc.toArray(new Child[alc.size()]);
