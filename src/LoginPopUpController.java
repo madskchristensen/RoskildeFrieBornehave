@@ -2,9 +2,12 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginPopUpController {//extends AbstractController implements Initializable {
 
@@ -18,7 +21,6 @@ public class LoginPopUpController {//extends AbstractController implements Initi
 */
 
     public static final ButtonType LOGIN = new ButtonType("Login");
-    LoginController loginController = new LoginController();
 
     @FXML DialogPane loginPane;
 
@@ -29,13 +31,15 @@ public class LoginPopUpController {//extends AbstractController implements Initi
     @FXML
     private Button buttonLogin;
 
-    public void showScene() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("LoginPopUp.fxml"));
-        Main.window.setTitle("LoginPopUp page");
-        Main.window.showAndWait();
-    }
 
-    public void loginPress() throws IOException {
-        loginController.showScene();
+    @FXML
+    private void loginPress() throws IOException {
+        // get a handle to the stage
+        Stage stage = (Stage) buttonLogin.getScene().getWindow();
+
+        // do what you have to do
+        stage.close();
+
+        Main.sceneManager.switchScene("TeacherAdmin.fxml", "Teacher admin page");
     }
 }
