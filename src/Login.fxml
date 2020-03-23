@@ -5,13 +5,13 @@
 <?import java.net.URL?>
 
 <GridPane fx:controller="Login" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
-          alignment="center" hgap="0" vgap="20" >
+          alignment="center" hgap="0" vgap="0" >
 <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER" spacing="200">
-        <Button styleClass="buttonStyling" text="Pædagog" fx:id="buttonTeacherLogin" prefWidth="200" prefHeight="50" onAction="#handleLogin"/>
+        <Button styleClass="buttonStyling" text="Pædagog" fx:id="buttonTeacherLogin" prefWidth="200" prefHeight="50" onAction="#handleLoginTeacher"/>
 
-        <Button styleClass="buttonStyling" text="Administration" fx:id="buttonLoginAdmin" prefWidth="200" prefHeight="50" onAction="#LoginPane"/>
-        <padding><Insets right="150" left="150" top="90" bottom="90"/></padding>
+        <Button styleClass="buttonStyling" text="Administration" fx:id="buttonLoginAdmin" prefWidth="200" prefHeight="50" onAction="#handleLoginAdmin"/>
+        <padding><Insets right="75" left="75" top="90" bottom="90"/></padding>
     </HBox>
 
     <stylesheets>

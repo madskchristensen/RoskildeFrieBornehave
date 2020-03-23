@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,8 +19,12 @@ public class Login{
     public Button buttonTeacherLogin;
     public Button buttonLoginAdmin;
 
-    public boolean handleLogin() {
+
+    public void handleLoginTeacher(ActionEvent actionEvent) {
         System.out.println("logging in");
-        return true;
+    }
+
+    public void handleLoginAdmin(ActionEvent actionEvent) {
+        System.out.println("logging in");
     }
 }
