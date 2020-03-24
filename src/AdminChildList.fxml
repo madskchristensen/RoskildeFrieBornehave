@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="AdminChildListController"
+          styleClass="GridpaneBorderStyling"
+          alignment="CENTER" hgap="0" vgap="20">
+    <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
+
+    <TableView GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <columns>
+                <TableColumn text="ID" fx:id="ID"/>
+                <TableColumn text="Fornavn" fx:id="firstName"/>
+                <TableColumn text="Efternavn" fx:id="lastName"/>
+                <TableColumn text="Stue" fx:id="classroom"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+
+    </TableView>
+
+
+    <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
+              spacing="20">
+            <HBox>
+                <Button styleClass="buttonStyling" text="Tilbage" fx:id="back" minHeight="50" minWidth="100" onAction="#goBack"/>
+                <padding><Insets top="25" bottom="25" left="10"/></padding>
+            </HBox>
+            <HBox spacing="10" >
+                <Button styleClass="buttonStyling" text="Værge" fx:id="guardian" prefWidth="150" minHeight="50" onAction="#readGuardian"/>
+                <Button styleClass="buttonStyling" text="Opret" fx:id="create" prefWidth="150" prefHeight="50" onAction="#addToChildList"/>
+                <Button styleClass="buttonStyling" text="Rediger" fx:id="update" prefWidth="150" prefHeight="50" onAction="#updateChildList"/>
+                <Button styleClass="buttonStyling" text="Slet" fx:id="delete" prefWidth="150" prefHeight="50" onAction="#deleteFromChildList"/>
+                <padding><Insets top="25" right="10" bottom="25" left="15"/></padding>
+            </HBox>
+        </HBox>
+
+
+
+    <stylesheets>
+        <URL value="@StylingSheet.css" />
+    </stylesheets>
+</GridPane>
