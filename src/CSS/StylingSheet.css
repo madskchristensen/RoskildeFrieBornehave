@@ -9,7 +9,7 @@
     -fx-background-color: steelblue;
     -fx-text-fill: white;
     -fx-font-size: 20;
-    -fx-background-insets: -8;
+
 }
 
 .button:hover {
@@ -30,14 +30,14 @@
     -fx-border-color: grey;
     -fx-border-width: 5;
     -fx-border-radius: 10px;
-    -fx-cursor: hand;
+    -fx-cursor: url("images/icons8-pacifier-80.png");
 }
 
 #btn {
      -fx-background-image: url("https://img.icons8.com/color/48/000000/login-rounded-right.png");
      -fx-background-size: 18 18;
      -fx-background-repeat: no-repeat;
-     -fx-background-position: 10;
+     -fx-background-position: 2.4;
  }
 
 #buttonTeacherLogin {
@@ -48,6 +48,7 @@
     -fx-background-size: 30 30;
     -fx-font-weight: bold;
     -fx-background-radius: 5;
+    -fx-background-insets: -8;
 }
 
 #buttonLoginAdmin{
@@ -58,6 +59,7 @@
     -fx-background-size: 30 30;
     -fx-background-radius: 5;
     -fx-font-weight: bold;
+    -fx-background-insets: -8;
 
 
 }
