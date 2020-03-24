@@ -43,11 +43,33 @@ public class LoginPopUpController implements Initializable {
     }
 
     @FXML
-    private void loginPress() throws IOException {
+    private void loginPress() throws IOException, SQLException {
         // get a handle to the stage the button is built on
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
-        stage.close();
 
-        Main.sceneManager.switchScene("TeacherAdmin.fxml", "Teacher admin page");
+        // Validerer login ved at forsøge at åbne en jdbc connection med det givne username og password
+        // hvis user/pass er forkert vil jdbc.openconnection throwe en sqlexception som håndteres som en fejl i bruger/pass
+        // hvis forbindelsen åbnes er user/pass rigtigt og brugeren sendes videre til enten admin eller employee page
+        try {
+            JDBC jdbc = new JDBC(loginUsername.getText(), loginPassword.getText());
+            jdbc.openConnection();
+
+        } catch (SQLException e) {
+            System.out.println("Forkert username eller password");
+            loginUsername.clear();
+            loginPassword.clear();
+
+        } finally {
+            switch(loginUsername.getText()) {
+                case "administrator":
+                    Main.sceneManager.switchScene("TeacherAdmin.fxml", "Teacher admin page");
+                    stage.close();
+                    break;
+                case "employee":
+                    Main.sceneManager.switchScene("TeacherReg.fxml", "Teacher page");
+                    stage.close();
+                    break;
+            }
+        }
     }
 }

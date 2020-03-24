@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class SceneManager {
-    private Stage primaryStage;
+    private Stage stage;
     private FXMLLoader loader;
     private HashMap<String, Parent> sceneList;
     private String currentScene;
@@ -25,7 +25,6 @@ public class SceneManager {
     public void getPreviousScene() throws IOException {
         switchScene(previousScene, previousTitle);
     }
-
 
     public Parent getCurrentScene() throws IOException {
         return sceneList.get(currentScene);
@@ -44,12 +43,12 @@ public class SceneManager {
         return this.stagesizey;
     }
 
-    public SceneManager(Stage primaryStage) {
-        this(primaryStage, Screen.getPrimary().getVisualBounds().getWidth() / 2, Screen.getPrimary().getVisualBounds().getHeight() / 1.5);
+    public SceneManager(Stage stage) {
+        this(stage, Screen.getPrimary().getVisualBounds().getWidth() / 2, Screen.getPrimary().getVisualBounds().getHeight() / 1.5);
     }
 
-    public SceneManager(Stage primaryStage, double stagesizex, double stagesizey) {
-        this.primaryStage = primaryStage;
+    public SceneManager(Stage stage, double stagesizex, double stagesizey) {
+        this.stage = stage;
         loader = new FXMLLoader();
         sceneList = new HashMap<>();
         this.stagesizex = stagesizex;
@@ -66,8 +65,8 @@ public class SceneManager {
 
         currentScene = sceneName;
         currentTitle = title;
-        primaryStage.setTitle(title);
-        primaryStage.setScene(new Scene(sceneList.get(sceneName), stagesizex, stagesizey));
-        primaryStage.show();
+        stage.setTitle(title);
+        stage.setScene(new Scene(sceneList.get(sceneName), stagesizex, stagesizey));
+        stage.show();
     }
 }
