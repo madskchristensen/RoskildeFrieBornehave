@@ -9,6 +9,7 @@
     -fx-background-color: steelblue;
     -fx-text-fill: white;
     -fx-font-size: 20;
+    -fx-background-insets: -8;
 }
 
 .button:hover {
@@ -29,6 +30,7 @@
     -fx-border-color: grey;
     -fx-border-width: 5;
     -fx-border-radius: 10px;
+    -fx-cursor: hand;
 }
 
 #btn {
@@ -41,17 +43,21 @@
 #buttonTeacherLogin {
 
     -fx-background-image: url("images/icons8-child-48.png");
-    -fx-background-position: 10;
+    -fx-background-position: -2;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 30 30;
+    -fx-font-weight: bold;
     -fx-background-radius: 5;
 }
 
 #buttonLoginAdmin{
 
     -fx-background-image: url("images/icons8-clipboard-96.png");
-    -fx-background-position: 10;
+    -fx-background-position: -2;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 30 30;
     -fx-background-radius: 5;
+    -fx-font-weight: bold;
+
+
 }
