@@ -4,7 +4,6 @@ public class Guardian implements Member {
     private int id;
     private String firstName;
     private String lastName;
-    private String role;
     private String address;
     private String phoneNumber;
     private String email;
@@ -41,14 +40,6 @@ public class Guardian implements Member {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public String getPhoneNumber() {
