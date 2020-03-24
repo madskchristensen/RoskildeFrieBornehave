@@ -13,6 +13,10 @@
         <Button styleClass="buttonStyling" text="Administration" fx:id="buttonLoginAdmin" prefWidth="200" prefHeight="50" onAction="#handleLogin"/>
         <padding><Insets right="75" left="75" top="90" bottom="90"/></padding>
     </HBox>
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER" spacing="200">
+        <Button text="Skip (teacher)" fx:id="buttonSkipLoginTeacher" prefWidth="200" prefHeight="20" onAction="#loginSkipTeacher"/>
+        <Button text="Skip (admin)" fx:id="buttonSkipLoginAdmin" prefWidth="200" prefHeight="20"  onAction="#loginSkipAdmin"/>
+    </HBox>
     <stylesheets>
         <URL value="@../CSS/StylingSheet.css" />
     </stylesheets>
