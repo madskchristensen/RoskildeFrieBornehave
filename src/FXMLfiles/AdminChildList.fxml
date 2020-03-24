@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="AdminChildListController"
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.AdminChildListController"
           styleClass="GridpaneBorderStyling"
           alignment="CENTER" hgap="0" vgap="20">
     <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>

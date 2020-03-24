@@ -1,3 +1,5 @@
+package buisnessLogic;
+
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
