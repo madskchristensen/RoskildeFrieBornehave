@@ -61,7 +61,7 @@ public class LoginPopUpController implements Initializable {
             jdbc.openConnection();
 
         } catch (SQLException e) {
-            System.out.println("Forkert username eller password");
+            System.out.println("Forkert username eller password \n" + e);
             loginUsername.clear();
             loginPassword.clear();
 

@@ -37,6 +37,19 @@ public class GuardianRepository implements MemberRepository {
         return alg.toArray(new Guardian[alg.size()]);
     }
 
+    public Guardian[] getAllMembers() throws SQLException{
+        connection.openConnection();
+        ResultSet rs = connection.select("guardian", "*");
+        ArrayList<Guardian> alg = new ArrayList<>();
+        while (rs.next()) {
+            alg.add(new Guardian(rs.getInt("id"), rs.getString("first_name"),
+                    rs.getString("last_name"), rs.getString("address"),
+                    rs.getString("phoneNr"), rs.getString("email")));
+        }
+        connection.closeConnection();
+        return alg.toArray(new Guardian[alg.size()]);
+    }
+
     @Override
     public void deleteMember(Member member) throws SQLException{
         connection.openConnection();
