@@ -1,5 +1,6 @@
 package Controller;
 
+import Business.Main;
 import Business.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -26,13 +27,18 @@ public class AdminChildListController {
         }
 
 
-    public void goBack(ActionEvent actionEvent) {
+    public void goBack(ActionEvent actionEvent) throws IOException {
+        Main.sceneManager.switchScene("TeacherAdmin.fxml", "Administrator");
     }
 
-    public void addToChildList(ActionEvent actionEvent) {
+    public void addToChildList(ActionEvent actionEvent) throws IOException {
+        SceneManager sceneManager = new SceneManager(new Stage());
+        sceneManager.setSize(500,300);
+        sceneManager.switchScene("CreateChildForm.fxml", "Opret barn");
     }
 
     public void updateChildList(ActionEvent actionEvent) {
+
     }
 
     public void deleteFromChildList(ActionEvent actionEvent) {

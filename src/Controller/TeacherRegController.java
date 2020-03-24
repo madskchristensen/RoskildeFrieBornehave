@@ -1,7 +1,10 @@
 package Controller;
 
+import Business.Main;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+
+import java.io.IOException;
 
 public class TeacherRegController {
     public Button buttonShifts;
