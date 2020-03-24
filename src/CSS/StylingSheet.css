@@ -5,7 +5,7 @@
     -fx-font-size: 14;
 }
 .buttonStyling {
-    -fx-border-color: black;
+
     -fx-background-color: steelblue;
     -fx-text-fill: white;
     -fx-font-size: 20;
@@ -44,6 +44,7 @@
     -fx-background-position: 10;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 30 30;
+    -fx-background-radius: 5;
 }
 
 #buttonLoginAdmin{
@@ -52,4 +53,5 @@
     -fx-background-position: 10;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 30 30;
+    -fx-background-radius: 5;
 }
