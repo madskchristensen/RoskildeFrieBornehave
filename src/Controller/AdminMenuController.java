@@ -18,11 +18,11 @@ public class AdminMenuController {
     public Button buttonTeacherLogOutAdmin;
 
     public void handleShiftPlan(ActionEvent actionEvent) throws IOException {
-
+        //nothing yet
     }
 
-    public void handleTeachers(ActionEvent actionEvent) {
-
+    public void handleTeachers(ActionEvent actionEvent) throws IOException {
+        Main.sceneManager.switchScene("AdminTeacherList.fxml", "Pædagoger");
     }
 
     public void handleChildren(ActionEvent actionEvent) throws IOException {
@@ -30,6 +30,7 @@ public class AdminMenuController {
     }
 
     public void handleGuardians(ActionEvent actionEvent) throws IOException {
+        Main.sceneManager.switchScene("AdminGuardianList.fxml", "Værger");
     }
 
     public void handleWaitingList(ActionEvent actionEvent) throws IOException {

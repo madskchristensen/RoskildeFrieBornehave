@@ -6,16 +6,15 @@ import javafx.scene.control.Button;
 
 import java.io.IOException;
 
-public class TeacherChildListController {
-
+public class TeacherGuardianListController {
     public Button backButton;
-    public Button guardianButton;
+    public Button childButton;
 
     public void handleGoBack(ActionEvent actionEvent) throws IOException {
         Main.sceneManager.getPreviousScene();
+
     }
 
-
-    public void handleGuardian(ActionEvent actionEvent) {
+    public void handleChild(ActionEvent actionEvent) {
     }
 }
