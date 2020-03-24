@@ -36,7 +36,7 @@
                 <Button styleClass="buttonStyling" text="Værge" fx:id="guardian" prefWidth="150" minHeight="50" onAction="#readGuardian"/>
                 <Button styleClass="buttonStyling" text="Opret" fx:id="create" prefWidth="150" prefHeight="50" onAction="#addToChildList">
                     <graphic>
-                        <ImageView pickOnBounds="true" preserveRatio="true">
+                        <ImageView  pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="https://img.icons8.com/color/48/000000/login-rounded-right.png" />
                             </image>
