@@ -30,15 +30,15 @@
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
     spacing="20">
         <HBox>
-            <Button styleClass="backButtonStyling" text="Tilbage" fx:id="back" minHeight="30" minWidth="80"/>
-            <padding><Insets top="45" bottom="15" left="10"/></padding>
+            <Button styleClass="buttonStyling" text="Tilbage" fx:id="back" minHeight="50" minWidth="100" onAction="#goBack"/>
+            <padding><Insets top="25" bottom="25" left="10"/></padding>
         </HBox>
         <HBox spacing="10" >
-            <Button styleClass="buttonStyling" text="Værge" fx:id="guardian" prefWidth="150" minHeight="50"/>
-            <Button styleClass="buttonStyling" text="Opret" fx:id="create" prefWidth="150" prefHeight="50"/>
-            <Button styleClass="buttonStyling" text="Rediger" fx:id="update" prefWidth="150" prefHeight="50"/>
-            <Button styleClass="buttonStyling" text="Slet" fx:id="delete" prefWidth="150" prefHeight="50"/>
-            <padding><Insets top="25" right="25" bottom="25" left="15"/></padding>
+            <Button styleClass="buttonStyling" text="Værge" fx:id="guardian" prefWidth="150" minHeight="50" onAction="#readGuardian"/>
+            <Button styleClass="buttonStyling" text="Opret" fx:id="create" prefWidth="150" prefHeight="50" onAction="#addToWaitList"/>
+            <Button styleClass="buttonStyling" text="Rediger" fx:id="update" prefWidth="150" prefHeight="50" onAction="#updateWaitList"/>
+            <Button styleClass="buttonStyling" text="Slet" fx:id="delete" prefWidth="150" prefHeight="50" onAction="#deleteFromWaitList"/>
+            <padding><Insets top="25" right="10" bottom="25" left="15"/></padding>
         </HBox>
     </HBox>
 
