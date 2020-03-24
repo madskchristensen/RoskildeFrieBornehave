@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TeacherAdminController {
+public class AdminMenuController {
 
     public Button buttonShiftsAdmin;
     public Button buttonTeacherAdmin;
@@ -33,7 +33,7 @@ public class TeacherAdminController {
     }
 
     public void handleWaitingList(ActionEvent actionEvent) throws IOException {
-        Main.sceneManager.switchScene("VenteListe.fxml", "Venteliste");
+        Main.sceneManager.switchScene("AdminWaitingList.fxml", "Venteliste");
 
     }
 

@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 
 import java.io.IOException;
 
-public class TeacherRegController {
+public class TeacherMenuController {
     public Button buttonShifts;
     public Button buttonChild;
     public Button buttonParent;

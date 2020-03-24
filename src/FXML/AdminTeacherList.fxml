@@ -13,21 +13,6 @@
     alignment="CENTER" hgap="0" vgap="20">
     <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
 
-    <TableView GridPane.columnIndex="0" GridPane.rowIndex="0">
-        <columns>
-            <TableColumn text="Fornavn" fx:id="firstName"/>
-            <TableColumn text="Efternavn" fx:id="lastName"/>
-            <TableColumn text="Stue" fx:id="classRoom"/>
-            <TableColumn text="Fødselsdato" fx:id="dateOfBirth"/>
-            <TableColumn text="Adresse" fx:id="address"/>
-            <TableColumn text="Telefonnummer" fx:id="tlfNo"/>
-            <TableColumn text="E-mail" fx:id="email"/>
-        </columns>
-        <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-        </columnResizePolicy>
-    </TableView>
-
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
           spacing="20">
         <HBox>

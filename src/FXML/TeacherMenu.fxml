@@ -10,7 +10,7 @@
 
 <?import javafx.scene.text.Font?>
 <?import java.net.URL?>
-<GridPane styleClass="GridpaneBorderStyling" fx:controller="Controller.TeacherRegController"
+<GridPane styleClass="GridpaneBorderStyling" fx:controller="Controller.TeacherMenuController"
           xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="-230" vgap="20" >
     <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
