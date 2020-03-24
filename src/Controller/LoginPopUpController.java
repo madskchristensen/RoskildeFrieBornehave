@@ -11,6 +11,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import Business.*;
+import Utility.*;
 
 public class LoginPopUpController implements Initializable {
 
@@ -52,6 +53,7 @@ public class LoginPopUpController implements Initializable {
     private void loginPress() throws IOException, SQLException {
         // get a handle to the stage the button is built on
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
+        DialogBox errorDialog = new DialogBox("Fejl", "Forkert brugernavn eller kodeord.", "OK");
 
         // Validerer login ved at forsøge at åbne en jdbc connection med det givne username og password
         // hvis user/pass er forkert vil jdbc.openconnection throwe en sqlexception som håndteres som en fejl i bruger/pass
@@ -61,7 +63,7 @@ public class LoginPopUpController implements Initializable {
             jdbc.openConnection();
 
         } catch (SQLException e) {
-            System.out.println("Forkert username eller password");
+            errorDialog.show();
             loginUsername.clear();
             loginPassword.clear();
 
