@@ -18,6 +18,7 @@ public class SceneManager {
     private String currentTitle;
     private String previousScene;
     private String previousTitle;
+    private final String PATHTOFXML = "/FXML/";
 
     //Setting size of window
     private Rectangle2D primScreenBounds;
@@ -62,7 +63,7 @@ public class SceneManager {
         previousTitle = currentTitle;
 
         if(!sceneList.containsKey(sceneName)) {
-            sceneList.put(sceneName, FXMLLoader.load(getClass().getResource(sceneName)));
+            sceneList.put(sceneName, FXMLLoader.load(getClass().getResource(PATHTOFXML + sceneName)));
         }
 
         currentScene = sceneName;
