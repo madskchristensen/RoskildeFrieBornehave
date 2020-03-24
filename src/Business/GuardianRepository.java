@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class GuardianRepository implements MemberRepository {
     JDBC connection;
 
-    GuardianRepository(String username, String password) throws SQLException{
+    public GuardianRepository(String username, String password) throws SQLException{
         connection = new JDBC(username, password);
     }
 
