@@ -46,3 +46,10 @@
     -fx-background-size: 30 30;
 }
 
+#buttonLoginAdmin{
+
+    -fx-background-image: url("images/icons8-clipboard-96.png");
+    -fx-background-position: 10;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 30 30;
+}
