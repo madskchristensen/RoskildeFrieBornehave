@@ -2,9 +2,7 @@ package Utility;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 // Klasse der kan bruges til at generere dialog bokse. F.eks. errors.
@@ -42,9 +40,6 @@ public class DialogBox {
     }
 
     public void show() {
-
-        dialog.getOnCloseRequest();
-
         label.setPadding(new Insets(10, 20, 20, 20));
         button.setMinSize(75, button.getHeight());
 
