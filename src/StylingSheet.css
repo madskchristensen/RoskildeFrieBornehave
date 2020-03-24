@@ -1,4 +1,9 @@
-
+.backButtonStyling{
+    -fx-border-color: black;
+    -fx-background-color: steelblue;
+    -fx-text-fill: white;
+    -fx-font-size: 14;
+}
 .buttonStyling {
     -fx-border-color: black;
     -fx-background-color: steelblue;
