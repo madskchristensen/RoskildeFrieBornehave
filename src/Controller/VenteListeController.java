@@ -1,8 +1,13 @@
 package Controller;
 
+import Business.Main;
+import Business.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class VenteListeController {
     public TableColumn firstName;
@@ -20,7 +25,8 @@ public class VenteListeController {
     public void readGuardian(ActionEvent actionEvent) {
     }
 
-    public void goBack(ActionEvent actionEvent) {
+    public void goBack(ActionEvent actionEvent) throws IOException {
+        Main.sceneManager.getPreviousScene();
     }
 
     public void addToWaitList(ActionEvent actionEvent) {
