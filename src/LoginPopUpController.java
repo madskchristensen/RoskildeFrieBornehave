@@ -42,6 +42,13 @@ public class LoginPopUpController implements Initializable {
         buttonLogin.disableProperty().bind(booleanBind);
     }
 
+    /***
+     * Noget vi kan implementere senere:
+     * Individuelt login til hver bruger => nedenstående metode skal laves lidt om => knap mere på admin menu
+     * @throws IOException
+     * @throws SQLException
+     */
+
     @FXML
     private void loginPress() throws IOException, SQLException {
         // get a handle to the stage the button is built on
