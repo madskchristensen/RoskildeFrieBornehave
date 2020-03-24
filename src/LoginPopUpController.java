@@ -1,15 +1,19 @@
 
+import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class LoginPopUpController {//extends AbstractController implements Initializable {
+public class LoginPopUpController implements Initializable {
 
 /*
   Forestiller mig at den kan bruges i takt med noget lignede:
@@ -19,7 +23,6 @@ public class LoginPopUpController {//extends AbstractController implements Initi
   https://stackoverflow.com/questions/36520331/how-does-one-create-a-pop-up-box-using-javafx
     https://stackoverflow.com/questions/39004086/fxml-set-buttontype-onaction
 */
-
     public static final ButtonType LOGIN = new ButtonType("Login");
 
     @FXML DialogPane loginPane;
@@ -31,6 +34,13 @@ public class LoginPopUpController {//extends AbstractController implements Initi
     @FXML
     private Button buttonLogin;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Disabler gem button indtil alle fields er udfyldt
+        BooleanBinding booleanBind = loginUsername.textProperty().isEmpty().
+                or(loginPassword.textProperty().isEmpty());
+        buttonLogin.disableProperty().bind(booleanBind);
+    }
 
     @FXML
     private void loginPress() throws IOException {

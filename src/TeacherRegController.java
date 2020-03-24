@@ -10,5 +10,4 @@ public class TeacherRegController {
     public Button buttonChild;
     public Button buttonParent;
     public Button buttonTeacherLogOut;
-
 }
