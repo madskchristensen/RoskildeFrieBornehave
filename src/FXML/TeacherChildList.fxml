@@ -13,7 +13,7 @@
     <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
 
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
-          spacing="20">
+          spacing="400" minWidth="800" alignment="CENTER">
         <HBox>
             <Button styleClass="buttonStyling" text="Tilbage" fx:id="backButton" minHeight="50" minWidth="100" onAction="#handleGoBack"/>
             <padding><Insets top="25" bottom="25" left="10"/></padding>
