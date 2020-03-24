@@ -1,5 +1,5 @@
-import buisnessLogic.Child;
-import buisnessLogic.ChildRepository;
+import Business.Child;
+import Business.ChildRepository;
 import org.junit.Test;
 
 import java.sql.SQLException;

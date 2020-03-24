@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<VBox fx:controller="Controller.LoginPopUpController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx" alignment="CENTER"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Indtast logininfo" style="-fx-font-size: 14"/>
+
+    <GridPane hgap="15" vgap="15" alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER"  maxWidth="100.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+
+            <Label text="Brugernavn" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField  fx:id="loginUsername" promptText="DitBrugernavn" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label text="Adgangskode" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <PasswordField  fx:id="loginPassword" promptText="*********" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Button styleClass="buttonStyling" text="Log ind" fx:id="buttonLogin" style="-fx-font-size: 14" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="RIGHT" onAction="#loginPress"/>
+        </children>
+    </GridPane>
+
+    <stylesheets>
+        <URL value="@../CSS/StylingSheet.css" />
+    </stylesheets>
+</VBox>
