@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="VenteListeController"
+          styleClass="GridpaneBorderStyling"
+          alignment="CENTER" hgap="0" vgap="20">
+    <padding><Insets top="25" bottom="25" right="25" left="25"/></padding>
+
+        <TableView GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <columns>
+                <TableColumn text="Fornavn" fx:id="firstName"/>
+                <TableColumn text="Efternavn" fx:id="lastName"/>
+                <TableColumn text="Alder" fx:id="age"/>
+                <TableColumn text="Fødselsdato" fx:id="dateOfBirth"/>
+                <TableColumn text="Adresse" fx:id="address"/>
+                <TableColumn text="Opskivningsdato" fx:id="dateOfRegistration"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>g
+        </TableView>
+
+    <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
+    spacing="20">
+        <Button styleClass="buttonStyling" text="Tilbage" fx:id="back" prefWidth="150" prefHeight="50"/>
+        <Button styleClass="buttonStyling" text="Værge" fx:id="guardian" prefWidth="150" prefHeight="50"/>
+        <Button styleClass="buttonStyling" text="Opret" fx:id="create" prefWidth="150" prefHeight="50"/>
+        <Button styleClass="buttonStyling" text="Rediger" fx:id="update" prefWidth="150" prefHeight="50"/>
+        <Button styleClass="buttonStyling" text="Slet" fx:id="delete" prefWidth="150" prefHeight="50"/>
+        <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+    </HBox>
+
+    <stylesheets>
+        <URL value="@StylingSheet.css" />
+    </stylesheets>
+</GridPane>

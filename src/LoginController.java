@@ -31,7 +31,4 @@ public class LoginController {
         System.out.println("logging in");
     }
 
-    public void showScene() throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-    }
 }
