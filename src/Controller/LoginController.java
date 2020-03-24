@@ -13,6 +13,10 @@ public class LoginController {
     private Button buttonTeacherLogin;
     @FXML
     private Button buttonLoginAdmin;
+    @FXML
+    private Button buttonSkipLoginAdmin;
+    @FXML
+    private Button buttonSkipLoginTeacher;
 
     public void handleLogin(ActionEvent actionEvent) throws IOException {
         SceneManager sceneManager = new SceneManager(new Stage());
@@ -20,8 +24,13 @@ public class LoginController {
         sceneManager.switchScene("LogInPopUp.fxml", "Log in");
     }
 
-    public void handleLoginAdmin(ActionEvent actionEvent) {
-        System.out.println("logging in");
+    @FXML
+    private void loginSkipAdmin() throws IOException {
+        Main.sceneManager.switchScene("AdminMenu.fxml", "Teacher page");
     }
 
+    @FXML
+    private void loginSkipTeacher() throws IOException {
+        Main.sceneManager.switchScene("TeacherMenu.fxml", "Teacher admin page");
+    }
 }

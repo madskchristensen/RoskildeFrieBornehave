@@ -30,3 +30,19 @@
     -fx-border-width: 5;
     -fx-border-radius: 10px;
 }
+
+#btn {
+     -fx-background-image: url("https://img.icons8.com/color/48/000000/login-rounded-right.png");
+     -fx-background-size: 18 18;
+     -fx-background-repeat: no-repeat;
+     -fx-background-position: 10;
+ }
+
+#buttonTeacherLogin {
+
+    -fx-background-image: url("images/icons8-child-48.png");
+    -fx-background-position: 10;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 30 30;
+}
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controller.AdminTeacherListController"
+    styleClass="GridpaneBorderStyling"
+    alignment="CENTER" hgap="0" vgap="20">
+    <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
+
+    <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
+          spacing="400" minWidth="800" alignment="CENTER">
+        <HBox>
+            <Button styleClass="buttonStyling" text="Tilbage" fx:id="back" minHeight="50" minWidth="100" onAction="#goBack"/>
+            <padding><Insets top="25" bottom="25" left="10"/></padding>
+        </HBox>
+        <HBox spacing="10" >
+            <Button styleClass="buttonStyling" text="Vagtplan" fx:id="guardian" prefWidth="150" minHeight="50" onAction="#readTeacherShift"/>
+
+            <Button styleClass="buttonStyling" text="Rediger" fx:id="update" prefWidth="150" prefHeight="50" onAction="#updateTeacherList"/>
+            <Button styleClass="buttonStyling" text="Slet" fx:id="delete" prefWidth="150" prefHeight="50" onAction="#deleteFromTeacherList"/>
+            <padding><Insets top="25" right="10" bottom="25" left="15"/></padding>
+        </HBox>
+    </HBox>
+
+    <stylesheets>
+        <URL value="@../CSS/StylingSheet.css" />
+    </stylesheets>
+
+
+
+</GridPane>
