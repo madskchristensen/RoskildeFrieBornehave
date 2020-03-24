@@ -23,6 +23,7 @@ public class LoginController {
 
     public void handleLogin(ActionEvent actionEvent) throws IOException {
         SceneManager sceneManager = new SceneManager(new Stage());
+        sceneManager.setSize(250,200);
         sceneManager.switchScene("LogInPopUp.fxml", "Log in");
     }
 
