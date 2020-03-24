@@ -35,6 +35,18 @@ public class ChildRepository implements MemberRepository {
         return alc.toArray(new Child[alc.size()]);
     }
 
+    public Child[] getAllMembers() throws SQLException{
+        connection.openConnection();
+        ResultSet rs = connection.select("Child", "*");
+        ArrayList<Child> alg = new ArrayList<>();
+        while (rs.next()) {
+            alg.add(new Child(rs.getInt("id"), rs.getString("first_name"),
+                    rs.getString("last_name"), rs.getInt("class")));
+        }
+        connection.closeConnection();
+        return alg.toArray(new Child[alg.size()]);
+    }
+
     @Override
     public void deleteMember(Member member) throws SQLException{
         connection.openConnection();

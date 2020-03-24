@@ -1,11 +1,6 @@
 package buisnessLogic;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -14,7 +9,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         sceneManager = new SceneManager(primaryStage);
-        sceneManager.switchScene("FXMLfiles/Login.fxml", "Login");
+        sceneManager.switchScene("Login.fxml", "Login");
     }
 
     public static void main(String[] args) {

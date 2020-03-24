@@ -62,7 +62,7 @@ public class SceneManager {
         previousTitle = currentTitle;
 
         if(!sceneList.containsKey(sceneName)) {
-            sceneList.put(sceneName, FXMLLoader.load(getClass().getResource(sceneName)));
+            sceneList.put(sceneName, FXMLLoader.load(getClass().getResource("/FXMLfiles/" + sceneName)));
         }
 
         currentScene = sceneName;

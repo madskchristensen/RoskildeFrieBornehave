@@ -2,10 +2,7 @@ package controllers;
 
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
@@ -64,18 +61,18 @@ public class LoginPopUpController implements Initializable {
             jdbc.openConnection();
 
         } catch (SQLException e) {
-            System.out.println("Forkert username eller password");
+            System.out.println("Forkert username eller password \n" + e);
             loginUsername.clear();
             loginPassword.clear();
 
         } finally {
             switch(loginUsername.getText()) {
                 case "administrator":
-                    Main.sceneManager.switchScene("FXMLfiles/TeacherAdmin.fxml", "Teacher admin page");
+                    Main.sceneManager.switchScene("TeacherAdmin.fxml", "Teacher admin page");
                     stage.close();
                     break;
                 case "employee":
-                    Main.sceneManager.switchScene("FXMLfiles/TeacherReg.fxml", "Teacher page");
+                    Main.sceneManager.switchScene("TeacherReg.fxml", "Teacher page");
                     stage.close();
                     break;
             }
