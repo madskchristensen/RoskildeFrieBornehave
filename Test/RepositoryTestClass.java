@@ -1,7 +1,7 @@
+import buisnessLogic.Child;
+import buisnessLogic.ChildRepository;
 import org.junit.Test;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static org.junit.Assert.assertTrue;

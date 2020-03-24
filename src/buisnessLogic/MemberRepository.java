@@ -1,3 +1,5 @@
+package buisnessLogic;
+
 import java.sql.SQLException;
 
 public interface MemberRepository {

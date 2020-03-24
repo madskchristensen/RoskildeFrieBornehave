@@ -1,5 +1,8 @@
+package controllers;
+
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -9,11 +12,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateChildFormController implements Initializable {
+public class CreateGuardianFormController implements Initializable {
+
+    /***
+     * NB. Atm er er create guardian bygget op som en popup!
+     */
 
     public TextField nameTF;
     public TextField lastNameTF;
-    public TextField classRoom;
+    public TextField addressTF;
+    public TextField phoneNrTF;
+    public TextField eMailTF;
     public Button saveButton;
     public Button cancelButton;
 
@@ -22,7 +31,9 @@ public class CreateChildFormController implements Initializable {
         // Disabler gem button indtil alle fields er udfyldt
         BooleanBinding booleanBind = nameTF.textProperty().isEmpty().
                 or(lastNameTF.textProperty().isEmpty()).
-                or(classRoom.textProperty().isEmpty());
+                or(addressTF.textProperty().isEmpty()).
+                or(phoneNrTF.textProperty().isEmpty()).
+                or(eMailTF.textProperty().isEmpty());
         saveButton.disableProperty().bind(booleanBind);
     }
 
@@ -33,6 +44,7 @@ public class CreateChildFormController implements Initializable {
 
         //Something something add guardian
         //...
+
     }
 
     public void handleCancel(ActionEvent actionEvent) {
@@ -40,4 +52,5 @@ public class CreateChildFormController implements Initializable {
         Stage stage = (Stage) saveButton.getScene().getWindow();
         stage.close();
     }
+
 }

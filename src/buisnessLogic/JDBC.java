@@ -1,3 +1,5 @@
+package buisnessLogic;
+
 import java.sql.*;
 
 public class JDBC {
