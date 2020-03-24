@@ -1,0 +1,29 @@
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<GridPane fx:controller="CreateChildFormController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
+          alignment="center" hgap="10" vgap="15" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+    <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+    <Label text="Navn" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Label text="Efternavn" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Label text="Stue" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+
+    <TextField  fx:id="nameTF" promptText="Navn" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="250"/>
+    <TextField  fx:id="lastNameTF" promptText="Efternavn" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <TextField  fx:id="classRoom" promptText="Stuenavn" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <HBox GridPane.columnIndex="1" GridPane.rowIndex="3" spacing="10">
+        <Button fx:id="saveButton" styleClass="buttonStyling" text="Gem" style="-fx-font-size: 12" prefWidth="200" onAction="#handleSave" />
+        <Button fx:id="cancelButton" styleClass="buttonStyling" text="Annuller" style="-fx-font-size: 12" onAction="#handleCancel"/>
+    </HBox>
+
+    <stylesheets>
+        <URL value="@StylingSheet.css" />
+    </stylesheets>
+</GridPane>
