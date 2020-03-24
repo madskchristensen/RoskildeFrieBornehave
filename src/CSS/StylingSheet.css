@@ -35,14 +35,14 @@
      -fx-background-image: url("https://img.icons8.com/color/48/000000/login-rounded-right.png");
      -fx-background-size: 18 18;
      -fx-background-repeat: no-repeat;
-     -fx-background-position:left;
+     -fx-background-position: 10;
  }
 
-#Teacher {
+#buttonTeacherLogin {
 
-    -fx-background-image: url("http://www.w3.org/2000/svg");
-    -fx-background-size: 18 18;
+    -fx-background-image: url("images/icons8-child-48.png");
+    -fx-background-position: 10;
     -fx-background-repeat: no-repeat;
-    -fx-background-position:left;
+    -fx-background-size: 30 30;
 }
 
