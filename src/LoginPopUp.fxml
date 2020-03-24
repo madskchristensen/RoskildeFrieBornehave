@@ -7,11 +7,11 @@
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
-
 <?import javafx.scene.control.ButtonType?>
-<DialogPane fx:controller="LoginPopUpController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
-            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
-    <content>
+
+<?import javafx.scene.layout.VBox?>
+<VBox fx:controller="LoginPopUpController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx" alignment="CENTER"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
         <GridPane hgap="10" vgap="10" alignment="CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES"  maxWidth="100.0" />
@@ -34,9 +34,7 @@
             </children>
         </GridPane>
 
-    </content>
-
     <stylesheets>
         <URL value="@StylingSheet.css" />
     </stylesheets>
-</DialogPane>
+</VBox>

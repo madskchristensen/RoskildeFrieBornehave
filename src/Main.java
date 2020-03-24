@@ -8,31 +8,13 @@ import javafx.stage.Stage;
 import java.sql.*;
 
 public class Main extends Application {
-    public static Stage window;
-
-    //Setting size of window
-    public Rectangle2D primScreenBounds;
-    public double stagesizex;
-    public double stagesizey;
-
+    public static SceneManager sceneManager;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        window = primaryStage;
-        primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stagesizex = primScreenBounds.getWidth() / 2;
-        stagesizey = primScreenBounds.getHeight() / 1.5;
-        Parent root = FXMLLoader.load(getClass().getResource("TeacherReg.fxml"));
-        primaryStage.setTitle("Roskilde Frie Børnehave");
-
-        primaryStage.setScene(new Scene(root, stagesizex, stagesizey));
-        primaryStage.show();
+        sceneManager = new SceneManager(primaryStage);
+        sceneManager.switchScene("Login.fxml", "Login");
         }
-
-    public Stage getPrimaryStage() {
-        return window;
-    }
 
     public static void main(String[] args) {
         launch(args);
