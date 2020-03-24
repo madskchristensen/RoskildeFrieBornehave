@@ -11,6 +11,10 @@
     -fx-font-size: 20;
 }
 
+.button:hover {
+    -fx-background-color: rgb(50, 93, 129);
+}
+
 .headerLabelStyling {
     -fx-text-fill: steelblue;
     -fx-font-size: 40;
