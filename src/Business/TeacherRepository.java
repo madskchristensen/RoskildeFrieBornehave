@@ -37,6 +37,19 @@ public class TeacherRepository implements MemberRepository {
         return teachers.toArray(new Teacher[teachers.size()]);
     }
 
+    public Teacher[] getAllMembers() throws SQLException{
+        connection.openConnection();
+        ResultSet rs = connection.select("guardian", "*");
+        ArrayList<Teacher> alg = new ArrayList<>();
+        while (rs.next()) {
+            alg.add(new Teacher(rs.getInt("id"), rs.getString("first_name"),
+                    rs.getString("last_name"), rs.getString("address"),
+                    rs.getString("phoneNr"), rs.getString("email")));
+        }
+        connection.closeConnection();
+        return alg.toArray(new Teacher[alg.size()]);
+    }
+
     @Override
     public void deleteMember(Member member) throws SQLException{
         connection.openConnection();

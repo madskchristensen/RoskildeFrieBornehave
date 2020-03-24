@@ -1,7 +1,10 @@
 package Controller;
 
+import Business.Main;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+
+import java.io.IOException;
 
 public class TeacherRegController {
     public Button buttonShifts;
@@ -18,6 +21,7 @@ public class TeacherRegController {
     public void handleGuardians(ActionEvent actionEvent) {
     }
 
-    public void handleLogout(ActionEvent actionEvent) {
+    public void handleLogout(ActionEvent actionEvent) throws IOException {
+        Main.sceneManager.switchScene("Login.fxml", "Login");
     }
 }

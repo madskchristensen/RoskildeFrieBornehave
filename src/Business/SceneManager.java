@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class SceneManager {
     private Stage stage;
     private FXMLLoader loader;
-    private HashMap<String, Parent> sceneList;
+    private HashMap<String, Scene> sceneList;
     private String currentScene;
     private String currentTitle;
     private String previousScene;
@@ -29,7 +29,7 @@ public class SceneManager {
         switchScene(previousScene, previousTitle);
     }
 
-    public Parent getCurrentScene() throws IOException {
+    public Scene getCurrentScene() throws IOException {
         return sceneList.get(currentScene);
     }
 
@@ -63,13 +63,13 @@ public class SceneManager {
         previousTitle = currentTitle;
 
         if(!sceneList.containsKey(sceneName)) {
-            sceneList.put(sceneName, FXMLLoader.load(getClass().getResource(PATHTOFXML + sceneName)));
+            sceneList.put(sceneName, new Scene(FXMLLoader.load(getClass().getResource(PATHTOFXML + sceneName)), stagesizex, stagesizey));
         }
 
         currentScene = sceneName;
         currentTitle = title;
         stage.setTitle(title);
-        stage.setScene(new Scene(sceneList.get(sceneName), stagesizex, stagesizey));
+        stage.setScene(sceneList.get(sceneName));
         stage.show();
     }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class GuardianRepository implements MemberRepository {
     JDBC connection;
 
-    GuardianRepository(String username, String password) throws SQLException{
+    public GuardianRepository(String username, String password) throws SQLException{
         connection = new JDBC(username, password);
     }
 
@@ -27,6 +27,19 @@ public class GuardianRepository implements MemberRepository {
         connection.openConnection();
         ResultSet rs = connection.select("guardian", "*", " first_name LIKE \"%" + name + "%\" " +
                 "OR last_name LIKE \"%" + name + "%\"");
+        ArrayList<Guardian> alg = new ArrayList<>();
+        while (rs.next()) {
+            alg.add(new Guardian(rs.getInt("id"), rs.getString("first_name"),
+                    rs.getString("last_name"), rs.getString("address"),
+                    rs.getString("phoneNr"), rs.getString("email")));
+        }
+        connection.closeConnection();
+        return alg.toArray(new Guardian[alg.size()]);
+    }
+
+    public Guardian[] getAllMembers() throws SQLException{
+        connection.openConnection();
+        ResultSet rs = connection.select("guardian", "*");
         ArrayList<Guardian> alg = new ArrayList<>();
         while (rs.next()) {
             alg.add(new Guardian(rs.getInt("id"), rs.getString("first_name"),

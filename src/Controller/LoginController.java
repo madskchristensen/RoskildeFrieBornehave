@@ -19,9 +19,4 @@ public class LoginController {
         sceneManager.setSize(250,200);
         sceneManager.switchScene("LogInPopUp.fxml", "Log in");
     }
-
-    public void handleLoginAdmin(ActionEvent actionEvent) {
-        System.out.println("logging in");
-    }
-
 }
