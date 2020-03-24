@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,4 +15,21 @@ public class TeacherAdminController {
     public Button buttonWaitingAdmin;
     public Button buttonTeacherLogOutAdmin;
 
+    public void handleShiftPlan(ActionEvent actionEvent) {
+    }
+
+    public void handleTeachers(ActionEvent actionEvent) {
+    }
+
+    public void handleChildren(ActionEvent actionEvent) {
+    }
+
+    public void handleGuardians(ActionEvent actionEvent) {
+    }
+
+    public void handleWaitingList(ActionEvent actionEvent) {
+    }
+
+    public void handleLogout(ActionEvent actionEvent) {
+    }
 }
