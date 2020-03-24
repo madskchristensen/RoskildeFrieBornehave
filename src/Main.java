@@ -14,7 +14,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         sceneManager = new SceneManager(primaryStage);
         sceneManager.switchScene("Login.fxml", "Login");
-        }
+    }
 
     public static void main(String[] args) {
         launch(args);

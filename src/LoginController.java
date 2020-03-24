@@ -21,10 +21,13 @@ public class LoginController {
     @FXML
     private Button buttonLoginAdmin;
 
-    public void handleLogin(ActionEvent actionEvent) throws IOException {
-        SceneManager sceneManager = new SceneManager(new Stage());
-        sceneManager.setSize(250,200);
-        sceneManager.switchScene("LogInPopUp.fxml", "Log in");
+    public void handleLoginTeacher(ActionEvent actionEvent) throws IOException {
+        Parent layout = FXMLLoader.load(getClass().getResource("LoginPopUp.fxml"));
+        Scene scene = new Scene(layout);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Roskilde Frie Børnehave");
+        stage.show();
     }
 
     public void handleLoginAdmin(ActionEvent actionEvent) {
@@ -33,5 +36,7 @@ public class LoginController {
 
     public void showScene() throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Main.window.setTitle("Login page");
+        Main.window.show();
     }
 }
