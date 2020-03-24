@@ -5,8 +5,10 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
 
-<VBox fx:controller="LoginPopUpController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx" alignment="CENTER"
+<VBox fx:controller="controllers.LoginPopUpController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx" alignment="CENTER"
       maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 

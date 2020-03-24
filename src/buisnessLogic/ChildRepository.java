@@ -1,13 +1,13 @@
-import java.sql.Array;
+package buisnessLogic;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ChildRepository implements MemberRepository {
    private JDBC connection;
 
-   ChildRepository(String username, String password) throws SQLException {
+   public ChildRepository(String username, String password) throws SQLException {
        connection = new JDBC(username, password);
    }
 

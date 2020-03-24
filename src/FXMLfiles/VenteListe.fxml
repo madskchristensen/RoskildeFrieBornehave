@@ -8,7 +8,7 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="VenteListeController"
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.VenteListeController"
           styleClass="GridpaneBorderStyling"
           alignment="CENTER" hgap="0" vgap="20">
     <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>

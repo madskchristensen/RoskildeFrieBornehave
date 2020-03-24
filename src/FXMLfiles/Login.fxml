@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
 
-<GridPane fx:controller="LoginController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
+<GridPane fx:controller="controllers.LoginController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
           alignment="center" hgap="0" vgap="0">
 <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER" spacing="200">

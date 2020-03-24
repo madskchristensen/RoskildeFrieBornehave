@@ -1,3 +1,4 @@
+package controllers;
 
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import buisnessLogic.*;
 
 public class LoginPopUpController implements Initializable {
 
@@ -69,11 +71,11 @@ public class LoginPopUpController implements Initializable {
         } finally {
             switch(loginUsername.getText()) {
                 case "administrator":
-                    Main.sceneManager.switchScene("TeacherAdmin.fxml", "Teacher admin page");
+                    Main.sceneManager.switchScene("FXMLfiles/TeacherAdmin.fxml", "Teacher admin page");
                     stage.close();
                     break;
                 case "employee":
-                    Main.sceneManager.switchScene("TeacherReg.fxml", "Teacher page");
+                    Main.sceneManager.switchScene("FXMLfiles/TeacherReg.fxml", "Teacher page");
                     stage.close();
                     break;
             }

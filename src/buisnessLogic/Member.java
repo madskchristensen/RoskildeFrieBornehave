@@ -1,3 +1,5 @@
+package buisnessLogic;
+
 public interface Member {
     String getFirstName();
     String getLastName();
