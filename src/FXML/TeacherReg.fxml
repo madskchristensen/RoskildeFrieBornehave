@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+<GridPane styleClass="GridpaneBorderStyling" fx:controller="Controller.TeacherRegController"
+          xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="-230" vgap="20" >
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+
+        <Label styleClass="headerLabelStyling" text="PÆDAGOG" GridPane.columnIndex="1" GridPane.rowIndex="0"
+               alignment="CENTER" prefWidth="500" >
+            <padding><Insets right="60" left="60" top="10" bottom="10"/></padding>
+        </Label>
+
+            <VBox styleClass="backGroundStyling" spacing="30" GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER">
+                <Button styleClass="buttonStyling"
+                text="Vagtplan" fx:id="buttonShifts" prefWidth="200" prefHeight="50" onAction="#handleShiftPlan"/>
+                <padding><Insets right="60" left="60" top="30" bottom="30"/></padding>
+            </VBox>
+
+            <VBox styleClass="backGroundStyling" spacing="30" GridPane.columnIndex="2" GridPane.rowIndex="1" alignment="CENTER">
+                <Button styleClass="buttonStyling" text="Børn" fx:id="buttonChild"  prefWidth="200" prefHeight="50" onAction="#handleChildren"/>
+                <Button styleClass="buttonStyling" text="Forældre" fx:id="buttonParent" prefWidth="200" prefHeight="50" onAction="#handleGuardians"/>
+                <padding><Insets right="60" left="60" top="30" bottom="30"/></padding>
+            </VBox>
+
+        <HBox alignment="BOTTOM_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <Button styleClass="buttonStyling" text="Log Ud" fx:id="buttonTeacherLogOut" style="-fx-font-size: 14" onAction="#handleLogout"/>
+            <padding>
+                <Insets top="10" bottom="10" />
+            </padding>
+        </HBox>
+
+    <stylesheets>
+        <URL value="@../CSS/StylingSheet.css" />
+    </stylesheets>
+</GridPane>
