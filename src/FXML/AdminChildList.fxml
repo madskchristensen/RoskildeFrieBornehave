@@ -12,20 +12,6 @@
           alignment="CENTER" hgap="0" vgap="20">
     <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
 
-    <TableView GridPane.columnIndex="0" GridPane.rowIndex="0">
-            <columns>
-                <TableColumn text="ID" fx:id="ID"/>
-                <TableColumn text="Fornavn" fx:id="firstName"/>
-                <TableColumn text="Efternavn" fx:id="lastName"/>
-                <TableColumn text="Stue" fx:id="classroom"/>
-            </columns>
-            <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
-
-    </TableView>
-
-
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
               spacing="20">
             <HBox>
@@ -36,7 +22,7 @@
                 <Button styleClass="buttonStyling" text="Værge" fx:id="guardian" prefWidth="150" minHeight="50" onAction="#readGuardian"/>
                 <Button styleClass="buttonStyling" text="Opret" fx:id="create" prefWidth="150" prefHeight="50" onAction="#addToChildList">
                     <graphic>
-                        <ImageView pickOnBounds="true" preserveRatio="true">
+                        <ImageView  pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="https://img.icons8.com/color/48/000000/login-rounded-right.png" />
                             </image>

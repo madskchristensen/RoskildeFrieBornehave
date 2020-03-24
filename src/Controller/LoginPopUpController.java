@@ -70,11 +70,11 @@ public class LoginPopUpController implements Initializable {
         } finally {
             switch(loginUsername.getText()) {
                 case "administrator":
-                    Main.sceneManager.switchScene("TeacherAdmin.fxml", "Teacher admin page");
+                    Main.sceneManager.switchScene("AdminMenu.fxml", "Teacher admin page");
                     stage.close();
                     break;
                 case "employee":
-                    Main.sceneManager.switchScene("TeacherReg.fxml", "Teacher page");
+                    Main.sceneManager.switchScene("TeacherMenu.fxml", "Teacher page");
                     stage.close();
                     break;
             }

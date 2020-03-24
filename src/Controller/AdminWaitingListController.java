@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class VenteListeController {
+public class AdminWaitingListController {
     public TableColumn firstName;
     public TableColumn lastName;
     public TableColumn age;

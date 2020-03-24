@@ -36,15 +36,7 @@
                 <TextField  fx:id="loginUsername" promptText="DitBrugernavn" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                 <Label text="Adgangskode" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                 <PasswordField  fx:id="loginPassword" promptText="*********" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                <Button styleClass="buttonStyling" text="Log ind" fx:id="buttonLogin" style="-fx-font-size: 14" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="RIGHT" onAction="#loginPress">
-                    <graphic>
-                        <ImageView pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="https://img.icons8.com/color/48/000000/login-rounded-right.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
+                <Button id="btn" styleClass="buttonStyling" text="   Log ind" fx:id="buttonLogin" style="-fx-font-size: 14" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="RIGHT" onAction="#loginPress"/>
             </children>
         </GridPane>
 

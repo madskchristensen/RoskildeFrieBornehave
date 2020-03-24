@@ -8,24 +8,10 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controller.VenteListeController"
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controller.AdminWaitingListController"
           styleClass="GridpaneBorderStyling"
           alignment="CENTER" hgap="0" vgap="20">
     <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
-
-        <TableView GridPane.columnIndex="0" GridPane.rowIndex="0">
-            <columns>
-                <TableColumn text="Fornavn" fx:id="firstName"/>
-                <TableColumn text="Efternavn" fx:id="lastName"/>
-                <TableColumn text="Alder" fx:id="age"/>
-                <TableColumn text="Fødselsdato" fx:id="dateOfBirth"/>
-                <TableColumn text="Adresse" fx:id="address"/>
-                <TableColumn text="Opskivningsdato" fx:id="dateOfRegistration"/>
-            </columns>
-            <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
-        </TableView>
 
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
     spacing="20">

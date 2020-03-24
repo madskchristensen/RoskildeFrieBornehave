@@ -28,7 +28,7 @@ public class AdminChildListController {
 
 
     public void goBack(ActionEvent actionEvent) throws IOException {
-        Main.sceneManager.switchScene("TeacherAdmin.fxml", "Administrator");
+        Main.sceneManager.switchScene("AdminMenu.fxml", "Administrator");
     }
 
     public void addToChildList(ActionEvent actionEvent) throws IOException {
