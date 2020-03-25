@@ -50,7 +50,8 @@ public class AdminChildListController implements Initializable{
         }
 
 
-    public void goBack(ActionEvent actionEvent) {
+    public void goBack(ActionEvent actionEvent) throws IOException {
+        Main.sceneManager.getPreviousScene();
     }
 
     public void addToChildList(ActionEvent actionEvent) {
