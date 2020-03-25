@@ -48,7 +48,7 @@ public class CreateGuardianFormController implements Initializable {
 
     public void handleCancel(ActionEvent actionEvent) {
         // get handle and close stage
-        Stage stage = (Stage) saveButton.getScene().getWindow();
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
 
