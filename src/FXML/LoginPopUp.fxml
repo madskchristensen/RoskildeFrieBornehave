@@ -39,7 +39,7 @@
             <children>
 
                 <Label text="Brugernavn" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                <TextField  fx:id="loginUsername" promptText="DitBrugernavn" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <TextField  fx:id="loginUsername" promptText="Brugernavn" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                 <Label text="Adgangskode" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                 <PasswordField  fx:id="loginPassword" promptText="*********" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 

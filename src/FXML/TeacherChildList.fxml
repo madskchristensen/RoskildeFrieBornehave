@@ -11,7 +11,9 @@
           styleClass="GridpaneBorderStyling"
           alignment="CENTER" hgap="0" vgap="20">
     <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
+    <TableView fx:id="childrenTable">
 
+    </TableView>
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
           spacing="400" minWidth="800" alignment="CENTER">
         <HBox>

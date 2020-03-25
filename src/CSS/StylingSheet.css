@@ -14,6 +14,7 @@
 
 .button:hover {
     -fx-background-color: rgb(50, 93, 129);
+    -fx-cursor: hand;
 }
 
 .headerLabelStyling {
@@ -30,7 +31,6 @@
     -fx-border-color: grey;
     -fx-border-width: 5;
     -fx-border-radius: 10px;
-    -fx-cursor: url("images/icons8-pacifier-80.png");
 }
 
 #btn {
