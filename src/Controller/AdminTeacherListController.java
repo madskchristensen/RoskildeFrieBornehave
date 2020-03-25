@@ -23,19 +23,21 @@ public class AdminTeacherListController implements Initializable {
     public Button guardian;
     public Button update;
     public Button delete;
+    private TableManager tableManager;
+    private MemberRepository teacherRepo;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            TableManager tableManager = new TableManager();
+            tableManager = new TableManager();
             //pass the Column names and column properties to the createTable method
             String[] colNavn = new String[]{"ID", "Fornavn", "Efternavn", "Adresse", "Telefon Nummer", "E-mail"};
             //the column Properties (colProp) are the names of the class attributes you want to read
             String[] colProp = new String[]{"id", "firstName", "lastName", "address", "phoneNumber", "email"};
             //the column name and property arrays must run in the same order
-            MemberRepository teacherRepository = new TeacherRepository("administrator", "admin_pass");
+            teacherRepo = new TeacherRepository("administrator", "admin_pass");
             //initialize the table
-            TableView table = tableManager.createTable(colNavn, colProp, teacherRepository.getAllMembers());
+            TableView table = tableManager.createTable(colNavn, colProp, teacherRepo.getAllMembers());
             //add table to fxml
             gridPane.add(table, 0, 0);
         } catch (SQLException e) {
@@ -54,5 +56,10 @@ public class AdminTeacherListController implements Initializable {
     }
 
     public void deleteFromTeacherList(ActionEvent actionEvent) {
+        try {
+            teacherRepo.deleteMember(tableManager.getSelected());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

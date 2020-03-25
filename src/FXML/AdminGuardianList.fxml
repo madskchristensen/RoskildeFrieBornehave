@@ -9,7 +9,7 @@
 <?import javafx.scene.image.Image?>
 <GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controller.AdminGuardianListController"
           styleClass="GridpaneBorderStyling"
-          alignment="CENTER" hgap="0" vgap="20">
+          alignment="CENTER" hgap="0" vgap="20" fx:id="gridPane">
     <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
 
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
