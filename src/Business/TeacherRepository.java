@@ -39,7 +39,7 @@ public class TeacherRepository implements MemberRepository {
 
     public Teacher[] getAllMembers() throws SQLException{
         connection.openConnection();
-        ResultSet rs = connection.select("Teacher", "*");
+        ResultSet rs = connection.select("teacher", "*");
         ArrayList<Teacher> alg = new ArrayList<>();
         while (rs.next()) {
             alg.add(new Teacher(rs.getInt("id"), rs.getString("first_name"),

@@ -44,7 +44,7 @@ public class GuardianRepository implements MemberRepository {
         while (rs.next()) {
             alg.add(new Guardian(rs.getInt("id"), rs.getString("first_name"),
                     rs.getString("last_name"), rs.getString("address"),
-                    rs.getString("phoneNr"), rs.getString("email")));
+                    rs.getString("telefon"), rs.getString("email")));
         }
         connection.closeConnection();
         return alg.toArray(new Guardian[alg.size()]);
