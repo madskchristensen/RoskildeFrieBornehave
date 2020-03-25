@@ -21,7 +21,6 @@ public class AdminChildListController implements Initializable{
     public Button create;
     public Button update;
     public Button delete;
-    private TableView table;
     private TableManager tableManager;
     private MemberRepository childRep;
 
@@ -35,10 +34,8 @@ public class AdminChildListController implements Initializable{
         String[] colProp = new String[] {"id", "firstName", "lastName", "age", "classroom", "birthday"};
         //the column name and property arrays must run in the same order
         childRep = new ChildRepository("administrator", "admin_pass");
-        //initialize the table
-        table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
-        //add table to fxml
-        gridPane.add(table, 0, 0);
+        //initialize the table and add it to the Main view
+        gridPane.add(tableManager.createTable(colName, colProp, childRep.getAllMembers()), 0, 0);
     } catch (SQLException e){
         e.printStackTrace();
     }
@@ -48,7 +45,7 @@ public class AdminChildListController implements Initializable{
     public void readGuardian(ActionEvent actionEvent) throws IOException {
             SceneManager sceneManager = new SceneManager(new Stage());
             sceneManager.setSize(250,200);
-            sceneManager.switchScene("PopUp.fxml", "Værger");
+            sceneManager.switchScene("GuardianPopUp.fxml", "Værger");
         }
 
 
@@ -60,9 +57,14 @@ public class AdminChildListController implements Initializable{
     }
 
     public void updateChildList(ActionEvent actionEvent) {
+        System.out.println(tableManager.getSelected());
     }
 
     public void deleteFromChildList(ActionEvent actionEvent) {
+        try {
+            childRep.deleteMember(tableManager.getSelected());
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
-
 }

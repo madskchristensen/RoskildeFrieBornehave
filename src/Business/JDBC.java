@@ -100,7 +100,7 @@ public class JDBC {
     }
 
     public void delete(String table, String where) throws SQLException {
-        stmt.executeQuery("DELETE FROM " + table + " WHERE " + where + ";");
+        stmt.executeUpdate("DELETE FROM " + table + " WHERE " + where + ";");
     }
 
 

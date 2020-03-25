@@ -16,7 +16,7 @@ import java.util.Set;
 
 
 public class TableManager{
-    private TableView table;
+    private TableView<Member> table;
     private ObservableList<Member> ob;
 
     public TableView createTable(String[] columnNames, String[] columnProporties, Member[] members){
@@ -48,6 +48,9 @@ public class TableManager{
             ob.add(m);
         }
         table.setItems(ob);
+    }
 
+    public Member getSelected(){
+        return table.getSelectionModel().getSelectedItem();
     }
 }
