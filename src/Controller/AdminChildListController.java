@@ -39,7 +39,7 @@ public class AdminChildListController implements Initializable{
             table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
             //add table to fxml
             gridPane.add(table, 0, 0);
-        }catch (SQLException e){
+        } catch (SQLException e){
             e.printStackTrace();
         }
 

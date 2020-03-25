@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TeacherRepository implements MemberRepository {
-    JDBC connection;
+    private JDBC connection;
 
-    TeacherRepository(String username, String password) throws SQLException{
+    public TeacherRepository(String username, String password) throws SQLException{
         connection = new JDBC(username, password);
     }
 
@@ -39,7 +39,7 @@ public class TeacherRepository implements MemberRepository {
 
     public Teacher[] getAllMembers() throws SQLException{
         connection.openConnection();
-        ResultSet rs = connection.select("guardian", "*");
+        ResultSet rs = connection.select("Teacher", "*");
         ArrayList<Teacher> alg = new ArrayList<>();
         while (rs.next()) {
             alg.add(new Teacher(rs.getInt("id"), rs.getString("first_name"),
