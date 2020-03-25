@@ -33,7 +33,7 @@ public class AdminChildListController implements Initializable{
             //the column Properties (colProp) are the names of the class attributes you want to read
             String[] colProp = new String[] {"id", "firstName", "lastName", "classroom"};
             //the column name and property arrays must run in the same order
-            childRep = new ChildRepository("employee", "password");
+            childRep = new ChildRepository("administrator", "admin_pass");
             //initialize the table and add it to the Main view
             gridPane.add(tableManager.createTable(colName, colProp, childRep.getAllMembers()), 0, 0);
         }catch (SQLException e){
@@ -61,6 +61,10 @@ public class AdminChildListController implements Initializable{
     }
 
     public void deleteFromChildList(ActionEvent actionEvent) {
+        try {
+            childRep.deleteMember(tableManager.getSelected());
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
-
 }
