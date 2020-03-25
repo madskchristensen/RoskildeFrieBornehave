@@ -28,7 +28,6 @@
 }
 
 .GridpaneBorderStyling {
-    -fx-border-color: grey;
     -fx-border-width: 5;
     -fx-border-radius: 10px;
 }
@@ -51,7 +50,7 @@
     -fx-background-insets: -8;
 }
 
-#buttonLoginAdmin{
+#buttonLoginAdmin {
 
     -fx-background-image: url("images/icons8-clipboard-96.png");
     -fx-background-position: -2;
@@ -60,6 +59,4 @@
     -fx-background-radius: 5;
     -fx-font-weight: bold;
     -fx-background-insets: -8;
-
-
 }
