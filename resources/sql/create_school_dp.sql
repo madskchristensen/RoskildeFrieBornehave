@@ -3,7 +3,7 @@ CREATE DATABASE school;
 
 USE school;
 
-CREATE TABLE Guardian(
+CREATE TABLE guardian(
 	id	INT	AUTO_INCREMENT	PRIMARY KEY,
 	first_name VARCHAR(20)	NOT NULL,
     last_name	VARCHAR(50)	NOT NULL,
@@ -42,10 +42,12 @@ CREATE TABLE child_guardian_relationship(
     child_id INT,
     CONSTRAINT fk_guardian_id
 		FOREIGN KEY(guardian_id)
-        REFERENCES guardian(id),
+        REFERENCES guardian(id)
+        ON DELETE CASCADE,
 	CONSTRAINT fk_child_id
 		FOREIGN KEY(child_id)
         REFERENCES child(id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE teacher_class_relationship(
@@ -53,10 +55,12 @@ CREATE TABLE teacher_class_relationship(
     class_id INT,
 	CONSTRAINT fk_teacher_id
 		FOREIGN KEY(teacher_id)
-        REFERENCES teacher(id),
+        REFERENCES teacher(id)
+        ON DELETE CASCADE,
 	CONSTRAINT fk_class_id
 		FOREIGN KEY(class_id)
         REFERENCES class(id)
+        ON DELETE CASCADE
 );
 
 DROP USER IF EXISTS employee@localhost;

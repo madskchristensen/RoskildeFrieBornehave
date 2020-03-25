@@ -9,6 +9,7 @@ public class GuardianRepository implements MemberRepository {
 
     public GuardianRepository(String username, String password) throws SQLException{
         connection = new JDBC(username, password);
+
     }
 
     @Override

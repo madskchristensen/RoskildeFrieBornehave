@@ -63,6 +63,7 @@ public class AdminChildListController implements Initializable{
     public void deleteFromChildList(ActionEvent actionEvent) {
         try {
             childRep.deleteMember(tableManager.getSelected());
+            tableManager.updateTable(childRep.getAllMembers());
         }catch(SQLException e){
             e.printStackTrace();
         }
