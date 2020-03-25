@@ -16,13 +16,14 @@ import java.util.Set;
 
 
 public class TableManager{
-    TableView table;
+    private TableView table;
+    private ObservableList<Member> ob;
 
     public TableView createTable(String[] columnNames, String[] columnProporties, Member[] members){
         table = new TableView();
 
         //makes data readable for table
-        ObservableList<Member> ob = FXCollections.observableArrayList();
+        ob = FXCollections.observableArrayList();
         for(Member m: members){
             ob.add(m);
         }
@@ -39,5 +40,14 @@ public class TableManager{
         table.setItems(ob);
 
         return table;
+    }
+
+    public void updateTable(Member[] members){
+        ob.clear();
+        for(Member m: members){
+            ob.add(m);
+        }
+        table.setItems(ob);
+
     }
 }

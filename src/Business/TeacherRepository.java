@@ -53,7 +53,7 @@ public class TeacherRepository implements MemberRepository {
     @Override
     public void deleteMember(Member member) throws SQLException{
         connection.openConnection();
-        connection.delete("Teacher", "id = " + member.getId());
+        connection.delete("teacher", "id = " + member.getId());
         connection.closeConnection();
     }
 

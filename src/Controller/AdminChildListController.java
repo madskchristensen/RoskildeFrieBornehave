@@ -22,19 +22,21 @@ public class AdminChildListController implements Initializable{
     public Button update;
     public Button delete;
     private TableView table;
+    private TableManager tableManager;
+    private MemberRepository childRep;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            TableManager tm = new TableManager();
+            tableManager = new TableManager();
             //pass the Column names and column properties to the createTable method
-            String[] colNavn = new String[] {"ID", "Fornavn", "Efternavn", "Stue"};
+            String[] colName = new String[] {"ID", "Fornavn", "Efternavn", "Stue"};
             //the column Properties (colProp) are the names of the class attributes you want to read
             String[] colProp = new String[] {"id", "firstName", "lastName", "classroom"};
             //the column name and property arrays must run in the same order
-            MemberRepository cr = new ChildRepository("employee", "password");
+            childRep = new ChildRepository("employee", "password");
             //initialize the table
-            table = tm.createTable(colNavn, colProp, cr.getAllMembers());
+            table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
             //add table to fxml
             gridPane.add(table, 0, 0);
         }catch (SQLException e){
@@ -62,15 +64,5 @@ public class AdminChildListController implements Initializable{
 
     public void deleteFromChildList(ActionEvent actionEvent) {
     }
-
-
-   /*public void initialize() {
-        TableColumn id = new TableColumn("ID");
-        TableColumn firstName = new TableColumn("firstName");
-        TableColumn lastName = new TableColumn("lastName");
-        TableColumn classroom = new TableColumn("class");
-    }
-*/
-
 
 }
