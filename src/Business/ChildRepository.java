@@ -2,6 +2,7 @@ package Business;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ChildRepository implements MemberRepository {
@@ -16,7 +17,7 @@ public class ChildRepository implements MemberRepository {
         connection.openConnection();
         ResultSet rs = connection.select("child", "*", "id = " + id);
         Child child = new Child(rs.getInt("id"), rs.getString("first_name"),
-                rs.getString("last_name"), rs.getInt("class"));
+                rs.getString("last_name"), rs.getInt("class"), LocalDate.parse(rs.getDate("birthday").toString()));
         connection.closeConnection();
         return child;
     }
@@ -29,7 +30,7 @@ public class ChildRepository implements MemberRepository {
         ArrayList<Child> alc = new ArrayList<>();
         while(rs.next()){
             alc.add(new Child(rs.getInt("id"), rs.getString("first_name"),
-                    rs.getString("last_name"), rs.getInt("class")));
+                    rs.getString("last_name"), rs.getInt("class"), LocalDate.parse(rs.getDate("birthday").toString())));
         }
         connection.closeConnection();
         return alc.toArray(new Child[alc.size()]);
@@ -41,7 +42,7 @@ public class ChildRepository implements MemberRepository {
         ArrayList<Child> alg = new ArrayList<>();
         while (rs.next()) {
             alg.add(new Child(rs.getInt("id"), rs.getString("first_name"),
-                    rs.getString("last_name"), rs.getInt("class")));
+                    rs.getString("last_name"), rs.getInt("class"), LocalDate.parse(rs.getDate("birthday").toString())));
         }
         connection.closeConnection();
         return alg.toArray(new Child[alg.size()]);
@@ -57,9 +58,9 @@ public class ChildRepository implements MemberRepository {
     @Override
     public void createMember(Member member) throws SQLException{
         connection.openConnection();
-        Guardian guardian = (Guardian) member;
-        connection.insert("child", new String [] {guardian.getFirstName(), guardian.getLastName(),
-                guardian.getAddress(), guardian.getPhoneNumber(), guardian.getEmail()});
+        Child child = (Child) member;
+
+        connection.insert("child", new String [] {child.getFirstName(), child.getLastName(), Integer.toString(child.getClassroom()), child.getBirthday().toString()});
         connection.closeConnection();
     }
 

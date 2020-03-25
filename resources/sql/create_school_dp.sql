@@ -22,6 +22,7 @@ CREATE TABLE child(
     first_name VARCHAR(20)	NOT NULL,
     last_name	VARCHAR(50)	NOT NULL,
     class	INT,
+	birthday 	DATE NOT NULL,
     CONSTRAINT fk_class
 		FOREIGN KEY (class)
         REFERENCES class(id)

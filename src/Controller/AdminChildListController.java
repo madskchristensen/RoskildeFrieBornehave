@@ -29,19 +29,19 @@ public class AdminChildListController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             tableManager = new TableManager();
-            //pass the Column names and column properties to the createTable method
-            String[] colName = new String[] {"ID", "Fornavn", "Efternavn", "Stue"};
-            //the column Properties (colProp) are the names of the class attributes you want to read
-            String[] colProp = new String[] {"id", "firstName", "lastName", "classroom"};
-            //the column name and property arrays must run in the same order
-            childRep = new ChildRepository("employee", "password");
-            //initialize the table
-            table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
-            //add table to fxml
-            gridPane.add(table, 0, 0);
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
+        //pass the Column names and column properties to the createTable method
+        String[] colName = new String[] {"Nummer", "Fornavn", "Efternavn", "Alder", "Stue", "Fødselsdato"};
+        //the column Properties (colProp) are the names of the class attributes you want to read
+        String[] colProp = new String[] {"id", "firstName", "lastName", "age", "classroom", "birthday"};
+        //the column name and property arrays must run in the same order
+        childRep = new ChildRepository("administrator", "admin_pass");
+        //initialize the table
+        table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
+        //add table to fxml
+        gridPane.add(table, 0, 0);
+    } catch (SQLException e){
+        e.printStackTrace();
+    }
 
     }
 
