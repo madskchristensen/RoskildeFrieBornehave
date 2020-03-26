@@ -39,13 +39,11 @@ public class JDBC {
 
     public ResultSet select(String table, String column) throws SQLException {
         rs = stmt.executeQuery("SELECT " + column + " FROM " + table + ";");
-        rs.next();
         return rs;
     }
 
     public ResultSet select(String table, String column, String where) throws SQLException {
         rs = stmt.executeQuery("SELECT " + column + " FROM " + table + " WHERE " + where + ";");
-        rs.next();
         return rs;
     }
 
