@@ -32,7 +32,7 @@ public class AdminGuardianListController implements Initializable {
             //the column Properties (colProp) are the names of the class attributes you want to read
             String[] colProp = new String[]{"id", "firstName", "lastName", "address", "phoneNumber", "email"};
             //the column name and property arrays must run in the same order
-            guardianRepo = new GuardianRepository("administrator", "admin_pass");
+            guardianRepo = new GuardianRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
             //initialize the table
             TableView table = tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers());
             //add table to fxml

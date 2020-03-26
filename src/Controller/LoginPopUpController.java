@@ -61,7 +61,7 @@ public class LoginPopUpController implements Initializable {
         try {
             JDBC jdbc = new JDBC(loginUsername.getText(), loginPassword.getText());
             jdbc.openConnection();
-
+            Main.sceneManager.setUser(loginUsername.getText(), loginPassword.getText());
         } catch (SQLException e) {
             errorDialog.show();
             loginUsername.clear();

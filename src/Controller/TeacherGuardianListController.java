@@ -32,7 +32,7 @@ public class TeacherGuardianListController implements Initializable {
             //the column Properties (colProp) are the names of the class attributes you want to read
             String[] colProp = new String[]{"id", "firstName", "lastName", "address", "phoneNumber", "email"};
             //the column name and property arrays must run in the same order
-            teacherRepo = new TeacherRepository("administrator", "admin_pass");
+            teacherRepo = new TeacherRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
             //initialize the table
             TableView table = tableManager.createTable(colNavn, colProp, teacherRepo.getAllMembers());
             //add table to fxml

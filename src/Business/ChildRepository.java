@@ -48,6 +48,23 @@ public class ChildRepository implements MemberRepository {
         return alg.toArray(new Child[alg.size()]);
     }
 
+    public Guardian[] getGuardians(Member member) throws SQLException{
+       connection.openConnection();
+        ResultSet rs = connection.select("guardian JOIN child_guardian_relationship cgr\n" +
+                "        ON guardian.id = cgr.guardian_id\n" +
+                "        JOIN child c\n" +
+                "        ON c.id = cgr.child_id", "guardian.*", "c.id = " + member.getId());
+        ArrayList<Guardian> alg = new ArrayList<>();
+
+        while (rs.next()) {
+            alg.add(new Guardian(rs.getInt("id"), rs.getString("first_name"),
+                    rs.getString("last_name"),rs.getString("address"),
+                    rs.getString("telefon"), rs.getString("email")));
+        }
+        connection.closeConnection();
+        return alg.toArray(new Guardian[alg.size()]);
+    }
+
     @Override
     public void deleteMember(Member member) throws SQLException{
         connection.openConnection();

@@ -20,6 +20,8 @@ public class SceneManager {
     private String previousTitle;
     private final String PATHTOFXML = "/FXML/";
     private Parent sceneRoot;
+    private String username;
+    private String password;
 
     //Setting size of window
     private Rectangle2D primScreenBounds;
@@ -76,5 +78,13 @@ public class SceneManager {
         stage.setTitle(title);
         stage.setScene(sceneList.get(sceneName));
         stage.show();
+    }
+
+    public void setUser(String username, String password){
+        this.username = username;
+        this.password = password;
+    }
+    public String[] getUser(){
+        return new String[] {username, password};
     }
 }
