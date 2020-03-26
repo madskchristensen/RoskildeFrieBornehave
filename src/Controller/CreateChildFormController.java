@@ -2,6 +2,7 @@ package Controller;
 
 import Business.Child;
 import Business.ChildRepository;
+import Business.TableManager;
 import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -53,13 +54,15 @@ public class CreateChildFormController implements Initializable {
         try {
             ChildRepository childRep = new ChildRepository("administrator","admin_pass");
             Child child = new Child();
+
             child.setFirstName(nameTF.getText());
             child.setLastName(lastNameTF.getText());
             child.setBirthday(birthDate.getValue());
-
-            //child.setClassroom(classRoom.getValue().toString());
+            child.setClassroom(classRoom.getValue());
 
             childRep.createMember(child);
+
+            TableManager tm = new TableManager();
         } catch (SQLException e) {
             e.printStackTrace();
         }

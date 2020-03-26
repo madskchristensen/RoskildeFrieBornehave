@@ -17,7 +17,7 @@ public class ChildRepository implements MemberRepository {
         connection.openConnection();
         ResultSet rs = connection.select("child", "*", "id = " + id);
         Child child = new Child(rs.getInt("id"), rs.getString("first_name"),
-                rs.getString("last_name"), rs.getInt("class"), LocalDate.parse(rs.getDate("birthday").toString()));
+                rs.getString("last_name"), rs.getString("class"), LocalDate.parse(rs.getDate("birthday").toString()));
         connection.closeConnection();
         return child;
     }
@@ -30,7 +30,7 @@ public class ChildRepository implements MemberRepository {
         ArrayList<Child> alc = new ArrayList<>();
         while(rs.next()){
             alc.add(new Child(rs.getInt("id"), rs.getString("first_name"),
-                    rs.getString("last_name"), rs.getInt("class"), LocalDate.parse(rs.getDate("birthday").toString())));
+                    rs.getString("last_name"), rs.getString("class"), LocalDate.parse(rs.getDate("birthday").toString())));
         }
         connection.closeConnection();
         return alc.toArray(new Child[alc.size()]);
@@ -42,7 +42,7 @@ public class ChildRepository implements MemberRepository {
         ArrayList<Child> alg = new ArrayList<>();
         while (rs.next()) {
             alg.add(new Child(rs.getInt("id"), rs.getString("first_name"),
-                    rs.getString("last_name"), rs.getInt("class"), LocalDate.parse(rs.getDate("birthday").toString())));
+                    rs.getString("last_name"), rs.getString("class"), LocalDate.parse(rs.getDate("birthday").toString())));
         }
         connection.closeConnection();
         return alg.toArray(new Child[alg.size()]);
@@ -77,7 +77,8 @@ public class ChildRepository implements MemberRepository {
         connection.openConnection();
         Child child = (Child) member;
 
-        connection.insert("child", new String [] {child.getFirstName(), child.getLastName(), Integer.toString(child.getClassroom()), child.getBirthday().toString()});
+        connection.insert("child", new String [] {"first_name", "last_name", "class", "birthday"},
+                new String [] {child.getFirstName(), child.getLastName(), child.getClassroom(), child.getBirthday().toString()});
         connection.closeConnection();
     }
 
