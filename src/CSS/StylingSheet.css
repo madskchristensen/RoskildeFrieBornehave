@@ -5,13 +5,11 @@
     -fx-font-size: 14;
 }
 .buttonStyling {
-    -fx-background-color:
-            #3c7fb1,
-            linear-gradient(#fafdfe, #e8f5fc),
-            linear-gradient(#d1defd 0%, #b7d9fc 49%, #a3cefd 50%, #8fbbf5 100%);
-
+    -fx-background-color: linear-gradient(#d1defd 0%, #b7d9fc 49%, #a3cefd 50%, #8fbbf5 100%);
     -fx-text-fill: white;
+    -fx-font-weight: bold;
     -fx-font-size: 20;
+    -fx-display-caret: 34;
 
 }
 
@@ -21,7 +19,7 @@
 }
 
 .headerLabelStyling {
-    -fx-text-fill: steelblue;
+    -fx-text-fill: lightblue;
     -fx-font-size: 40;
 }
 
