@@ -1,9 +1,6 @@
 package Controller;
 
-import Business.Main;
-import Business.MemberRepository;
-import Business.TableManager;
-import Business.TeacherRepository;
+import Business.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -63,5 +61,11 @@ public class AdminTeacherListController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void createTeacherForm(ActionEvent actionEvent) throws IOException {
+        SceneManager sceneManager = new SceneManager(new Stage());
+        sceneManager.setSize(500,400);
+        sceneManager.switchScene("CreateTeacherForm.fxml", "Lav pædagog");
     }
 }

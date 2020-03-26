@@ -18,6 +18,7 @@
           alignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
 
         <HBox spacing="10" >
+            <Button styleClass="buttonStyling" text="Opret" fx:id="create" prefWidth="150" prefHeight="50" onAction="#createTeacherForm"/>
             <Button styleClass="buttonStyling" text="Vagtplan" fx:id="guardian" prefWidth="150" minHeight="50" onAction="#readTeacherShift"/>
             <Button styleClass="buttonStyling" text="Rediger" fx:id="update" prefWidth="150" prefHeight="50" onAction="#updateTeacherList"/>
             <Button styleClass="buttonStyling" text="Slet" fx:id="delete" prefWidth="150" prefHeight="50" onAction="#deleteFromTeacherList"/>
