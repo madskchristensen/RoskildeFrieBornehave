@@ -1,4 +1,4 @@
-package Controller;
+package Business;
 
 import Business.SceneManager;
 import javafx.fxml.FXMLLoader;
@@ -14,11 +14,11 @@ public class PopUp extends Stage{
     public GridPane grid;
     FXMLLoader fxmlLoader;
 
-    PopUp(String title, String fxmlFil){
+    public PopUp(String title, String fxmlFil){
         try {
             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/" + fxmlFil));
             setTitle(title);
-            setScene(new Scene(fxmlLoader.load(), 300, 200));
+            setScene(new Scene(fxmlLoader.load()));
         }catch(IOException io){
             io.printStackTrace();
         }

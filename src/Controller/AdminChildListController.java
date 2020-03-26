@@ -5,10 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -48,7 +46,6 @@ public class AdminChildListController implements Initializable{
     }
 
     public void readGuardian(ActionEvent actionEvent) throws IOException {
-        GuardianPopUpController pop = new GuardianPopUpController((Child) tableManager.getSelected());
         }
 
 
@@ -57,9 +54,13 @@ public class AdminChildListController implements Initializable{
     }
 
     public void addToChildList(ActionEvent actionEvent) throws IOException {
-        SceneManager sceneManager = new SceneManager(new Stage());
-        sceneManager.setSize(500,400);
-        sceneManager.switchScene("CreateChildForm.fxml", "Opret barn");
+        try {
+            PopUp pop = new PopUp("Opret Barn", "CreateChildForm.fxml");
+            pop.showAndWait();
+            tableManager.updateTable(childRep.getAllMembers());
+        }catch(SQLException sql){
+            sql.printStackTrace();
+        }
     }
 
     public void updateChildList(ActionEvent actionEvent) {
