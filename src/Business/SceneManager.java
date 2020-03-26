@@ -69,7 +69,7 @@ public class SceneManager {
         previousTitle = currentTitle;
 
         if(!sceneList.containsKey(sceneName)) {
-            sceneRoot = FXMLLoader.load(getClass().getResource(PATHTOFXML + sceneName));
+            sceneRoot = loader.load(getClass().getResource(PATHTOFXML + sceneName));
             sceneList.put(sceneName, new Scene(sceneRoot, stagesizex, stagesizey));
         }
 
