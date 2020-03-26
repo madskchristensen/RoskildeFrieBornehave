@@ -58,7 +58,10 @@ public class AdminChildListController implements Initializable{
         Main.sceneManager.getPreviousScene();
     }
 
-    public void addToChildList(ActionEvent actionEvent) {
+    public void addToChildList(ActionEvent actionEvent) throws IOException {
+        SceneManager sceneManager = new SceneManager(new Stage());
+        sceneManager.setSize(500,400);
+        sceneManager.switchScene("CreateChildForm.fxml", "Værger");
     }
 
     public void updateChildList(ActionEvent actionEvent) {
