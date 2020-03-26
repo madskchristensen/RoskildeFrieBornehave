@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,7 +50,10 @@ public class AdminGuardianListController implements Initializable {
         Main.sceneManager.getPreviousScene();
     }
 
-    public void handleCreateGuardian(ActionEvent actionEvent) {
+    public void handleCreateGuardian(ActionEvent actionEvent) throws IOException {
+        SceneManager sceneManager = new SceneManager(new Stage());
+        sceneManager.setSize(500,400);
+        sceneManager.switchScene("CreateGuardianForm.fxml", "Opret værge");
     }
 
     public void handleEdit(ActionEvent actionEvent) {
