@@ -5,7 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,14 +30,17 @@ public class AdminChildListController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             tableManager = new TableManager();
-        //pass the Column names and column properties to the createTable method
-        String[] colName = new String[] {"Nummer", "Fornavn", "Efternavn", "Alder", "Stue", "Fødselsdato"};
-        //the column Properties (colProp) are the names of the class attributes you want to read
-        String[] colProp = new String[] {"id", "firstName", "lastName", "age", "classroom", "birthday"};
-        //the column name and property arrays must run in the same order
-        childRep = new ChildRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
-        //initialize the table and add it to the Main view
-        gridPane.add(tableManager.createTable(colName, colProp, childRep.getAllMembers()), 0, 0);
+            //pass the Column names and column properties to the createTable method
+            String[] colName = new String[] {"ID", "Fornavn", "Efternavn", "Alder", "Stue", "Fødselsdato"};
+            //the column Properties (colProp) are the names of the class attributes you want to read
+            String[] colProp = new String[] {"id", "firstName", "lastName", "age", "classroom", "birthday"};
+            //the column name and property arrays must run in the same order
+            childRep = new ChildRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
+            //initialize the table and add it to the Main view
+            TableView table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
+            gridPane.add(table, 0, 0);
+            gridPane.setVgrow(table, Priority.ALWAYS);
+
     } catch (SQLException e){
         e.printStackTrace();
     }

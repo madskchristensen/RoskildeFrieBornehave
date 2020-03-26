@@ -11,20 +11,18 @@
           alignment="CENTER" hgap="0" vgap="20" fx:id="gridPane">
     <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
 
-
-
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
-              spacing="20">
-            <HBox>
-                <Button styleClass="buttonStyling" text="Tilbage" fx:id="back" minHeight="50" minWidth="100" onAction="#goBack"/>
-                <padding><Insets top="25" bottom="25" left="10"/></padding>
-            </HBox>
-            <HBox spacing="10" >
+              spacing="20" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" alignment="BOTTOM_CENTER">
+            <HBox spacing="10" alignment="CENTER_LEFT">
                 <Button styleClass="buttonStyling" text="Værge" fx:id="guardian" prefWidth="150" minHeight="50" onAction="#readGuardian"/>
                 <Button styleClass="buttonStyling" text="Opret" fx:id="create" prefWidth="150" prefHeight="50" onAction="#addToChildList"/>
                 <Button styleClass="buttonStyling" text="Rediger" fx:id="update" prefWidth="150" prefHeight="50" onAction="#updateChildList"/>
                 <Button styleClass="buttonStyling" text="Slet" fx:id="delete" prefWidth="150" prefHeight="50" onAction="#deleteFromChildList"/>
                 <padding><Insets top="25" right="10" bottom="25" left="15"/></padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT">
+                <Button styleClass="buttonStyling" text="Tilbage" fx:id="back" minHeight="50" minWidth="100" onAction="#goBack" alignment="CENTER_RIGHT"/>
+                <padding><Insets top="25" right="10" bottom="25" left="10"/></padding>
             </HBox>
         </HBox>
 

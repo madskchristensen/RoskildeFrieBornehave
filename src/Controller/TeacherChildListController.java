@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,7 +31,7 @@ public class TeacherChildListController implements Initializable {
         try {
             tableManager = new TableManager();
             //pass the Column names and column properties to the createTable method
-            String[] colName = new String[] {"Nummer", "Fornavn", "Efternavn", "Alder", "Stue", "Fødselsdato"};
+            String[] colName = new String[] {"ID", "Fornavn", "Efternavn", "Alder", "Stue", "Fødselsdato"};
             //the column Properties (colProp) are the names of the class attributes you want to read
             String[] colProp = new String[] {"id", "firstName", "lastName", "age", "classroom", "birthday"};
             //the column name and property arrays must run in the same order
@@ -39,6 +40,7 @@ public class TeacherChildListController implements Initializable {
             table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
             //add table to fxml
             gridPane.add(table, 0, 0);
+            gridPane.setVgrow(table, Priority.ALWAYS);
         } catch (SQLException e){
             e.printStackTrace();
         }

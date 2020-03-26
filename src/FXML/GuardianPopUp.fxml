@@ -8,11 +8,15 @@
 <?import javafx.geometry.Insets?>
 <?import java.net.URL?>
 
-<GridPane fx:controller="Controller.GuardianPopUpController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx" alignment="CENTER"
-      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" fx:id="gridpane">
-
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="Controller.GuardianPopUpController" styleClass="GridpaneBorderStyling"
+          alignment="CENTER" hgap="0" vgap="20" fx:id="gridPane">
+    <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
 
     <stylesheets>
         <URL value="@../CSS/StylingSheet.css" />
     </stylesheets>
+
+
+
 </GridPane>

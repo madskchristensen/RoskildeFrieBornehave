@@ -13,14 +13,14 @@
     <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
 
     <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
-          spacing="400" minWidth="800" alignment="CENTER">
-        <HBox>
-            <Button styleClass="buttonStyling" text="Tilbage" fx:id="backButton" minHeight="50" minWidth="100" onAction="#handleGoBack"/>
-            <padding><Insets top="25" bottom="25" left="10"/></padding>
-        </HBox>
+          alignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
         <HBox spacing="10" >
             <Button styleClass="buttonStyling" text="Børn" fx:id="childButton" prefWidth="150" prefHeight="50" onAction="#handleChild"/>
             <padding><Insets top="25" right="10" bottom="25" left="15"/></padding>
+        </HBox>
+        <HBox>
+            <Button styleClass="buttonStyling" text="Tilbage" fx:id="backButton" minHeight="50" minWidth="100" onAction="#handleGoBack"/>
+            <padding><Insets top="25" right="10" bottom="25" left="10"/></padding>
         </HBox>
     </HBox>
 

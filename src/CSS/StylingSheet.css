@@ -5,11 +5,9 @@
     -fx-font-size: 14;
 }
 .buttonStyling {
-
     -fx-background-color: steelblue;
     -fx-text-fill: white;
     -fx-font-size: 20;
-
 }
 
 .button:hover {
@@ -24,7 +22,6 @@
 
 .backGroundStyling {
     -fx-background-color: lightblue;
-    -fx-background-radius: 10px;
 }
 
 .GridpaneBorderStyling {
@@ -51,7 +48,6 @@
 }
 
 #buttonLoginAdmin {
-
     -fx-background-image: url("images/icons8-clipboard-96.png");
     -fx-background-position: -2;
     -fx-background-repeat: no-repeat;

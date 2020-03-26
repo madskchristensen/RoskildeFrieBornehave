@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,6 +38,7 @@ public class TeacherGuardianListController implements Initializable {
             TableView table = tableManager.createTable(colNavn, colProp, teacherRepo.getAllMembers());
             //add table to fxml
             gridPane.add(table, 0, 0);
+            gridPane.setVgrow(table, Priority.ALWAYS);
         } catch (SQLException e) {
             e.printStackTrace();
         }

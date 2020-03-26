@@ -31,7 +31,7 @@ public class TableManager{
         for(int i = 0; i < columnNames.length && i < columnProporties.length; i++){
             //Sets table columns
             TableColumn tc = new TableColumn<>(columnNames[i]);
-
+            tc.setMinWidth(75);
             //populates rows with data
             tc.setCellValueFactory(new PropertyValueFactory<Member, String>(columnProporties[i]));
             table.getColumns().add(tc);
