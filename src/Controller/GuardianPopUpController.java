@@ -3,6 +3,7 @@ package Controller;
 import Business.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
 
 import java.net.URL;
@@ -21,7 +22,9 @@ public class GuardianPopUpController extends PopUp{
             String[] colNames = new String[]{"Fornavn", "Efternavn", "Addresse", "Telefon"};
             String[] colProps = new String[]{"firstName", "lastName", "address", "phoneNumber"};
             Guardian[]  guards = childRep.getGuardians(child);
-            grid.add(tableManager.createTable(colNames, colProps, guards),0, 0);
+            TableView table = tableManager.createTable(colNames, colProps, guards);
+            table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            grid.add(table,0, 0);
         }catch(SQLException e){
             e.printStackTrace();
         }
