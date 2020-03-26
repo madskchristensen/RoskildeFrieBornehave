@@ -45,13 +45,13 @@
                         <Image url="@../CSS/images/user.png" />
                      </image>
                   </ImageView>
-                  <Rectangle fill="STEELBLUE" height="34.0" stroke="WHITE" strokeType="INSIDE" width="209.0">
+                  <Rectangle fill="#c6e5ff" height="34.0" stroke="WHITE" strokeType="INSIDE" width="209.0">
                      <effect>
                         <BoxBlur height="0.0" iterations="3" width="94.89" />
                      </effect>
                   </Rectangle>
             
-                         <Label layoutX="54.0" layoutY="7.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Indtast logininfo" textFill="WHITE" />
+                         <Label layoutX="54.0" layoutY="7.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Indtast logininfo" textFill="STEELBLUE" />
                </children>
             </AnchorPane>
          </center>
