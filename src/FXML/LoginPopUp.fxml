@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.geometry.*?>
@@ -32,8 +35,6 @@
                       <PasswordField fx:id="loginPassword" layoutX="47.0" layoutY="95.0" prefHeight="25.0" prefWidth="148.0" promptText="*********" />
                       <TextField fx:id="loginUsername" layoutX="47.0" layoutY="52.0" promptText="Brugernavn" />
                       <Label />
-
-                         <Label layoutX="54.0" layoutY="4.0" style="-fx-font-size: 14" text="Indtast logininfo" />
                   <ImageView layoutX="14.0" layoutY="96.0">
                      <image>
                         <Image url="@../CSS/images/key.png" />
@@ -44,6 +45,13 @@
                         <Image url="@../CSS/images/user.png" />
                      </image>
                   </ImageView>
+                  <Rectangle fill="STEELBLUE" height="34.0" stroke="WHITE" strokeType="INSIDE" width="209.0">
+                     <effect>
+                        <BoxBlur height="0.0" iterations="3" width="94.89" />
+                     </effect>
+                  </Rectangle>
+            
+                         <Label layoutX="54.0" layoutY="7.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Indtast logininfo" textFill="WHITE" />
                </children>
             </AnchorPane>
          </center>
