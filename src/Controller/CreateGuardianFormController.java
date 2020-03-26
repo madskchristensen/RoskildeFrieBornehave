@@ -1,5 +1,6 @@
 package Controller;
 
+import Business.*;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -9,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CreateGuardianFormController implements Initializable {
@@ -43,7 +45,21 @@ public class CreateGuardianFormController implements Initializable {
 
         //Something something add guardian
         //...
+        try {
+            GuardianRepository guardianRep = new GuardianRepository("administrator","admin_pass");
+            Guardian guardian = new Guardian();
 
+            guardian.setFirstName(nameTF.getText());
+            guardian.setLastName(lastNameTF.getText());
+            guardian.setAddress(addressTF.getText());
+            guardian.setPhoneNumber(phoneNrTF.getText());
+            guardian.setEmail(eMailTF.getText());
+
+            guardianRep.createMember(guardian);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void handleCancel(ActionEvent actionEvent) {

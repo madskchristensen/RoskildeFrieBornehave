@@ -8,6 +8,9 @@ public class Guardian implements Member {
     private String phoneNumber;
     private String email;
 
+    public Guardian(){
+    }
+
     Guardian(int id, String firstName, String lastName, String address, String phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
