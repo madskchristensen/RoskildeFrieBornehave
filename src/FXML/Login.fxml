@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
@@ -23,9 +24,18 @@
       </Rectangle>
        <HBox alignment="CENTER" prefHeight="232.0" prefWidth="648.0" spacing="200" GridPane.columnIndex="0" GridPane.rowIndex="0">
           <children>
-              <Button fx:id="buttonTeacherLogin" onAction="#handleLogin" prefHeight="50" prefWidth="200" styleClass="buttonStyling" text="Pædagog" />
+              <Button fx:id="buttonTeacherLogin" onAction="#handleLogin" prefHeight="50" prefWidth="200" styleClass="buttonStyling" text="Pædagog">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+               <effect>
+                  <Reflection />
+               </effect></Button>
       
-              <Button fx:id="buttonLoginAdmin" onAction="#handleLogin" prefHeight="50" prefWidth="200" styleClass="buttonStyling" text="Administration" />
+              <Button fx:id="buttonLoginAdmin" onAction="#handleLogin" prefHeight="50" prefWidth="200" styleClass="buttonStyling" text="Administration">
+               <effect>
+                  <Reflection />
+               </effect></Button>
           </children>
            <padding>
             <Insets bottom="90" left="75" right="75" top="90" />
