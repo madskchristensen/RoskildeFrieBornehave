@@ -37,8 +37,6 @@ public class AdminChildListController implements Initializable{
             //initialize the table and add it to the Main view
             TableView table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
             gridPane.add(table, 0, 0);
-            gridPane.setVgrow(table, Priority.ALWAYS);
-
     } catch (SQLException e){
         e.printStackTrace();
     }
@@ -46,6 +44,9 @@ public class AdminChildListController implements Initializable{
     }
 
     public void readGuardian(ActionEvent actionEvent) throws IOException {
+        PopUp pop = new PopUp("Værger", "PopUp.fxml");
+        GuardianPopUpController gpuc = new GuardianPopUpController((Child) tableManager.getSelected(), (GridPane) pop.getRoot());
+        pop.show();
         }
 
 

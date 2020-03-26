@@ -1,9 +1,6 @@
 package Controller;
 
-import Business.Main;
-import Business.MemberRepository;
-import Business.TableManager;
-import Business.TeacherRepository;
+import Business.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -38,7 +35,6 @@ public class TeacherGuardianListController implements Initializable {
             TableView table = tableManager.createTable(colNavn, colProp, teacherRepo.getAllMembers());
             //add table to fxml
             gridPane.add(table, 0, 0);
-            gridPane.setVgrow(table, Priority.ALWAYS);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -50,5 +46,8 @@ public class TeacherGuardianListController implements Initializable {
     }
 
     public void handleChild(ActionEvent actionEvent) {
+        PopUp pop = new PopUp("Børn", "PopUp.fxml");
+        ChildPopUpController cpuc = new ChildPopUpController((Guardian) tableManager.getSelected(), (GridPane) pop.getRoot());
+        pop.show();
     }
 }

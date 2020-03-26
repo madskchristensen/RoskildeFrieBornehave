@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -38,6 +39,8 @@ public class TableManager{
         }
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         table.setItems(ob);
+        GridPane.setVgrow(table, Priority.ALWAYS);
+        GridPane.setHgrow(table, Priority.ALWAYS);
 
         return table;
     }

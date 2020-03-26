@@ -39,7 +39,6 @@ public class AdminGuardianListController implements Initializable {
             TableView table = tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers());
             //add table to fxml
             gridPane.add(table, 0, 0);
-            gridPane.setVgrow(table, Priority.ALWAYS);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -68,7 +67,9 @@ public class AdminGuardianListController implements Initializable {
     }
 
     public void handleChild (ActionEvent actionEvent){
-
+        PopUp pop = new PopUp("Børn", "PopUp.fxml");
+        ChildPopUpController gpuc = new ChildPopUpController((Guardian) tableManager.getSelected(), (GridPane) pop.getRoot());
+        pop.show();
     }
 
 }

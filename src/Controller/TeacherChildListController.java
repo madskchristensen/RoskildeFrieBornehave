@@ -37,7 +37,6 @@ public class TeacherChildListController implements Initializable {
             table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
             //add table to fxml
             gridPane.add(table, 0, 0);
-            gridPane.setVgrow(table, Priority.ALWAYS);
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -50,6 +49,8 @@ public class TeacherChildListController implements Initializable {
 
 
     public void handleGuardian(ActionEvent actionEvent) {
-        GuardianPopUpController gpuc = new GuardianPopUpController((Child) tableManager.getSelected());
+        PopUp pop = new PopUp("Værger", "PopUp.fxml");
+        GuardianPopUpController gpuc = new GuardianPopUpController((Child) tableManager.getSelected(), (GridPane) pop.getRoot());
+        pop.show();
     }
 }
