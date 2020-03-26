@@ -62,7 +62,7 @@ public class GuardianRepository implements MemberRepository {
     public void createMember(Member member) throws SQLException{
         connection.openConnection();
         Guardian guardian = (Guardian) member;
-        connection.insert("guardian", new String [] {guardian.getFirstName(), guardian.getLastName(),
+        connection.insert("guardian", new String[] {"first_name", "last_name", "address", "telefon", "email"}, new String [] {guardian.getFirstName(), guardian.getLastName(),
                 guardian.getAddress(), guardian.getPhoneNumber(), guardian.getEmail()});
         connection.closeConnection();
     }

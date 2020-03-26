@@ -1,23 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
 
-<GridPane fx:controller="Controller.LoginController" xmlns:fx="http://javafx.com/fxml" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx"
-          alignment="center" hgap="0" vgap="0">
-<padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
-    <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER" spacing="200">
-        <Button styleClass="buttonStyling" text="Pædagog" fx:id="buttonTeacherLogin" prefWidth="200" prefHeight="50" onAction="#handleLogin"/>
-
-        <Button styleClass="buttonStyling" text="Administration" fx:id="buttonLoginAdmin" prefWidth="200" prefHeight="50" onAction="#handleLogin"/>
-        <padding><Insets right="75" left="75" top="90" bottom="90"/></padding>
-    </HBox>
-    <HBox GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER" spacing="200">
-        <Button text="Skip (teacher)" fx:id="buttonSkipLoginTeacher" prefWidth="200" prefHeight="20" onAction="#loginSkipTeacher"/>
-        <Button text="Skip (admin)" fx:id="buttonSkipLoginAdmin" prefWidth="200" prefHeight="20"  onAction="#loginSkipAdmin"/>
-    </HBox>
+<GridPane alignment="center" hgap="0" styleClass="GridpaneBorderStyling" vgap="0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+<padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+   <children>
+      <Rectangle arcHeight="3.0" arcWidth="1.0" fill="LIGHTBLUE" height="232.0" stroke="WHITE" strokeType="INSIDE" width="758.0">
+         <effect>
+            <BoxBlur height="0.0" iterations="3" width="192.73" />
+         </effect>
+      </Rectangle>
+       <HBox alignment="CENTER" prefHeight="232.0" prefWidth="648.0" spacing="200" GridPane.columnIndex="0" GridPane.rowIndex="0">
+          <children>
+              <Button fx:id="buttonTeacherLogin" onAction="#handleLogin" prefHeight="50" prefWidth="200" styleClass="buttonStyling" text="Pædagog" />
+      
+              <Button fx:id="buttonLoginAdmin" onAction="#handleLogin" prefHeight="50" prefWidth="200" styleClass="buttonStyling" text="Administration" />
+          </children>
+           <padding>
+            <Insets bottom="90" left="75" right="75" top="90" />
+         </padding>
+       </HBox>
+       <HBox alignment="CENTER" spacing="200" GridPane.columnIndex="0" GridPane.rowIndex="1">
+          <children>
+              <Button fx:id="buttonSkipLoginTeacher" onAction="#loginSkipTeacher" prefHeight="20" prefWidth="200" text="Skip (teacher)" />
+              <Button fx:id="buttonSkipLoginAdmin" onAction="#loginSkipAdmin" prefHeight="20" prefWidth="200" text="Skip (admin)" />
+          </children>
+       </HBox>
+   </children>
     <stylesheets>
         <URL value="@../CSS/StylingSheet.css" />
     </stylesheets>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>

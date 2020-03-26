@@ -61,7 +61,7 @@ public class TeacherRepository implements MemberRepository {
     public void createMember(Member member) throws SQLException{
         connection.openConnection();
         Teacher teach = (Teacher) member;
-        connection.insert("teacher", new String [] {teach.getFirstName(), teach.getLastName(),
+        connection.insert("teacher", new String[] {"first_name", "last_name", "address", "phoneNr", "email"}, new String [] {teach.getFirstName(), teach.getLastName(),
                 teach.getAddress(), teach.getPhoneNumber(), teach.getEmail()});
         connection.closeConnection();
     }

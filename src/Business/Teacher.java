@@ -8,6 +8,10 @@ public class Teacher implements Member {
     private String phoneNumber;
     private String email;
 
+    public Teacher(){
+
+    }
+
     Teacher(int id, String firstName, String lastName, String address, String phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
