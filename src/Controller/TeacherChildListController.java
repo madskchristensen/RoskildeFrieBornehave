@@ -1,9 +1,6 @@
 package Controller;
 
-import Business.ChildRepository;
-import Business.Main;
-import Business.MemberRepository;
-import Business.TableManager;
+import Business.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -53,5 +50,6 @@ public class TeacherChildListController implements Initializable {
 
 
     public void handleGuardian(ActionEvent actionEvent) {
+        GuardianPopUpController gpuc = new GuardianPopUpController((Child) tableManager.getSelected());
     }
 }
