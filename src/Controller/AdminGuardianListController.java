@@ -53,7 +53,7 @@ public class AdminGuardianListController implements Initializable {
     public void handleCreateGuardian(ActionEvent actionEvent) throws IOException {
         SceneManager sceneManager = new SceneManager(new Stage());
         sceneManager.setSize(500,400);
-        sceneManager.switchScene("CreateGuardianForm.fxml", "Værger");
+        sceneManager.switchScene("CreateGuardianForm.fxml", "Opret værge");
     }
 
     public void handleEdit(ActionEvent actionEvent) {
