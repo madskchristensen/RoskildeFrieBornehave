@@ -13,19 +13,18 @@ CREATE TABLE guardian(
 );
 
 CREATE TABLE class(
-	id INT	AUTO_INCREMENT PRIMARY KEY,
-    color_name VARCHAR(15)	NOT NULL
+    name VARCHAR(15)	PRIMARY KEY
 );
 
 CREATE TABLE child(
 	id	INT AUTO_INCREMENT	PRIMARY KEY,
     first_name VARCHAR(20)	NOT NULL,
     last_name	VARCHAR(50)	NOT NULL,
-    class	INT,
+    class	VARCHAR(15),
 	birthday 	DATE NOT NULL,
     CONSTRAINT fk_class
 		FOREIGN KEY (class)
-        REFERENCES class(id)
+        REFERENCES class(name)
 );
 
 CREATE TABLE teacher(
@@ -52,14 +51,14 @@ CREATE TABLE child_guardian_relationship(
 
 CREATE TABLE teacher_class_relationship(
 	teacher_id	INT,
-    class_id INT,
+    name VARCHAR(15),
 	CONSTRAINT fk_teacher_id
 		FOREIGN KEY(teacher_id)
         REFERENCES teacher(id)
         ON DELETE CASCADE,
-	CONSTRAINT fk_class_id
-		FOREIGN KEY(class_id)
-        REFERENCES class(id)
+	CONSTRAINT fk_name
+		FOREIGN KEY(name)
+        REFERENCES class(name)
         ON DELETE CASCADE
 );
 

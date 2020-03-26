@@ -6,7 +6,7 @@ public class Child implements Member {
     private int id;
     private String firstName;
     private String lastName;
-    private int classroom;
+    private String classroom;
     private int age;
     private LocalDate birthday;
 
@@ -19,7 +19,7 @@ public class Child implements Member {
         return currentDate.getYear() - birthday.getYear();
     }
 
-    public Child(int id, String firstName, String lastName, int classroom, LocalDate birthday) {
+    public Child(int id, String firstName, String lastName, String classroom, LocalDate birthday) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -65,11 +65,11 @@ public class Child implements Member {
         this.lastName = lastName;
     }
 
-    public int getClassroom() {
+    public String getClassroom() {
         return classroom;
     }
 
-    public void setClassroom(int classroom) {
+    public void setClassroom(String classroom) {
         this.classroom = classroom;
     }
 
