@@ -16,6 +16,7 @@ import java.io.IOException;
 public class PopUp<E>{
     private FXMLLoader loader;
     private Parent node;
+    private Stage stage;
 
     public PopUp(String fxmlFile){
         try{
@@ -31,16 +32,20 @@ public class PopUp<E>{
     }
 
     public void show(String title){
-            Stage stage = new Stage();
+            stage = new Stage();
             stage.setScene(new Scene(node));
             stage.setTitle(title);
             stage.show();
     }
 
     public void showAndWait(String title){
-            Stage stage = new Stage();
+            stage = new Stage();
             stage.setScene(new Scene(node));
             stage.setTitle(title);
             stage.showAndWait();
+    }
+
+    public Stage getStage() {
+        return stage;
     }
 }

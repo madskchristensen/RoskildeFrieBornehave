@@ -56,4 +56,8 @@ public class TableManager{
     public Member getSelected(){
         return table.getSelectionModel().getSelectedItem();
     }
+
+    public void clearSelection() {
+        table.getSelectionModel().clearSelection();
+    }
 }

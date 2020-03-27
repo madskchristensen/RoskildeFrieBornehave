@@ -1,6 +1,9 @@
 package Controller;
 
 import Business.*;
+import Utility.DialogBox;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -38,6 +41,14 @@ public class AdminGuardianListController implements Initializable {
             //initialize the table
             TableView table = tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers());
             //add table to fxml
+
+            // Disabler update og delete knappen hvis ikke et row er valgt i table
+            BooleanBinding rowNotSelected = Bindings
+                    .size(table.getSelectionModel().getSelectedItems())
+                    .isNotEqualTo(1);
+
+            editButton.disableProperty().bind(rowNotSelected);
+            deleteButton.disableProperty().bind(rowNotSelected);
             gridPane.add(table, 0, 0);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,20 +70,19 @@ public class AdminGuardianListController implements Initializable {
     }
 
     public void handleDelete(ActionEvent actionEvent) {
-        try {
-            guardianRepo.deleteMember(tableManager.getSelected());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            try {
+                guardianRepo.deleteMember(tableManager.getSelected());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
     }
 
     public void handleChild (ActionEvent actionEvent){
-        PopUp pop = new PopUp<ChildPopUpController>("ChildPopUp.fxml");
-        ChildPopUpController c = (ChildPopUpController) pop.getController();
-        Guardian guard = (Guardian) tableManager.getSelected();
-        System.out.println(c);
-        c.addTable(guard);
-        pop.show("Børn");
+            PopUp pop = new PopUp<ChildPopUpController>("ChildPopUp.fxml");
+            ChildPopUpController c = (ChildPopUpController) pop.getController();
+            Guardian guard = (Guardian) tableManager.getSelected();
+            c.addTable(guard);
+            pop.show("Børn");
+            tableManager.clearSelection();
     }
-
 }

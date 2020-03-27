@@ -1,6 +1,8 @@
 package Controller;
 
 import Business.*;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,6 +39,14 @@ public class TeacherChildListController implements Initializable {
             table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
             //add table to fxml
             gridPane.add(table, 0, 0);
+
+            // Disabler update og delete knappen hvis ikke et row er valgt i table
+            BooleanBinding rowNotSelected = Bindings
+                    .size(table.getSelectionModel().getSelectedItems())
+                    .isNotEqualTo(1);
+
+            guardianButton.disableProperty().bind(rowNotSelected);
+
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -48,10 +58,11 @@ public class TeacherChildListController implements Initializable {
     }
 
 
-    public void handleGuardian(ActionEvent actionEvent) {
+    public void handleGuardian(ActionEvent actionEvent) throws SQLException {
         PopUp pop = new PopUp<GuardianPopUpController>("GuardianPopUp.fxml");
         GuardianPopUpController g = (GuardianPopUpController) pop.getController();
         g.addTable((Child) tableManager.getSelected());
         pop.show("Værger");
+        tableManager.clearSelection();
     }
 }

@@ -1,6 +1,8 @@
 package Controller;
 
 import Business.*;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -40,6 +42,15 @@ public class AdminTeacherListController implements Initializable {
             //add table to fxml
             gridPane.add(table, 0, 0);
             gridPane.setVgrow(table, Priority.ALWAYS);
+
+            // Disabler update og delete knappen hvis ikke et row er valgt i table
+            BooleanBinding rowNotSelected = Bindings
+                    .size(table.getSelectionModel().getSelectedItems())
+                    .isNotEqualTo(1);
+
+            update.disableProperty().bind(rowNotSelected);
+            delete.disableProperty().bind(rowNotSelected);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

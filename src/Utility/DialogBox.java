@@ -39,7 +39,7 @@ public class DialogBox {
         label.setText(message);
     }
 
-    public void show() {
+    public void showAndWait() {
         label.setPadding(new Insets(10, 20, 20, 20));
         button.setMinSize(75, button.getHeight());
 
