@@ -65,7 +65,7 @@ public class AdminChildListController implements Initializable{
         }
     }
 
-    public void updateChildList(ActionEvent actionEvent) {
+    public void editChild(ActionEvent actionEvent) {
         PopUp pop = new PopUp<CreateChildFormController>("CreateChildForm.fxml");
         CreateChildFormController c = (CreateChildFormController) pop.getController();
         Child child = (Child) tableManager.getSelected();
