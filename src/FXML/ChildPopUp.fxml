@@ -9,6 +9,14 @@
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="Controller.ChildPopUpController"
-          fx:id="pane">
+          fx:id="pane"
+          alignment="CENTER"
+
+>
+
+    <HBox GridPane.RowIndex="2" GridPane.columnIndex="0" alignment="CENTER" spacing="10">
+        <MenuButton fx:id="menu" onAction="#addChild" text="Add Child"></MenuButton>
+        <Button  text="Delete Child"></Button>
+    </HBox>
 
 </GridPane>

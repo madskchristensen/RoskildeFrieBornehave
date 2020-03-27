@@ -18,6 +18,9 @@ public class PopUp<E>{
     private Parent node;
     private Stage stage;
 
+    public PopUp(){
+        this("PopUp.fxml");
+    }
     public PopUp(String fxmlFile){
         try{
             loader = new FXMLLoader(getClass().getResource("/fxml/" + fxmlFile));
