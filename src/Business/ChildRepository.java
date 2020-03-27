@@ -83,9 +83,14 @@ public class ChildRepository implements MemberRepository {
     }
 
     @Override
-    public void updateMember(String updatedColumn, String newValue, Member member) throws SQLException {
+    public void updateMember(Member member) throws SQLException {
         connection.openConnection();
-        connection.update("child", updatedColumn, newValue, "id = " + member.getId());
+        Child child = (Child) member;
+        String[] column = new String[]{"first_name", "last_name", "class", "birthday"};
+        String[] newValues = new String[] {child.getFirstName(), child.getLastName(), child.getClassroom(), child.getBirthday().toString()};
+        for(int i = 0; i < column.length; i++){
+            connection.update("child", column[i], newValues[i], "id = " + child.getId());
+        }
         connection.closeConnection();
     }
 }

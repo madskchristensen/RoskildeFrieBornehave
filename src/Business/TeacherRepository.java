@@ -67,9 +67,14 @@ public class TeacherRepository implements MemberRepository {
     }
 
     @Override
-    public void updateMember(String updatedColumn, String newValue, Member member) throws SQLException {
+    public void updateMember(Member member) throws SQLException {
         connection.openConnection();
-        connection.update("teacher", updatedColumn, newValue, "id = " + member.getId());
+        Teacher teacher = (Teacher) member;
+        String[] column = new String[]{"first_name", "last_name", "addresse", "telefon", "email"};
+        String[] newValues = new String[] {teacher.getFirstName(), teacher.getLastName(), teacher.getAddress(), teacher.getPhoneNumber(), teacher.getEmail()};
+        for(int i = 0; i < column.length; i++){
+            connection.update("teacher", column[i], newValues[i], "id = " + teacher.getId());
+        };
         connection.closeConnection();
     }
 }

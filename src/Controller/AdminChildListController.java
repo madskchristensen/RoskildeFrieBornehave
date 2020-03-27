@@ -67,6 +67,17 @@ public class AdminChildListController implements Initializable{
 
     public void updateChildList(ActionEvent actionEvent) {
         System.out.println(tableManager.getSelected());
+        PopUp pop = new PopUp<CreateChildFormController>("CreateChildForm.fxml");
+        CreateChildFormController c = (CreateChildFormController) pop.getController();
+        Child child = (Child) tableManager.getSelected();
+        c.setChild(child);
+        pop.showAndWait("Opdater Barn");
+        try {
+            tableManager.updateTable(childRep.getAllMembers());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void deleteFromChildList(ActionEvent actionEvent) {

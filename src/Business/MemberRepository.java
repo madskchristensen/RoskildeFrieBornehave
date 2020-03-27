@@ -7,6 +7,6 @@ public interface MemberRepository {
     Member[] getMembers(String name) throws SQLException;
     Member[] getAllMembers() throws SQLException;
     void deleteMember(Member member) throws SQLException;
-    void updateMember(String updatedColumn, String newValue, Member member) throws SQLException;
+    void updateMember(Member member) throws SQLException;
     void createMember(Member member) throws SQLException;
 }

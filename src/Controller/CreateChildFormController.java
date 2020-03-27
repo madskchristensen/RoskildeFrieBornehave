@@ -30,11 +30,13 @@ public class CreateChildFormController extends Stage{
     public Button saveButton;
     public Button cancelButton;
     public DatePicker birthDate;
+    private Child child;
 
 
 
     public void initialize() {
         // Disabler gem button indtil alle fields er udfyldt
+            child = new Child();
             BooleanBinding booleanBind = nameTF.textProperty().isEmpty().
                     or(lastNameTF.textProperty().isEmpty()).
                     or(classRoom.valueProperty().isNull());
@@ -57,14 +59,16 @@ public class CreateChildFormController extends Stage{
         //...
         try {
             ChildRepository childRep = new ChildRepository("administrator","admin_pass");
-            Child child = new Child();
 
             child.setFirstName(nameTF.getText());
             child.setLastName(lastNameTF.getText());
             child.setBirthday(birthDate.getValue());
             child.setClassroom(classRoom.getValue());
-
-            childRep.createMember(child);
+            if(child.getId() == 0) {
+                childRep.createMember(child);
+            }else{
+                childRep.updateMember(child);
+            }
 
             TableManager tm = new TableManager();
         } catch (SQLException e) {
@@ -77,4 +81,14 @@ public class CreateChildFormController extends Stage{
         Stage stage = (Stage) saveButton.getScene().getWindow();
         stage.close();
     }
+
+    public void setChild(Child child){
+        this.child = child;
+        nameTF.setText(child.getFirstName());
+        lastNameTF.setText(child.getLastName());
+        classRoom.setValue(child.getClassroom());
+        birthDate.setValue(child.getBirthday());
+    }
+
+
 }
