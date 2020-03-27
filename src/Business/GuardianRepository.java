@@ -41,16 +41,18 @@ public class GuardianRepository implements MemberRepository {
 
     public Child[] getChildren(Guardian guardian) throws SQLException{
     connection.openConnection();
-    ResultSet rs = connection.select("child JOIN child_guardian_relationship cgr\n" +
-            "        ON child.id = cgr.guardian_id\n" +
-            "        JOIN guardian g\n" +
-            "        ON g.id = cgr.child_id", "child.*", "g.id = " + guardian.getId());
+    ResultSet rs = connection.select("guardian JOIN child_guardian_relationship cgr\n" +
+            "        ON guardian.id = cgr.guardian_id\n" +
+            "        JOIN child c\n" +
+            "        ON c.id = cgr.child_id", "c.*", "guardian.id = " + guardian.getId());
     ArrayList<Child> alg = new ArrayList<>();
 
         while (rs.next()) {
-        alg.add(new Child(rs.getInt("id"), rs.getString("first_name"),
-                rs.getString("last_name"),rs.getString("class"),
-                LocalDate.parse(rs.getDate("birthday").toString())));
+            Child child = new Child(rs.getInt("id"), rs.getString("first_name"),
+                    rs.getString("last_name"),rs.getString("class"),
+                    LocalDate.parse(rs.getDate("birthday").toString()));
+            System.out.println(child);
+        alg.add(child);
     }
         connection.closeConnection();
         return alg.toArray(new Child[alg.size()]);
