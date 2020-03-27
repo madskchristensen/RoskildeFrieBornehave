@@ -23,18 +23,16 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" fillWidth="false" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginPopUpController">
+<VBox fx:id="window" alignment="CENTER" fillWidth="false" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginPopUpController">
     <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
    <children>
       <BorderPane prefHeight="195.0" prefWidth="209.0" VBox.vgrow="NEVER">
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
                <children>
-
-                   <Button id="btn" fx:id="buttonLogin" layoutX="65.0" layoutY="144.0" onAction="#loginPress" prefHeight="30.0" prefWidth="80.0" style="-fx-font-size: 14" styleClass="buttonStyling" text="   Log ind" />
-                   <PasswordField fx:id="loginPassword" layoutX="47.0" layoutY="95.0" prefHeight="25.0" prefWidth="148.0" promptText="*********" />
-                   <TextField fx:id="loginUsername" layoutX="47.0" layoutY="52.0" promptText="Brugernavn" />
-                   <Label />
+                      <PasswordField fx:id="loginPassword" layoutX="47.0" layoutY="95.0" prefHeight="25.0" prefWidth="148.0" promptText="*********" />
+                      <TextField fx:id="loginUsername" layoutX="47.0" layoutY="52.0" promptText="Brugernavn" />
+                      <Label />
                   <ImageView layoutX="14.0" layoutY="96.0">
                      <image>
                         <Image url="@../CSS/images/key.png" />

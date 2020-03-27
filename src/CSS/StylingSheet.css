@@ -39,6 +39,12 @@
      -fx-background-position: 2.4;
  }
 
+#btnAnnullerPopUp {
+    -fx-background-size: 18 18;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2.4;
+}
+
 #buttonTeacherLogin {
 
     -fx-background-image: url("images/icons8-child-48.png");
@@ -58,4 +64,13 @@
     -fx-background-radius: 5;
     -fx-font-weight: bold;
     -fx-background-insets: -8;
+}
+
+#window {
+
+    -fx-fill: radial-gradient(focus-angle 45deg, focus-distance 20%, center 25% 25%, radius 50%, reflect, #eeeeee88, #aaaaaa88 75%, gray);
+    -fx-stroke-width: 0;
+    -fx-arc-width:20px;
+    -fx-arc-height:20px;
+
 }

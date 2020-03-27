@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -75,6 +76,12 @@ public class SceneManager {
 
         currentScene = sceneName;
         currentTitle = title;
+        if(title.equals("Log in")) {
+
+            stage.initStyle(StageStyle.UNDECORATED);
+
+        }
+
         stage.setTitle(title);
         stage.setScene(sceneList.get(sceneName));
         stage.show();

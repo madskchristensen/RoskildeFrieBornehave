@@ -33,6 +33,8 @@ public class LoginPopUpController implements Initializable {
     private PasswordField loginPassword;
     @FXML
     private Button buttonLogin;
+    @FXML
+    private Button buttonExit;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -50,9 +52,19 @@ public class LoginPopUpController implements Initializable {
      */
 
     @FXML
+    private void exitPress() throws IOException {
+
+        Stage stage = (Stage) buttonExit.getScene().getWindow();
+        stage.close();
+
+    }
+
+
+    @FXML
     private void loginPress() throws IOException, SQLException {
         // get a handle to the stage the button is built on
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
+
         DialogBox errorDialog = new DialogBox("Fejl", "Forkert brugernavn eller kodeord.", "OK");
 
         // Validerer login ved at forsøge at åbne en jdbc connection med det givne username og password
