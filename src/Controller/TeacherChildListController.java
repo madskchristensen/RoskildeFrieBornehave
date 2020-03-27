@@ -49,8 +49,9 @@ public class TeacherChildListController implements Initializable {
 
 
     public void handleGuardian(ActionEvent actionEvent) {
-        PopUp pop = new PopUp("Værger", "PopUp.fxml");
-        GuardianPopUpController gpuc = new GuardianPopUpController((Child) tableManager.getSelected(), (GridPane) pop.getRoot());
-        pop.show();
+        PopUp pop = new PopUp<GuardianPopUpController>("GuardianPopUp.fxml");
+        GuardianPopUpController g = (GuardianPopUpController) pop.getController();
+        g.addTable((Child) tableManager.getSelected());
+        pop.show("Værger");
     }
 }

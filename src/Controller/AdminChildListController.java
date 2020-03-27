@@ -44,9 +44,10 @@ public class AdminChildListController implements Initializable{
     }
 
     public void readGuardian(ActionEvent actionEvent) throws IOException {
-        PopUp pop = new PopUp("Værger", "PopUp.fxml");
-        GuardianPopUpController gpuc = new GuardianPopUpController((Child) tableManager.getSelected(), (GridPane) pop.getRoot());
-        pop.show();
+        PopUp pop = new PopUp<GuardianPopUpController>("GuardianPopUp.fxml");
+        GuardianPopUpController g = (GuardianPopUpController) pop.getController();
+        g.addTable((Child) tableManager.getSelected());
+        pop.show("Værger");
         }
 
 
@@ -56,8 +57,8 @@ public class AdminChildListController implements Initializable{
 
     public void addToChildList(ActionEvent actionEvent) throws IOException {
         try {
-            PopUp pop = new PopUp("Opret Barn", "CreateChildForm.fxml");
-            pop.showAndWait();
+            PopUp pop = new PopUp<CreateChildFormController>("CreateChildForm.fxml");
+            pop.showAndWait("Opret Barn");
             tableManager.updateTable(childRep.getAllMembers());
         }catch(SQLException sql){
             sql.printStackTrace();

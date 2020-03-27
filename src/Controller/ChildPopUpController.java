@@ -10,7 +10,9 @@ import java.sql.SQLException;
 public class ChildPopUpController{
     TableManager tableManager;
     GuardianRepository guardianRep;
-    ChildPopUpController(Guardian guardian, GridPane parent){
+    public GridPane pane;
+
+    public void addTable(Guardian guardian){
             try {
                 tableManager = new TableManager();
                 guardianRep = new GuardianRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
@@ -19,7 +21,7 @@ public class ChildPopUpController{
                 Child[] children = guardianRep.getChildren(guardian);
                 TableView table = tableManager.createTable(colNames, colProps, children);
                 table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-                parent.add(table, 0,0);
+                pane.add(table, 0,0);
             }catch(SQLException e){
                 e.printStackTrace();
             }

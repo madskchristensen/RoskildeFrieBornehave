@@ -19,7 +19,7 @@ public class TeacherGuardianListController implements Initializable {
     public Button backButton;
     public Button childButton;
     private TableManager tableManager;
-    private MemberRepository teacherRepo;
+    private MemberRepository guardianRepo;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -30,9 +30,9 @@ public class TeacherGuardianListController implements Initializable {
             //the column Properties (colProp) are the names of the class attributes you want to read
             String[] colProp = new String[]{"id", "firstName", "lastName", "address", "phoneNumber", "email"};
             //the column name and property arrays must run in the same order
-            teacherRepo = new TeacherRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
+            guardianRepo = new GuardianRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
             //initialize the table
-            TableView table = tableManager.createTable(colNavn, colProp, teacherRepo.getAllMembers());
+            TableView table = tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers());
             //add table to fxml
             gridPane.add(table, 0, 0);
         } catch (SQLException e) {
@@ -46,8 +46,9 @@ public class TeacherGuardianListController implements Initializable {
     }
 
     public void handleChild(ActionEvent actionEvent) {
-        PopUp pop = new PopUp("Børn", "PopUp.fxml");
-        ChildPopUpController cpuc = new ChildPopUpController((Guardian) tableManager.getSelected(), (GridPane) pop.getRoot());
-        pop.show();
+        PopUp pop = new PopUp<ChildPopUpController>("ChildPopUp.fxml");
+        ChildPopUpController c = (ChildPopUpController) pop.getController();
+        c.addTable((Guardian) tableManager.getSelected());
+        pop.show("Børn");
     }
 }

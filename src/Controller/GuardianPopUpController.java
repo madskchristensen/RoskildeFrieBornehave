@@ -4,6 +4,7 @@ import Business.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
@@ -14,8 +15,9 @@ import java.util.ResourceBundle;
 public class GuardianPopUpController{
     private TableManager tableManager;
     private ChildRepository childRep;
+    public GridPane pane;
 
-    GuardianPopUpController(Child child, GridPane parent){
+    public void addTable(Child child){
         try {
             tableManager = new TableManager();
             childRep = new ChildRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
@@ -24,7 +26,7 @@ public class GuardianPopUpController{
             Guardian[]  guards = childRep.getGuardians(child);
             TableView table = tableManager.createTable(colNames, colProps, guards);
             table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-            parent.add(table, 0,0);
+            pane.add(table,0,0);
         }catch(SQLException e){
             e.printStackTrace();
         }

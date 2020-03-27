@@ -67,9 +67,12 @@ public class AdminGuardianListController implements Initializable {
     }
 
     public void handleChild (ActionEvent actionEvent){
-        PopUp pop = new PopUp("Børn", "PopUp.fxml");
-        ChildPopUpController gpuc = new ChildPopUpController((Guardian) tableManager.getSelected(), (GridPane) pop.getRoot());
-        pop.show();
+        PopUp pop = new PopUp<ChildPopUpController>("ChildPopUp.fxml");
+        ChildPopUpController c = (ChildPopUpController) pop.getController();
+        Guardian guard = (Guardian) tableManager.getSelected();
+        System.out.println(c);
+        c.addTable(guard);
+        pop.show("Børn");
     }
 
 }
