@@ -66,7 +66,6 @@ public class AdminChildListController implements Initializable{
     }
 
     public void updateChildList(ActionEvent actionEvent) {
-        System.out.println(tableManager.getSelected());
         PopUp pop = new PopUp<CreateChildFormController>("CreateChildForm.fxml");
         CreateChildFormController c = (CreateChildFormController) pop.getController();
         Child child = (Child) tableManager.getSelected();
@@ -77,7 +76,6 @@ public class AdminChildListController implements Initializable{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     public void deleteFromChildList(ActionEvent actionEvent) {

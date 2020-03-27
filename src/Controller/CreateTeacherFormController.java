@@ -4,6 +4,7 @@ import Business.Guardian;
 import Business.GuardianRepository;
 import Business.Teacher;
 import Business.TeacherRepository;
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -20,8 +21,21 @@ public class CreateTeacherFormController {
     public TextField eMailTF;
     public Button saveButton;
     public Button cancelButton;
+    private Teacher teacher;
 
-    public void handleSave(ActionEvent actionEvent) throws IOException {
+    public void initialize() {
+        // Disabler gem button indtil alle fields er udfyldt
+        teacher = new Teacher();
+        BooleanBinding booleanBind = nameTF.textProperty().isEmpty().
+                or(lastNameTF.textProperty().isEmpty()).
+                or(addressTF.textProperty().isNull()).
+                or(phoneNrTF.textProperty().isNull()).
+            or(eMailTF.textProperty().isNull());
+
+        saveButton.disableProperty().bind(booleanBind);
+    }
+
+        public void handleSave(ActionEvent actionEvent) throws IOException {
         // get a handle to the stage the button is built on
         Stage stage = (Stage) saveButton.getScene().getWindow();
         stage.close();
@@ -50,4 +64,14 @@ public class CreateTeacherFormController {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
+
+    public void setTeacher(Teacher teacher){
+        this.teacher = teacher;
+        nameTF.setText(teacher.getFirstName());
+        lastNameTF.setText(teacher.getLastName());
+        addressTF.setText(teacher.getAddress());
+        phoneNrTF.setText(teacher.getPhoneNumber());
+        eMailTF.setText(teacher.getEmail());
+    }
+
 }

@@ -53,11 +53,21 @@ public class AdminTeacherListController implements Initializable {
     }
 
     public void updateTeacherList(ActionEvent actionEvent) {
+        PopUp pop = new PopUp<CreateTeacherFormController>("CreateTeacherForm.fxml");
+        CreateTeacherFormController teach = (CreateTeacherFormController) pop.getController();
+        teach.setTeacher((Teacher) tableManager.getSelected());
+        pop.showAndWait("Opdater Lærer");
+        try {
+            tableManager.updateTable(teacherRepo.getAllMembers());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void deleteFromTeacherList(ActionEvent actionEvent) {
         try {
             teacherRepo.deleteMember(tableManager.getSelected());
+            tableManager.updateTable(teacherRepo.getAllMembers());
         } catch (SQLException e) {
             e.printStackTrace();
         }
