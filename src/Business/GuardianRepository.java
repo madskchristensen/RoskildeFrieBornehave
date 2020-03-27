@@ -89,11 +89,11 @@ public class GuardianRepository implements MemberRepository {
     public void updateMember(Member member) throws SQLException {
         connection.openConnection();
         Guardian guardian = (Guardian) member;
-        String[] column = new String[]{"first_name", "last_name", "addresse", "telefon", "email"};
+        String[] column = new String[]{"first_name", "last_name", "address", "telefon", "email"};
         String[] newValues = new String[] {guardian.getFirstName(), guardian.getLastName(), guardian.getAddress(), guardian.getPhoneNumber(), guardian.getEmail()};
         for(int i = 0; i < column.length; i++){
             connection.update("guardian", column[i], newValues[i], "id = " + guardian.getId());
-        };
+        }
         connection.closeConnection();
     }
 }

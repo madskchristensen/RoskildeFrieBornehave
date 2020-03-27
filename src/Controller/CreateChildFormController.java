@@ -3,6 +3,7 @@ package Controller;
 import Business.Child;
 import Business.ChildRepository;
 import Business.TableManager;
+import Utility.DialogBox;
 import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +25,55 @@ import java.util.ResourceBundle;
 
 public class CreateChildFormController extends Stage{
 
+    public TextField getNameTF() {
+        return nameTF;
+    }
+
+    public void setNameTF(TextField nameTF) {
+        this.nameTF = nameTF;
+    }
+
+    public TextField getLastNameTF() {
+        return lastNameTF;
+    }
+
+    public void setLastNameTF(TextField lastNameTF) {
+        this.lastNameTF = lastNameTF;
+    }
+
+    public ChoiceBox<String> getClassRoom() {
+        return classRoom;
+    }
+
+    public void setClassRoom(ChoiceBox<String> classRoom) {
+        this.classRoom = classRoom;
+    }
+
+    public Button getSaveButton() {
+        return saveButton;
+    }
+
+    public void setSaveButton(Button saveButton) {
+        this.saveButton = saveButton;
+    }
+
+    public Button getCancelButton() {
+        return cancelButton;
+    }
+
+    public void setCancelButton(Button cancelButton) {
+        this.cancelButton = cancelButton;
+    }
+
+    public DatePicker getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(DatePicker birthDate) {
+        this.birthDate = birthDate;
+    }
+    public int id;
+
     public TextField nameTF;
     public TextField lastNameTF;
     public ChoiceBox<String> classRoom;
@@ -31,8 +81,6 @@ public class CreateChildFormController extends Stage{
     public Button cancelButton;
     public DatePicker birthDate;
     private Child child;
-
-
 
     public void initialize() {
         // Disabler gem button indtil alle fields er udfyldt
@@ -47,15 +95,15 @@ public class CreateChildFormController extends Stage{
             ObservableList<String> list = FXCollections.observableArrayList();
             list.addAll("Blå", "Indigo", "Orange", "Violet");
             classRoom.setItems(list);
-
     }
 
-    public void handleSave(ActionEvent actionEvent) throws IOException {
+
+        public void handleSave(ActionEvent actionEvent) throws IOException {
         // get a handle to the stage the button is built on
         Stage stage = (Stage) saveButton.getScene().getWindow();
         stage.close();
 
-        //Something something add guardian
+        //Something something add child
         //...
         try {
             ChildRepository childRep = new ChildRepository("administrator","admin_pass");
@@ -74,6 +122,7 @@ public class CreateChildFormController extends Stage{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
     public void handleCancel(ActionEvent actionEvent) {
