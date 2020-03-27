@@ -1,7 +1,6 @@
 package Controller;
 
 import Business.*;
-import Utility.DialogBox;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
@@ -39,17 +38,20 @@ public class AdminGuardianListController implements Initializable {
             //the column name and property arrays must run in the same order
             guardianRepo = new GuardianRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
             //initialize the table
-            TableView table = tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers());
+            gridPane.add(tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers()), 0, 0);
             //add table to fxml
 
             // Disabler update og delete knappen hvis ikke et row er valgt i table
             BooleanBinding rowNotSelected = Bindings
-                    .size(table.getSelectionModel().getSelectedItems())
+                    .size(tableManager.getTable().getSelectionModel().getSelectedItems())
                     .isNotEqualTo(1);
 
             editButton.disableProperty().bind(rowNotSelected);
             deleteButton.disableProperty().bind(rowNotSelected);
-            gridPane.add(table, 0, 0);
+            gridPane.add(tableManager.getTable(), 0, 0);
+            gridPane.add(tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers()), 0, 0);
+
+            tableManager.addSearch(guardianRepo);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -67,22 +69,34 @@ public class AdminGuardianListController implements Initializable {
     }
 
     public void handleEdit(ActionEvent actionEvent) {
+        System.out.println(tableManager.getSelected());
+        PopUp pop = new PopUp<CreateGuardianFormController>("CreateGuardianForm.fxml");
+        CreateGuardianFormController c = (CreateGuardianFormController) pop.getController();
+        Guardian guardian = (Guardian) tableManager.getSelected();
+        c.setGuardian(guardian);
+        pop.showAndWait("Opdater værge");
+        try {
+            tableManager.updateTable(guardianRepo.getAllMembers());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void handleDelete(ActionEvent actionEvent) {
-            try {
-                guardianRepo.deleteMember(tableManager.getSelected());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        try {
+            guardianRepo.deleteMember(tableManager.getSelected());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void handleChild (ActionEvent actionEvent){
-            PopUp pop = new PopUp<ChildPopUpController>("ChildPopUp.fxml");
-            ChildPopUpController c = (ChildPopUpController) pop.getController();
+            PopUp popUp = new PopUp<ChildPopUpController>("ChildPopUp.fxml");
+            ChildPopUpController c = (ChildPopUpController) popUp.getController();
             Guardian guard = (Guardian) tableManager.getSelected();
             c.addTable(guard);
-            pop.show("Børn");
+            popUp.show("Børn");
             tableManager.clearSelection();
     }
+
 }

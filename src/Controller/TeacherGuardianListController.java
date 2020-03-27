@@ -33,14 +33,13 @@ public class TeacherGuardianListController implements Initializable {
             String[] colProp = new String[]{"id", "firstName", "lastName", "address", "phoneNumber", "email"};
             //the column name and property arrays must run in the same order
             guardianRepo = new GuardianRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
-            //initialize the table
-            TableView table = tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers());
             //add table to fxml
-            gridPane.add(table, 0, 0);
+            gridPane.add(tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers()), 0, 0);
+            tableManager.addSearch(guardianRepo);
 
             // Disabler update og delete knappen hvis ikke et row er valgt i table
             BooleanBinding rowNotSelected = Bindings
-                    .size(table.getSelectionModel().getSelectedItems())
+                    .size(tableManager.getTable().getSelectionModel().getSelectedItems())
                     .isNotEqualTo(1);
 
             childButton.disableProperty().bind(rowNotSelected);
@@ -55,11 +54,11 @@ public class TeacherGuardianListController implements Initializable {
 
     }
 
-    public void handleChild(ActionEvent actionEvent) throws SQLException {
-        PopUp pop = new PopUp<ChildPopUpController>("ChildPopUp.fxml");
-        ChildPopUpController c = (ChildPopUpController) pop.getController();
+    public void handleChild(ActionEvent actionEvent) {
+        PopUp popUp = new PopUp<ChildPopUpController>("ChildPopUp.fxml");
+        ChildPopUpController c = (ChildPopUpController) popUp.getController();
         c.addTable((Guardian) tableManager.getSelected());
-        pop.show("Børn");
+        popUp.show("Børn");
         tableManager.clearSelection();
     }
 }

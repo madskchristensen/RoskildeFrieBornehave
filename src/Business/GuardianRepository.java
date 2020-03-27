@@ -28,7 +28,7 @@ public class GuardianRepository implements MemberRepository {
     public Guardian[] getMembers(String name) throws SQLException {
         connection.openConnection();
         ResultSet rs = connection.select("guardian", "*", " first_name LIKE \"%" + name + "%\" " +
-                "OR last_name LIKE \"%" + name + "%\" " + "OR CONCAT(first_name, \" \", last_name LIKE \"%" + name + "%\"");
+                "OR last_name LIKE \"%" + name + "%\" " + "OR CONCAT(first_name, \" \", last_name LIKE \"%" + name + "%\")");
         ArrayList<Guardian> alg = new ArrayList<>();
         while (rs.next()) {
             alg.add(new Guardian(rs.getInt("id"), rs.getString("first_name"),
@@ -41,10 +41,10 @@ public class GuardianRepository implements MemberRepository {
 
     public Child[] getChildren(Guardian guardian) throws SQLException{
     connection.openConnection();
-    ResultSet rs = connection.select("child JOIN child_guardian_relationship cgr\n" +
-            "        ON child.id = cgr.guardian_id\n" +
-            "        JOIN guardian g\n" +
-            "        ON g.id = cgr.child_id", "child.*", "g.id = " + guardian.getId());
+    ResultSet rs = connection.select("guardian JOIN child_guardian_relationship cgr\n" +
+            "        ON guardian.id = cgr.guardian_id\n" +
+            "        JOIN child c\n" +
+            "        ON c.id = cgr.child_id", "c.*", "guardian.id = " + guardian.getId());
     ArrayList<Child> alg = new ArrayList<>();
 
         while (rs.next()) {
@@ -89,11 +89,11 @@ public class GuardianRepository implements MemberRepository {
     public void updateMember(Member member) throws SQLException {
         connection.openConnection();
         Guardian guardian = (Guardian) member;
-        String[] column = new String[]{"first_name", "last_name", "addresse", "telefon", "email"};
+        String[] column = new String[]{"first_name", "last_name", "address", "telefon", "email"};
         String[] newValues = new String[] {guardian.getFirstName(), guardian.getLastName(), guardian.getAddress(), guardian.getPhoneNumber(), guardian.getEmail()};
         for(int i = 0; i < column.length; i++){
             connection.update("guardian", column[i], newValues[i], "id = " + guardian.getId());
-        };
+        }
         connection.closeConnection();
     }
 }

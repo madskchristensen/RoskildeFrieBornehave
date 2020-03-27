@@ -26,7 +26,8 @@ public class ChildRepository implements MemberRepository {
     public Child[] getMembers(String name) throws SQLException {
         connection.openConnection();
         ResultSet rs = connection.select("child", "*", " first_name LIKE \"%" + name + "%\" " +
-                "OR last_name LIKE \"%" + name + "%\" " + "OR CONCAT(first_name, \" \", last_name LIKE \"%" + name + "%\"");
+                "OR last_name LIKE \"%" + name + "%\" " + "OR CONCAT(first_name, \" \", last_name LIKE \"%" + name + "%\")");
+
         ArrayList<Child> alc = new ArrayList<>();
         while(rs.next()){
             alc.add(new Child(rs.getInt("id"), rs.getString("first_name"),
