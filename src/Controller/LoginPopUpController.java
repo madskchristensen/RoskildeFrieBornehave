@@ -66,23 +66,28 @@ public class LoginPopUpController extends Stage implements Initializable {
         // get a handle to the stage the button is built on
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
         DialogBox errorDialog = new DialogBox("Fejl", "Forkert brugernavn eller kodeord.", "OK");
+        boolean isErrorShown = false;
+        String textfieldUser = loginUsername.getText();
+        String textfieldPass = loginPassword.getText();
 
-        String jdbcUser = null;
+        String dbUser = null;
 
         // Validerer login ved at forsøge at åbne en jdbc connection med det givne username og password
         // hvis user/pass er forkert vil jdbc.openconnection throwe en sqlexception som håndteres som en fejl i bruger/pass
         // hvis forbindelsen åbnes er user/pass rigtigt og brugeren sendes videre til enten admin eller employee page
         try {
-            JDBC jdbc = new JDBC(loginUsername.getText(), loginPassword.getText());
+            JDBC jdbc = new JDBC(textfieldUser, textfieldPass);
             jdbc.openConnection();
-            jdbcUser = jdbc.getConnection().getMetaData().getUserName();
-            Main.sceneManager.setUser(loginUsername.getText(), loginPassword.getText());
+            dbUser = jdbc.getConnection().getMetaData().getUserName();
+            Main.sceneManager.setUser(textfieldUser, textfieldPass);
+            jdbc.closeConnection();
         } catch (SQLException e) {
             errorDialog.showAndWait();
             clearUserPass();
+            isErrorShown = true;
 
         } finally {
-            if(jdbcUser != null && jdbcUser.equals(user)) {
+            if(dbUser != null && dbUser.equals(user)) {
                 switch(user) {
                     case "administrator@localhost":
                         Main.sceneManager.switchScene("AdminMenu.fxml", "Teacher admin page");
@@ -94,7 +99,9 @@ public class LoginPopUpController extends Stage implements Initializable {
                         break;
                 }
             } else {
-                errorDialog.showAndWait();
+                if(!isErrorShown) {
+                    errorDialog.showAndWait();
+                }
                 clearUserPass();
             }
         }

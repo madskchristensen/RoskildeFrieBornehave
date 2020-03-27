@@ -24,6 +24,12 @@ public class DialogBox {
         setMessage(message);
         setTitle(title);
         setButtonText(buttonText);
+
+        label.setPadding(new Insets(10, 20, 20, 20));
+        button.setMinSize(75, button.getHeight());
+        vBox.setAlignment(Pos.CENTER);
+        vBox.getChildren().addAll(label, button);
+        dialog.getDialogPane().setContent(vBox);
     }
 
     public void setButtonText(String text) {
@@ -40,13 +46,6 @@ public class DialogBox {
     }
 
     public void showAndWait() {
-        label.setPadding(new Insets(10, 20, 20, 20));
-        button.setMinSize(75, button.getHeight());
-
-        vBox.setAlignment(Pos.CENTER);
-        vBox.getChildren().addAll(label, button);
-        dialog.getDialogPane().setContent(vBox);
-
         button.setOnAction(e -> {
             dialog.close();
             dialog.setResult(Boolean.TRUE);
