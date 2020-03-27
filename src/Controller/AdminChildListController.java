@@ -38,6 +38,7 @@ public class AdminChildListController implements Initializable{
             childRep = new ChildRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
             //initialize the table and add it to the Main view
             gridPane.add(tableManager.createTable(colName, colProp, childRep.getAllMembers()), 0, 0);
+            tableManager.addFilters();
 
             // Disabler update og delete knappen hvis ikke et row er valgt i table
             BooleanBinding rowNotSelected = Bindings

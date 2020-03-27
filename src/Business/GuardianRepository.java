@@ -96,4 +96,10 @@ public class GuardianRepository implements MemberRepository {
         }
         connection.closeConnection();
     }
+
+    public void connect(Member guardian, Member child) throws SQLException{
+        connection.openConnection();
+        connection.insert("child_guardian_relationship", new String[]{String.valueOf(guardian.getId()), String.valueOf(child.getId())});
+        connection.closeConnection();
+    }
 }

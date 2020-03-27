@@ -25,7 +25,6 @@ public class TableManager{
 
     public GridPane createTable(String[] columnNames, String[] columnProporties, Member[] members){
         gp = new GridPane();
-        search = new TextField();
         table = new TableView();
 
         //makes data readable for table
@@ -44,16 +43,15 @@ public class TableManager{
         }
         table.setItems(ob);
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
         GridPane.setVgrow(table, Priority.ALWAYS);
         GridPane.setHgrow(table, Priority.ALWAYS);
 
-        GridPane.setHgrow(search, Priority.ALWAYS);
-        GridPane.setVgrow(search, Priority.NEVER);
-        search.setPromptText("Søg");
+
 
         GridPane.setVgrow(gp, Priority.ALWAYS);
 
-        gp.add(table,0,1);
+        gp.add(table,0,2);
 
         return gp;
     }
@@ -76,7 +74,18 @@ public class TableManager{
         return table;
     }
 
+    public void addFilters(){
+        MenuBar menuBar = new MenuBar();
+        menuBar.getMenus().add(new Menu("Stue"));
+        gp.add(menuBar,0,1);
+    }
+
     public void addSearch(MemberRepository memRep) {
+        search = new TextField();
+        GridPane.setHgrow(search, Priority.ALWAYS);
+        GridPane.setVgrow(search, Priority.NEVER);
+        search.setPromptText("Søg");
+
         gp.add(search,0,0);
         search.textProperty().addListener((observable) -> {
             try {
