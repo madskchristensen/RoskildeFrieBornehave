@@ -20,7 +20,6 @@ public class LoginController {
 
     public void handleLogin(ActionEvent actionEvent) throws IOException {
         if(actionEvent.getSource().equals(buttonLoginAdmin)) {
-            System.out.println("Admin trykker på logind");
 
             PopUp popUp = new PopUp<LoginPopUpController>("LoginPopUp.fxml");
             LoginPopUpController loginPopUpController = (LoginPopUpController) popUp.getController();
@@ -28,7 +27,6 @@ public class LoginController {
             popUp.showAndWait("Log Ind");
 
         } else if (actionEvent.getSource().equals(buttonTeacherLogin)) {
-            System.out.println("Teacher trykker på logind");
 
             PopUp popUp = new PopUp<LoginPopUpController>("LoginPopUp.fxml");
             LoginPopUpController loginPopUpController = (LoginPopUpController) popUp.getController();
