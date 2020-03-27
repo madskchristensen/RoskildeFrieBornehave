@@ -21,7 +21,7 @@ public class AdminTeacherListController implements Initializable {
 
     public GridPane gridPane;
     public Button back;
-    public Button guardian;
+    public Button teacherShift;
     public Button update;
     public Button delete;
     private TableManager tableManager;
@@ -48,6 +48,7 @@ public class AdminTeacherListController implements Initializable {
 
             update.disableProperty().bind(rowNotSelected);
             delete.disableProperty().bind(rowNotSelected);
+            teacherShift.disableProperty().bind(rowNotSelected);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,6 +56,7 @@ public class AdminTeacherListController implements Initializable {
     }
 
     public void goBack(ActionEvent actionEvent) throws IOException {
+        tableManager.clearSelection();
         Main.sceneManager.getPreviousScene();
     }
 

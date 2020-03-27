@@ -50,6 +50,7 @@ public class TeacherGuardianListController implements Initializable {
     }
 
     public void handleGoBack(ActionEvent actionEvent) throws IOException {
+        tableManager.clearSelection();
         Main.sceneManager.getPreviousScene();
 
     }

@@ -48,8 +48,7 @@ public class AdminGuardianListController implements Initializable {
 
             editButton.disableProperty().bind(rowNotSelected);
             deleteButton.disableProperty().bind(rowNotSelected);
-            gridPane.add(tableManager.getTable(), 0, 0);
-            gridPane.add(tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers()), 0, 0);
+            childButton.disableProperty().bind(rowNotSelected);
 
             tableManager.addSearch(guardianRepo);
         } catch (SQLException e) {
@@ -59,6 +58,7 @@ public class AdminGuardianListController implements Initializable {
 
 
     public void handleGoBack(ActionEvent actionEvent) throws IOException {
+        tableManager.clearSelection();
         Main.sceneManager.getPreviousScene();
     }
 
@@ -69,7 +69,6 @@ public class AdminGuardianListController implements Initializable {
     }
 
     public void handleEdit(ActionEvent actionEvent) {
-        System.out.println(tableManager.getSelected());
         PopUp pop = new PopUp<CreateGuardianFormController>("CreateGuardianForm.fxml");
         CreateGuardianFormController c = (CreateGuardianFormController) pop.getController();
         Guardian guardian = (Guardian) tableManager.getSelected();

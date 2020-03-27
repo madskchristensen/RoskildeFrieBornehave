@@ -1,6 +1,8 @@
 package Controller;
 
 import Business.*;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,6 +38,16 @@ public class AdminChildListController implements Initializable{
             childRep = new ChildRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
             //initialize the table and add it to the Main view
             gridPane.add(tableManager.createTable(colName, colProp, childRep.getAllMembers()), 0, 0);
+
+            // Disabler update og delete knappen hvis ikke et row er valgt i table
+            BooleanBinding rowNotSelected = Bindings
+                    .size(tableManager.getTable().getSelectionModel().getSelectedItems())
+                    .isNotEqualTo(1);
+
+            update.disableProperty().bind(rowNotSelected);
+            delete.disableProperty().bind(rowNotSelected);
+            guardian.disableProperty().bind(rowNotSelected);
+
             tableManager.addSearch(childRep);
     } catch (SQLException e){
         e.printStackTrace();
@@ -53,6 +65,7 @@ public class AdminChildListController implements Initializable{
 
 
     public void goBack(ActionEvent actionEvent) throws IOException {
+        tableManager.clearSelection();
         Main.sceneManager.getPreviousScene();
     }
 
