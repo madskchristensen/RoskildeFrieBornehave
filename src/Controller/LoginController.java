@@ -19,9 +19,22 @@ public class LoginController {
     private Button buttonSkipLoginTeacher;
 
     public void handleLogin(ActionEvent actionEvent) throws IOException {
-        SceneManager sceneManager = new SceneManager(new Stage());
-        sceneManager.setSize(250,200);
-        sceneManager.switchScene("LogInPopUp.fxml", "Log in");
+        if(actionEvent.getSource().equals(buttonLoginAdmin)) {
+            System.out.println("Admin trykker på logind");
+
+            PopUp popUp = new PopUp<LoginPopUpController>("LoginPopUp.fxml");
+            LoginPopUpController loginPopUpController = (LoginPopUpController) popUp.getController();
+            loginPopUpController.user = "administrator@localhost";
+            popUp.showAndWait("Log Ind");
+
+        } else if (actionEvent.getSource().equals(buttonTeacherLogin)) {
+            System.out.println("Teacher trykker på logind");
+
+            PopUp popUp = new PopUp<LoginPopUpController>("LoginPopUp.fxml");
+            LoginPopUpController loginPopUpController = (LoginPopUpController) popUp.getController();
+            loginPopUpController.user = "employee@localhost";
+            popUp.showAndWait("Log Ind");
+        }
     }
 
     @FXML
