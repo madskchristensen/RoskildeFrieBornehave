@@ -40,6 +40,7 @@ public class PopUp<E>{
     public void showAndWait(String title){
             Stage stage = new Stage();
             stage.setScene(new Scene(node));
+            stage.setTitle(title);
             stage.showAndWait();
     }
 }

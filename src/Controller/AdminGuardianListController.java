@@ -56,6 +56,17 @@ public class AdminGuardianListController implements Initializable {
     }
 
     public void handleEdit(ActionEvent actionEvent) {
+        System.out.println(tableManager.getSelected());
+        PopUp pop = new PopUp<CreateGuardianFormController>("CreateGuardianForm.fxml");
+        CreateGuardianFormController c = (CreateGuardianFormController) pop.getController();
+        Guardian guardian = (Guardian) tableManager.getSelected();
+        c.setGuardian(guardian);
+        pop.showAndWait("Opdater værge");
+        try {
+            tableManager.updateTable(guardianRepo.getAllMembers());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void handleDelete(ActionEvent actionEvent) {

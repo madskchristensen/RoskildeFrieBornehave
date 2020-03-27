@@ -26,9 +26,12 @@ public class CreateGuardianFormController implements Initializable {
     public TextField eMailTF;
     public Button saveButton;
     public Button cancelButton;
+    private Guardian guardian;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // lavet instans af guardian
+        guardian = new Guardian();
         // Disabler gem button indtil alle fields er udfyldt
         BooleanBinding booleanBind = nameTF.textProperty().isEmpty().
                 or(lastNameTF.textProperty().isEmpty()).
@@ -47,7 +50,6 @@ public class CreateGuardianFormController implements Initializable {
         //...
         try {
             GuardianRepository guardianRep = new GuardianRepository("administrator","admin_pass");
-            Guardian guardian = new Guardian();
 
             guardian.setFirstName(nameTF.getText());
             guardian.setLastName(lastNameTF.getText());
@@ -55,7 +57,12 @@ public class CreateGuardianFormController implements Initializable {
             guardian.setPhoneNumber(phoneNrTF.getText());
             guardian.setEmail(eMailTF.getText());
 
-            guardianRep.createMember(guardian);
+            if(guardian.getId() == 0){
+                guardianRep.createMember(guardian);
+            }
+            else{
+                guardianRep.updateMember(guardian);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -66,6 +73,15 @@ public class CreateGuardianFormController implements Initializable {
         // get handle and close stage
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
+    }
+
+    public void setGuardian(Guardian guardian){
+        this.guardian = guardian;
+        nameTF.setText(guardian.getFirstName());
+        lastNameTF.setText(guardian.getLastName());
+        addressTF.setText(guardian.getAddress());
+        phoneNrTF.setText(guardian.getPhoneNumber());
+        eMailTF.setText(guardian.getEmail());
     }
 
 }
