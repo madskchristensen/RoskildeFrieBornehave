@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
@@ -35,8 +36,8 @@ public class AdminChildListController implements Initializable{
             //the column name and property arrays must run in the same order
             childRep = new ChildRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
             //initialize the table and add it to the Main view
-            TableView table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
-            gridPane.add(table, 0, 0);
+            gridPane.add(tableManager.createTable(colName, colProp, childRep.getAllMembers()), 0, 0);
+            tableManager.addSearch(childRep);
     } catch (SQLException e){
         e.printStackTrace();
     }

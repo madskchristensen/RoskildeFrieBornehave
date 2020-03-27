@@ -36,9 +36,9 @@ public class AdminGuardianListController implements Initializable {
             //the column name and property arrays must run in the same order
             guardianRepo = new GuardianRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
             //initialize the table
-            TableView table = tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers());
             //add table to fxml
-            gridPane.add(table, 0, 0);
+            gridPane.add(tableManager.createTable(colNavn, colProp, guardianRepo.getAllMembers()), 0, 0);
+            tableManager.addSearch(guardianRepo);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -36,10 +36,9 @@ public class AdminTeacherListController implements Initializable {
             //the column name and property arrays must run in the same order
             teacherRepo = new TeacherRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
             //initialize the table
-            TableView table = tableManager.createTable(colNavn, colProp, teacherRepo.getAllMembers());
             //add table to fxml
-            gridPane.add(table, 0, 0);
-            gridPane.setVgrow(table, Priority.ALWAYS);
+            gridPane.add(tableManager.createTable(colNavn, colProp, teacherRepo.getAllMembers()), 0, 0);
+            tableManager.addSearch(teacherRepo);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -34,9 +34,9 @@ public class TeacherChildListController implements Initializable {
             //the column name and property arrays must run in the same order
             childRep = new ChildRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
             //initialize the table
-            table = tableManager.createTable(colName, colProp, childRep.getAllMembers());
             //add table to fxml
-            gridPane.add(table, 0, 0);
+            gridPane.add(tableManager.createTable(colName, colProp, childRep.getAllMembers()), 0, 0);
+            tableManager.addSearch(childRep);
         } catch (SQLException e){
             e.printStackTrace();
         }

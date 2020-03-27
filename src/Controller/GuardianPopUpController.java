@@ -24,9 +24,7 @@ public class GuardianPopUpController{
             String[] colNames = new String[]{"Fornavn", "Efternavn", "Addresse", "Telefon"};
             String[] colProps = new String[]{"firstName", "lastName", "address", "phoneNumber"};
             Guardian[]  guards = childRep.getGuardians(child);
-            TableView table = tableManager.createTable(colNames, colProps, guards);
-            table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-            pane.add(table,0,0);
+            pane.add(tableManager.createTable(colNames, colProps, guards),0,0);
         }catch(SQLException e){
             e.printStackTrace();
         }

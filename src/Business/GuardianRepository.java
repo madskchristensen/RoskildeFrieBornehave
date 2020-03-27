@@ -28,7 +28,7 @@ public class GuardianRepository implements MemberRepository {
     public Guardian[] getMembers(String name) throws SQLException {
         connection.openConnection();
         ResultSet rs = connection.select("guardian", "*", " first_name LIKE \"%" + name + "%\" " +
-                "OR last_name LIKE \"%" + name + "%\" " + "OR CONCAT(first_name, \" \", last_name LIKE \"%" + name + "%\"");
+                "OR last_name LIKE \"%" + name + "%\" " + "OR CONCAT(first_name, \" \", last_name LIKE \"%" + name + "%\")");
         ArrayList<Guardian> alg = new ArrayList<>();
         while (rs.next()) {
             alg.add(new Guardian(rs.getInt("id"), rs.getString("first_name"),
@@ -48,11 +48,9 @@ public class GuardianRepository implements MemberRepository {
     ArrayList<Child> alg = new ArrayList<>();
 
         while (rs.next()) {
-            Child child = new Child(rs.getInt("id"), rs.getString("first_name"),
-                    rs.getString("last_name"),rs.getString("class"),
-                    LocalDate.parse(rs.getDate("birthday").toString()));
-            System.out.println(child);
-        alg.add(child);
+        alg.add(new Child(rs.getInt("id"), rs.getString("first_name"),
+                rs.getString("last_name"),rs.getString("class"),
+                LocalDate.parse(rs.getDate("birthday").toString())));
     }
         connection.closeConnection();
         return alg.toArray(new Child[alg.size()]);

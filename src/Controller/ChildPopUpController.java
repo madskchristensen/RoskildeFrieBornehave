@@ -19,9 +19,7 @@ public class ChildPopUpController{
                 String[] colNames = new String[]{"Fornavn", "Efternavn", "Stue", "Alder"};
                 String[] colProps = new String[]{"firstName", "lastName", "classroom", "age"};
                 Child[] children = guardianRep.getChildren(guardian);
-                TableView table = tableManager.createTable(colNames, colProps, children);
-                table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-                pane.add(table, 0,0);
+                pane.add(tableManager.createTable(colNames, colProps, children), 0,0);
             }catch(SQLException e){
                 e.printStackTrace();
             }

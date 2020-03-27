@@ -26,7 +26,7 @@ public class TeacherRepository implements MemberRepository {
     public Teacher[] getMembers(String name) throws SQLException {
         connection.openConnection();
         ResultSet rs = connection.select("teacher", "*", " first_name LIKE \"%" + name + "%\" " +
-                "OR last_name LIKE \"%" + name + "%\" " + "OR CONCAT(first_name, \" \", last_name LIKE \"%" + name + "%\"");
+                "OR last_name LIKE \"%" + name + "%\" " + "OR CONCAT(first_name, \" \", last_name LIKE \"%" + name + "%\")");
         ArrayList<Teacher> teachers = new ArrayList<>();
         while (rs.next()) {
             teachers.add(new Teacher(rs.getInt("id"), rs.getString("first_name"),
