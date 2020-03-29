@@ -9,11 +9,11 @@ INSERT INTO teacher VALUES
 (DEFAULT, "Albert", "Samuelford", "Anders Henriksensgade",68609499, "Samuelford11@mail.dk"),
 (DEFAULT, "Louis", "Joeford", "Antonigade",10367005, "Joeford3@mail.dk"),
 (DEFAULT, "Clarence", "Richardford", "Asger Rygs Gade",46832351, "Richardford1@mail.dk"),
-(DEFAULT, "Daniel", "Ernestford", "Asn�sgade (nordlige)",45326488, "Ernestford12@mail.dk"),
+(DEFAULT, "Daniel", "Ernestford", "Asnæsgade (nordlige)",45326488, "Ernestford12@mail.dk"),
 (DEFAULT, "Jesse", "Oscarsen", "Asylgade",32538655, "Oscarsen1@mail.dk"),
 (DEFAULT, "Peter", "Benjaminford", "Axel Heides Gade",58759495, "Benjaminford11@mail.dk"),
 (DEFAULT, "Willie", "Alfredsen", "Axeltorv",90901860, "Alfredsen9@mail.dk"),
-(DEFAULT, "Roy", "Herbertford", "Baneg�rdspladsen",59558110, "Herbertford2@mail.dk"),
+(DEFAULT, "Roy", "Herbertford", "Banegårdspladsen",59558110, "Herbertford2@mail.dk"),
 (DEFAULT, "Tom", "Elmersen", "Bevtoftgade",7343225, "Elmersen9@mail.dk"),
 (DEFAULT, "Lee", "Howardford", "Birkegade",46610155, "Howardford10@mail.dk");
 
