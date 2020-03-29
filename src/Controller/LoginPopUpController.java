@@ -1,5 +1,6 @@
 package Controller;
 
+import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,6 +45,11 @@ public class LoginPopUpController extends Stage implements Initializable {
         BooleanBinding booleanBind = loginUsername.textProperty().isEmpty().
                 or(loginPassword.textProperty().isEmpty());
         buttonLogin.disableProperty().bind(booleanBind);
+
+/*      Sætter fokus til loginUsername
+        Kan ikke udøfres under initialize, da controls ikke er klar til at requeste fokus.
+        Derfor bruges følgende metode:*/
+        Platform.runLater(()->loginUsername.requestFocus());
     }
 
     /***
