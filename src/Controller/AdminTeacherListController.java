@@ -85,8 +85,12 @@ public class AdminTeacherListController implements Initializable {
     }
 
     public void createTeacherForm(ActionEvent actionEvent) throws IOException {
-        SceneManager sceneManager = new SceneManager(new Stage());
-        sceneManager.setSize(500,400);
-        sceneManager.switchScene("CreateTeacherForm.fxml", "Lav pædagog");
+        PopUp popUp = new PopUp<CreateChildFormController>("CreateTeacherForm.fxml");
+        popUp.showAndWait("Opret Lærer");
+        try {
+            tableManager.updateTable(teacherRepo.getAllMembers());
+        }catch(SQLException sql){
+            sql.printStackTrace();
+        }
     }
 }
