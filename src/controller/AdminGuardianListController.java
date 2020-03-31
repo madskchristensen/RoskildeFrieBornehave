@@ -87,6 +87,7 @@ public class AdminGuardianListController implements Initializable {
     public void handleDelete(ActionEvent actionEvent) {
         try {
             guardianRepo.deleteMember(tableManager.getSelected());
+            tableManager.updateTable(guardianRepo.getAllMembers());
         } catch (SQLException e) {
             e.printStackTrace();
         }
