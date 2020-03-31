@@ -1,4 +1,4 @@
-package Business;
+package Utility;
 
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;

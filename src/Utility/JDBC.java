@@ -1,4 +1,4 @@
-package Business;
+package Utility;
 
 import java.sql.*;
 
@@ -86,7 +86,6 @@ public class JDBC {
         }
         queryValues += values[values.length - 1] + ");";
 
-        System.out.println(queryValues);
         stmt.executeUpdate("INSERT INTO " + table + " VALUES " + queryValues);
     }
 

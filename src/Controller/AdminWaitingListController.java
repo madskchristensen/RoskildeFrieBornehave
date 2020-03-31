@@ -1,11 +1,9 @@
 package Controller;
 
 import Business.Main;
-import Business.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 

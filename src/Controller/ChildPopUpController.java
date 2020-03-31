@@ -1,24 +1,25 @@
 package Controller;
 
 import Business.*;
-import javafx.beans.Observable;
+import Utility.TableManager;
+import javafx.event.ActionEvent;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 
 import java.sql.SQLException;
 
 public class ChildPopUpController{
-    TableManager tableManager;
-    GuardianRepository guardianRep;
     public GridPane pane;
     public MenuButton menu;
+    private ChildRepository childRep;
+    private TableManager tableManager;
+    private GuardianRepository guardianRep;
+    private Guardian guardian;
 
     public void addTable(Guardian guardian){
             try {
+                this.guardian = guardian;
                 tableManager = new TableManager();
                 guardianRep = new GuardianRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
                 String[] colNames = new String[]{"Fornavn", "Efternavn", "Stue", "Alder"};
@@ -26,7 +27,7 @@ public class ChildPopUpController{
                 Child[] children = guardianRep.getChildren(guardian);
                 pane.add(tableManager.createTable(colNames, colProps, children), 0,0);
 
-                ChildRepository childRep = new ChildRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
+                childRep = new ChildRepository(Main.sceneManager.getUser()[0], Main.sceneManager.getUser()[1]);
                 Child[] child = childRep.getAllMembers();
                 for(Child c: child){
                     if(!contains(children, c)) {
@@ -34,6 +35,7 @@ public class ChildPopUpController{
                         menuItem.setOnAction(event -> {
                             try {
                                 guardianRep.connect(guardian, c);
+                                tableManager.updateTable(guardianRep.getChildren(guardian));
                             } catch (SQLException e) {
                                 e.printStackTrace();
                             }
@@ -62,4 +64,12 @@ public class ChildPopUpController{
     }
 
 
+    public void delete(ActionEvent actionEvent) {
+        try {
+            childRep.deleteMember((Child) tableManager.getSelected());
+            tableManager.updateTable(guardianRep.getChildren(guardian));
+        }catch(SQLException sql){
+            sql.printStackTrace();
+        }
+    }
 }

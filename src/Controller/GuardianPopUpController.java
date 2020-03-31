@@ -1,16 +1,10 @@
 package Controller;
 
 import Business.*;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.AnchorPane;
+import Utility.TableManager;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 public class GuardianPopUpController{
     private TableManager tableManager;

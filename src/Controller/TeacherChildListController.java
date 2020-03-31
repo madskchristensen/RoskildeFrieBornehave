@@ -1,15 +1,15 @@
 package Controller;
 
 import Business.*;
+import Utility.PopUp;
+import Utility.TableManager;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 
 import java.io.IOException;
 import java.net.URL;
