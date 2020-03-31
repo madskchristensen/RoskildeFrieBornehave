@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" fillWidth="false" styleClass="GridpaneBorderStyling" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPopUpController">
+    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+   <children>
+      <BorderPane prefHeight="195.0" prefWidth="209.0" VBox.vgrow="NEVER">
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+               <children>
+                   <Button id="btn" fx:id="buttonLogin" layoutX="65.0" layoutY="144.0" onAction="#loginPress" prefHeight="30.0" prefWidth="100.0" style="-fx-font-size: 14" styleClass="buttonStyling" text="   Log ind" />
+                      <PasswordField fx:id="loginPassword" layoutX="47.0" layoutY="95.0" prefHeight="25.0" prefWidth="148.0" promptText="*********" />
+                      <TextField fx:id="loginUsername" layoutX="47.0" layoutY="52.0" promptText="Brugernavn" />
+                      <Label />
+                  <ImageView layoutX="14.0" layoutY="96.0">
+                     <image>
+                        <Image url="@../css/images/key.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView layoutX="12.0" layoutY="53.0">
+                     <image>
+                        <Image url="@../css/images/user.png" />
+                     </image>
+                  </ImageView>
+                  <Rectangle fill="#c6e5ff" height="34.0" stroke="WHITE" strokeType="INSIDE" width="209.0">
+                     <effect>
+                        <BoxBlur height="0.0" iterations="3" width="94.89" />
+                     </effect>
+                  </Rectangle>
+            
+                         <Label layoutX="54.0" layoutY="7.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Indtast logininfo" textFill="STEELBLUE" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+    <stylesheets>
+        <URL value="@../css/StylingSheet.css" />
+    </stylesheets>
+</VBox>

@@ -1,0 +1,15 @@
+#Roskilde Frie børnehave miniprojekt
+Et system som hjælper med at håndtere og bestyre en lokal og kommunal børnehave.
+
+**Opsætning af JavaFX**:
+https://openjfx.io/openjfx-docs/#install-javafx
+
+**Main opsætning**:
+Følgende skal derefter tilføjes til Main VM options:
+
+`--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml
+`
+
+**Opsætning af database**:
+De to sql filer under resources -> sql skal køres i MySQL Workbench: create_school_dp.sql 
+opsætter databsen, og sqlCreate.sql indsætter data. 
