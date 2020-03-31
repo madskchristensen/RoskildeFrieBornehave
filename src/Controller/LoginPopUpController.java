@@ -1,5 +1,6 @@
 package Controller;
 
+import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +14,7 @@ import java.util.ResourceBundle;
 import Business.*;
 import Utility.*;
 
-public class LoginPopUpController implements Initializable {
+public class LoginPopUpController extends Stage implements Initializable {
 
 /*
   Forestiller mig at den kan bruges i takt med noget lignede:
@@ -36,12 +37,19 @@ public class LoginPopUpController implements Initializable {
     @FXML
     private Button buttonExit;
 
+    public String user;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Disabler gem button indtil alle fields er udfyldt
         BooleanBinding booleanBind = loginUsername.textProperty().isEmpty().
                 or(loginPassword.textProperty().isEmpty());
         buttonLogin.disableProperty().bind(booleanBind);
+
+/*      Sætter fokus til loginUsername
+        Kan ikke udøfres under initialize, da controls ikke er klar til at requeste fokus.
+        Derfor bruges følgende metode:*/
+        Platform.runLater(()->loginUsername.requestFocus());
     }
 
     /***
@@ -59,37 +67,54 @@ public class LoginPopUpController implements Initializable {
 
     }
 
-
     @FXML
     private void loginPress() throws IOException, SQLException {
         // get a handle to the stage the button is built on
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
-
         DialogBox errorDialog = new DialogBox("Fejl", "Forkert brugernavn eller kodeord.", "OK");
+        boolean isErrorShown = false;
+        String textfieldUser = loginUsername.getText();
+        String textfieldPass = loginPassword.getText();
+
+        String dbUser = null;
 
         // Validerer login ved at forsøge at åbne en jdbc connection med det givne username og password
         // hvis user/pass er forkert vil jdbc.openconnection throwe en sqlexception som håndteres som en fejl i bruger/pass
         // hvis forbindelsen åbnes er user/pass rigtigt og brugeren sendes videre til enten admin eller employee page
         try {
-            JDBC jdbc = new JDBC(loginUsername.getText(), loginPassword.getText());
+            JDBC jdbc = new JDBC(textfieldUser, textfieldPass);
             jdbc.openConnection();
-            Main.sceneManager.setUser(loginUsername.getText(), loginPassword.getText());
+            dbUser = jdbc.getConnection().getMetaData().getUserName();
+            Main.sceneManager.setUser(textfieldUser, textfieldPass);
+            jdbc.closeConnection();
         } catch (SQLException e) {
             errorDialog.showAndWait();
-            loginUsername.clear();
-            loginPassword.clear();
+            clearUserPass();
+            isErrorShown = true;
 
         } finally {
-            switch(loginUsername.getText()) {
-                case "administrator":
-                    Main.sceneManager.switchScene("AdminMenu.fxml", "Teacher admin page");
-                    stage.close();
-                    break;
-                case "employee":
-                    Main.sceneManager.switchScene("TeacherMenu.fxml", "Teacher page");
-                    stage.close();
-                    break;
+            if(dbUser != null && dbUser.equals(user)) {
+                switch(user) {
+                    case "administrator@localhost":
+                        Main.sceneManager.switchScene("AdminMenu.fxml", "Teacher admin page");
+                        stage.close();
+                        break;
+                    case "employee@localhost":
+                        Main.sceneManager.switchScene("TeacherMenu.fxml", "Teacher page");
+                        stage.close();
+                        break;
+                }
+            } else {
+                if(!isErrorShown) {
+                    errorDialog.showAndWait();
+                }
+                clearUserPass();
             }
         }
+    }
+
+    public void clearUserPass() {
+        loginUsername.clear();
+        loginPassword.clear();
     }
 }
