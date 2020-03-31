@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.TeacherGuardianListController"
+          styleClass="GridpaneBorderStyling"
+          alignment="CENTER" hgap="0" vgap="20" fx:id="gridPane">
+    <padding><Insets top="15" bottom="15" right="15" left="15"/></padding>
+
+    <HBox styleClass="backGroundStyling" GridPane.columnIndex="0" GridPane.rowIndex="1"
+          alignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
+        <HBox spacing="10" >
+            <Button styleClass="buttonStyling" text="Børn" fx:id="childButton" prefWidth="150" prefHeight="50" onAction="#handleChild"/>
+            <padding><Insets top="25" right="10" bottom="25" left="15"/></padding>
+        </HBox>
+        <HBox>
+            <Button styleClass="buttonStyling" text="Tilbage" fx:id="backButton" minHeight="50" minWidth="100" onAction="#handleGoBack"/>
+            <padding><Insets top="25" right="10" bottom="25" left="10"/></padding>
+        </HBox>
+    </HBox>
+
+
+
+    <stylesheets>
+        <URL value="@../css/StylingSheet.css" />
+    </stylesheets>
+</GridPane>
