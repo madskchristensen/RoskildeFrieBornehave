@@ -64,7 +64,10 @@ public class TeacherChildListController implements Initializable {
         PopUp popUp = new PopUp<GuardianPopUpController>("GuardianPopUp.fxml");
         GuardianPopUpController g = (GuardianPopUpController) popUp.getController();
         g.addTable((Child) tableManager.getSelected());
-        popUp.show("Værger");
+        String selectedChildName = tableManager.getSelected().getFirstName() + " "
+                + tableManager.getSelected().getLastName();
+
+        popUp.show("Værger - " + selectedChildName);
         tableManager.clearSelection();
     }
 }

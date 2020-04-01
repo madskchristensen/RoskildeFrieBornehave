@@ -1,6 +1,7 @@
 package controller;
 
 import model.*;
+import utility.DialogBox;
 import utility.PopUp;
 import utility.SceneManager;
 import utility.TableManager;
@@ -29,6 +30,7 @@ public class AdminGuardianListController implements Initializable {
     public Button childButton;
     private MemberRepository guardianRepo;
     private TableManager tableManager;
+    private DialogBox dialogBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,16 +61,19 @@ public class AdminGuardianListController implements Initializable {
         }
     }
 
-
     public void handleGoBack(ActionEvent actionEvent) throws IOException {
         tableManager.clearSelection();
         Main.sceneManager.getPreviousScene();
     }
 
     public void handleCreateGuardian(ActionEvent actionEvent) throws IOException {
-        SceneManager sceneManager = new SceneManager(new Stage());
-        sceneManager.setSize(500,400);
-        sceneManager.switchScene("CreateGuardianForm.fxml", "Opret værge");
+        try {
+            PopUp popUp = new PopUp<CreateGuardianFormController>("CreateGuardianForm.fxml");
+            popUp.showAndWait("Opret Værge");
+            tableManager.updateTable(guardianRepo.getAllMembers());
+        }catch(SQLException sql){
+            sql.printStackTrace();
+        }
     }
 
     public void handleEdit(ActionEvent actionEvent) {
@@ -76,7 +81,7 @@ public class AdminGuardianListController implements Initializable {
         CreateGuardianFormController c = (CreateGuardianFormController) pop.getController();
         Guardian guardian = (Guardian) tableManager.getSelected();
         c.setGuardian(guardian);
-        pop.showAndWait("Opdater værge");
+        pop.showAndWait("Rediger Værge");
         try {
             tableManager.updateTable(guardianRepo.getAllMembers());
         } catch (SQLException e) {
@@ -98,7 +103,13 @@ public class AdminGuardianListController implements Initializable {
             ChildPopUpController c = (ChildPopUpController) popUp.getController();
             Guardian guard = (Guardian) tableManager.getSelected();
             c.addTable(guard);
-            popUp.show("Børn");
+
+            String selectedGuardianName = tableManager.getSelected().getFirstName() + " "
+                    + tableManager.getSelected().getLastName();
+
+
+            popUp.show("Børn - " + selectedGuardianName);
+
             tableManager.clearSelection();
     }
 

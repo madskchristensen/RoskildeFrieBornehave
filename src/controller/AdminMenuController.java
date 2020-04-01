@@ -23,7 +23,7 @@ public class AdminMenuController {
     }
 
     public void handleChildren(ActionEvent actionEvent) throws IOException {
-        Main.sceneManager.switchScene("AdminChildList.fxml", "Børneliste");
+        Main.sceneManager.switchScene("AdminChildList.fxml", "Børn");
     }
 
     public void handleGuardians(ActionEvent actionEvent) throws IOException {

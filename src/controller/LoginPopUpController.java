@@ -97,11 +97,11 @@ public class LoginPopUpController extends Stage implements Initializable {
             if(dbUser != null && dbUser.equals(user)) {
                 switch(user) {
                     case "administrator@localhost":
-                        Main.sceneManager.switchScene("AdminMenu.fxml", "Teacher admin page");
+                        Main.sceneManager.switchScene("AdminMenu.fxml", "Admin Menu");
                         stage.close();
                         break;
                     case "employee@localhost":
-                        Main.sceneManager.switchScene("TeacherMenu.fxml", "Teacher page");
+                        Main.sceneManager.switchScene("TeacherMenu.fxml", "Pædagog Menu");
                         stage.close();
                         break;
                 }

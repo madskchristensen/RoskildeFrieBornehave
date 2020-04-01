@@ -1,6 +1,8 @@
 package controller;
 
+import javafx.scene.control.Dialog;
 import model.*;
+import utility.DialogBox;
 import utility.PopUp;
 import utility.TableManager;
 import javafx.beans.binding.Bindings;
@@ -27,6 +29,7 @@ public class AdminChildListController implements Initializable{
     public Button delete;
     private TableManager tableManager;
     private MemberRepository childRep;
+    private DialogBox dialogBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -87,7 +90,7 @@ public class AdminChildListController implements Initializable{
         CreateChildFormController c = (CreateChildFormController) popUp.getController();
         Child child = (Child) tableManager.getSelected();
         c.setChild(child);
-        popUp.showAndWait("Opdater Barn");
+        popUp.showAndWait("Rediger Barn");
         try {
             tableManager.updateTable(childRep.getAllMembers());
         } catch (SQLException e) {
@@ -101,6 +104,9 @@ public class AdminChildListController implements Initializable{
         try {
             childRep.deleteMember(tableManager.getSelected());
             tableManager.updateTable(childRep.getAllMembers());
+            dialogBox = new DialogBox("Barn Slettet", "Barn slettet succesfuldt!", "OK");
+            dialogBox.showAndWait();
+
         }catch(SQLException e){
             e.printStackTrace();
         }

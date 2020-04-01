@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import repository.GuardianRepository;
+import utility.DialogBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +29,7 @@ public class CreateGuardianFormController implements Initializable {
     public Button saveButton;
     public Button cancelButton;
     private Guardian guardian;
+    private DialogBox dialogBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -45,7 +47,6 @@ public class CreateGuardianFormController implements Initializable {
     public void handleSave(ActionEvent actionEvent) throws IOException {
         // get a handle to the stage the button is built on
         Stage stage = (Stage) saveButton.getScene().getWindow();
-        stage.close();
 
         //Something something add guardian
         //...
@@ -60,14 +61,20 @@ public class CreateGuardianFormController implements Initializable {
 
             if(guardian.getId() == 0){
                 guardianRep.createMember(guardian);
+                dialogBox = new DialogBox("Værge Oprettet", "Værge oprettet succesfuldt!", "OK");
+                dialogBox.showAndWait();
             }
             else{
                 guardianRep.updateMember(guardian);
+                dialogBox = new DialogBox("Værge Redigeret", "Værge redigeret succesfuldt!", "OK");
+                dialogBox.showAndWait();
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        stage.close();
     }
 
     public void handleCancel(ActionEvent actionEvent) {

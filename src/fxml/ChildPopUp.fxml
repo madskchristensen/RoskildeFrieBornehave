@@ -15,8 +15,8 @@
 >
 
     <HBox GridPane.RowIndex="2" GridPane.columnIndex="0" alignment="CENTER" spacing="10">
-        <MenuButton fx:id="menu" text="Add Child"></MenuButton>
-        <Button  onAction="#delete" text="Delete Child"></Button>
+        <MenuButton fx:id="addButton" text="Tilføj Barn"></MenuButton>
+        <Button fx:id="deleteButton" onAction="#delete" text="Slet Barn"></Button>
     </HBox>
 
 </GridPane>

@@ -61,7 +61,15 @@ public class TeacherGuardianListController implements Initializable {
         PopUp popUp = new PopUp<ChildPopUpController>("ChildPopUp.fxml");
         ChildPopUpController c = (ChildPopUpController) popUp.getController();
         c.addTable((Guardian) tableManager.getSelected());
-        popUp.show("Børn");
+        c.addButton.setVisible(false);
+        c.deleteButton.setVisible(false);
+
+        String selectedGuardianName = tableManager.getSelected().getFirstName() + " "
+                + tableManager.getSelected().getLastName();
+
+
+        popUp.show("Børn - " + selectedGuardianName);
+
         tableManager.clearSelection();
     }
 }

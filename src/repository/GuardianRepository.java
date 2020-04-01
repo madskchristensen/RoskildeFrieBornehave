@@ -67,7 +67,7 @@ public class GuardianRepository implements MemberRepository {
         while (rs.next()) {
             alg.add(new Guardian(rs.getInt("id"), rs.getString("first_name"),
                     rs.getString("last_name"), rs.getString("address"),
-                    rs.getString("telefon"), rs.getString("email")));
+                    rs.getString("phoneNr"), rs.getString("email")));
         }
         connection.closeConnection();
         return alg.toArray(new Guardian[alg.size()]);
@@ -84,7 +84,7 @@ public class GuardianRepository implements MemberRepository {
     public void createMember(Member member) throws SQLException{
         connection.openConnection();
         Guardian guardian = (Guardian) member;
-        connection.insert("guardian", new String[] {"first_name", "last_name", "address", "telefon", "email"}, new String [] {guardian.getFirstName(), guardian.getLastName(),
+        connection.insert("guardian", new String[] {"first_name", "last_name", "address", "phoneNr", "email"}, new String [] {guardian.getFirstName(), guardian.getLastName(),
                 guardian.getAddress(), guardian.getPhoneNumber(), guardian.getEmail()});
         connection.closeConnection();
     }
@@ -93,7 +93,7 @@ public class GuardianRepository implements MemberRepository {
     public void updateMember(Member member) throws SQLException {
         connection.openConnection();
         Guardian guardian = (Guardian) member;
-        String[] column = new String[]{"first_name", "last_name", "address", "telefon", "email"};
+        String[] column = new String[]{"first_name", "last_name", "address", "phoneNr", "email"};
         String[] newValues = new String[] {guardian.getFirstName(), guardian.getLastName(), guardian.getAddress(), guardian.getPhoneNumber(), guardian.getEmail()};
         for(int i = 0; i < column.length; i++){
             connection.update("guardian", column[i], newValues[i], "id = " + guardian.getId());

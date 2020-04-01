@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import utility.DialogBox;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -20,6 +21,7 @@ public class CreateTeacherFormController {
     public Button saveButton;
     public Button cancelButton;
     private Teacher teacher;
+    private DialogBox dialogBox;
 
     public void initialize() {
         // Disabler gem button indtil alle fields er udfyldt
@@ -36,7 +38,6 @@ public class CreateTeacherFormController {
         public void handleSave(ActionEvent actionEvent) throws IOException {
         // get a handle to the stage the button is built on
         Stage stage = (Stage) saveButton.getScene().getWindow();
-        stage.close();
 
         //Something something add guardian
         //...
@@ -50,11 +51,21 @@ public class CreateTeacherFormController {
             teacher.setPhoneNumber(phoneNrTF.getText());
             teacher.setEmail(eMailTF.getText());
 
-            teacherRepository.createMember(teacher);
+            if(teacher.getId() == 0) {
+                teacherRepository.createMember(teacher);
+                dialogBox = new DialogBox("Pædagog Oprettet", "Pædagog oprettet succesfuldt!", "OK");
+                dialogBox.showAndWait();
+            } else {
+                teacherRepository.updateMember(teacher);
+                dialogBox = new DialogBox("Pædagog Oprettet", "Pædagog redigeret succesfuldt!", "OK");
+                dialogBox.showAndWait();
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        stage.close();
     }
 
     public void handleCancel(ActionEvent actionEvent) {

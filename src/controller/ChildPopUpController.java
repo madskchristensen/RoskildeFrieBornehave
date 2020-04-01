@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.scene.control.Button;
 import model.*;
 import utility.TableManager;
 import javafx.event.ActionEvent;
@@ -13,7 +14,8 @@ import java.sql.SQLException;
 
 public class ChildPopUpController{
     public GridPane pane;
-    public MenuButton menu;
+    public MenuButton addButton;
+    public Button deleteButton;
     private ChildRepository childRep;
     private TableManager tableManager;
     private GuardianRepository guardianRep;
@@ -42,7 +44,7 @@ public class ChildPopUpController{
                                 e.printStackTrace();
                             }
                         });
-                        menu.getItems().add(menuItem);
+                        addButton.getItems().add(menuItem);
                     }
                 }
             }catch(SQLException sql){

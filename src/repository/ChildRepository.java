@@ -64,7 +64,7 @@ public class ChildRepository implements MemberRepository {
         while (rs.next()) {
             alg.add(new Guardian(rs.getInt("id"), rs.getString("first_name"),
                     rs.getString("last_name"),rs.getString("address"),
-                    rs.getString("telefon"), rs.getString("email")));
+                    rs.getString("phoneNr"), rs.getString("email")));
         }
         connection.closeConnection();
         return alg.toArray(new Guardian[alg.size()]);

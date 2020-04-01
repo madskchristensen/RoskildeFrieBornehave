@@ -1,6 +1,7 @@
 package controller;
 
 import model.*;
+import utility.DialogBox;
 import utility.PopUp;
 import utility.SceneManager;
 import utility.TableManager;
@@ -28,6 +29,7 @@ public class AdminTeacherListController implements Initializable {
     public Button delete;
     private TableManager tableManager;
     private MemberRepository teacherRepo;
+    private DialogBox dialogBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -69,7 +71,7 @@ public class AdminTeacherListController implements Initializable {
         PopUp pop = new PopUp<CreateTeacherFormController>("CreateTeacherForm.fxml");
         CreateTeacherFormController teach = (CreateTeacherFormController) pop.getController();
         teach.setTeacher((Teacher) tableManager.getSelected());
-        pop.showAndWait("Opdater Lærer");
+        pop.showAndWait("Rediger Pædagog");
         try {
             tableManager.updateTable(teacherRepo.getAllMembers());
         } catch (SQLException e) {
@@ -84,11 +86,14 @@ public class AdminTeacherListController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        dialogBox = new DialogBox("Pædagog Slettet", "Pædagog slettet succesfuldt!", "OK");
+        dialogBox.showAndWait();
     }
 
     public void createTeacherForm(ActionEvent actionEvent) throws IOException {
-        PopUp popUp = new PopUp<CreateChildFormController>("CreateTeacherForm.fxml");
-        popUp.showAndWait("Opret Lærer");
+        PopUp popUp = new PopUp<CreateTeacherFormController>("CreateTeacherForm.fxml");
+        popUp.showAndWait("Opret Pædagog");
         try {
             tableManager.updateTable(teacherRepo.getAllMembers());
         }catch(SQLException sql){

@@ -8,7 +8,7 @@ CREATE TABLE guardian(
 	first_name VARCHAR(20)	NOT NULL,
     last_name	VARCHAR(50)	NOT NULL,
     address	VARCHAR(100)	NOT NULL,
-    telefon VARCHAR(15)		NOT NULL,
+    phoneNr VARCHAR(15)		NOT NULL,
     email	VARCHAR(100)	NOT NULL
 );
 

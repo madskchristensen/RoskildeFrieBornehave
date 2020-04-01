@@ -2,6 +2,7 @@ package controller;
 
 import model.Child;
 import repository.ChildRepository;
+import utility.DialogBox;
 import utility.TableManager;
 import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
@@ -74,6 +75,7 @@ public class CreateChildFormController extends Stage{
     public Button cancelButton;
     public DatePicker birthDate;
     private Child child;
+    private DialogBox dialogBox;
 
     public void initialize() {
         // Disabler gem button indtil alle fields er udfyldt
@@ -94,7 +96,6 @@ public class CreateChildFormController extends Stage{
         public void handleSave(ActionEvent actionEvent) throws IOException {
         // get a handle to the stage the button is built on
         Stage stage = (Stage) saveButton.getScene().getWindow();
-        stage.close();
 
         //Something something add child
         //...
@@ -107,9 +108,15 @@ public class CreateChildFormController extends Stage{
             child.setClassroom(classRoom.getValue());
             if(child.getId() == 0) {
                 childRep.createMember(child);
+                dialogBox = new DialogBox("Succes", "Barn oprettet succesfuldt!", "OK");
+                dialogBox.showAndWait();
             }else{
                 childRep.updateMember(child);
+                dialogBox = new DialogBox("Succes", "Barn redigeret succesfuldt!", "OK");
+                dialogBox.showAndWait();
             }
+
+            stage.close();
 
             TableManager tm = new TableManager();
         } catch (SQLException e) {

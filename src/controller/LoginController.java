@@ -36,13 +36,13 @@ public class LoginController {
 
     @FXML
     private void loginSkipAdmin() throws IOException {
-        Main.sceneManager.switchScene("AdminMenu.fxml", "Teacher page");
+        Main.sceneManager.switchScene("AdminMenu.fxml", "Admin Menu");
         Main.sceneManager.setUser("administrator", "admin_pass");
     }
 
     @FXML
     private void loginSkipTeacher() throws IOException {
-        Main.sceneManager.switchScene("TeacherMenu.fxml", "Teacher admin page");
+        Main.sceneManager.switchScene("TeacherMenu.fxml", "Pædagog Menu");
         Main.sceneManager.setUser("employee", "password");
     }
 }
