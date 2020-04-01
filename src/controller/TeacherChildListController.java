@@ -67,7 +67,7 @@ public class TeacherChildListController implements Initializable {
         String selectedChildName = tableManager.getSelected().getFirstName() + " "
                 + tableManager.getSelected().getLastName();
 
-        popUp.show("Værger - " + selectedChildName);
+        popUp.show("Værger (" + selectedChildName + ")");
         tableManager.clearSelection();
     }
 }

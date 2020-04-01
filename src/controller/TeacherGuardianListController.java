@@ -68,7 +68,7 @@ public class TeacherGuardianListController implements Initializable {
                 + tableManager.getSelected().getLastName();
 
 
-        popUp.show("Børn - " + selectedGuardianName);
+        popUp.show("Børn (" + selectedGuardianName + ")");
 
         tableManager.clearSelection();
     }

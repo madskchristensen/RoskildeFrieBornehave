@@ -65,7 +65,12 @@ public class AdminChildListController implements Initializable{
             PopUp popUp = new PopUp<GuardianPopUpController>("GuardianPopUp.fxml");
             GuardianPopUpController g = (GuardianPopUpController) popUp.getController();
             g.addTable((Child) tableManager.getSelected());
-            popUp.showAndWait("Værger");
+
+            String selectedChildName = tableManager.getSelected().getFirstName() + " "
+                + tableManager.getSelected().getLastName();
+
+            popUp.showAndWait("Værger (" + selectedChildName + ")");
+
             tableManager.clearSelection();
         }
 
